@@ -42,7 +42,7 @@ plug "zsh-users/zsh-syntax-highlighting"
 # =====[vim]=====
 # download & source
 VIMODEPLUGDIR="$PLUGINDIR/vi-mode"
-VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin,zsh"
+VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin.zsh"
 mkdir -p "$VIMODEPLUGDIR"
 if [ ! -d "$VIMODEPLUGDIR" ]; then
 	wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/vi-mode/vi-mode.plugin.zsh"
