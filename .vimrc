@@ -150,12 +150,7 @@ inoremap <C-z> <C-o>u
 nnoremap <C-s> :update<CR>
 vnoremap <C-s> <Esc>:update<CR>
 inoremap <C-s> <Esc>:update<CR>
-nnoremap <Tab> >>
-vnoremap <Tab> >
-execute "set <S-Tab>=\e[Z"
-nnoremap <S-Tab> <<
-vnoremap <S-Tab> <
-inoremap <S-Tab> <C-d>
+
 " backspace
 inoremap <C-BS> <c-o>db
 inoremap <C-H> <c-w>
@@ -173,6 +168,15 @@ nnoremap <C-y> :%y+<CR>
 vnoremap <C-x> "+d
 vnoremap <C-v> "+p
 nnoremap <C-v> "+p
+inoremap <Tab> <Nop>
+" inoremap <Tab> <C-O>
+" nnoremap <Tab> >>
+" vnoremap <Tab> >
+" execute "set <S-Tab>=\e[Z"
+" inoremap <S-Tab> <Nop>
+" inoremap <S-Tab> <C-O><<
+" nnoremap <S-Tab> <<
+" vnoremap <S-Tab> <
 noremap Y y$
 noremap Z <C-r>
 noremap h i
