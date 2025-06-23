@@ -1,16 +1,16 @@
 call plug#begin()
-" Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'justinmk/vim-sneak'
-Plug 'tpope/vim-commentary'
 Plug 'itchyny/vim-cursorword'
 Plug 'machakann/vim-highlightedyank'
-Plug 'junegunn/vim-peekaboo'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tpope/vim-eunuch'
 Plug 'wellle/targets.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+" Plug 'junegunn/vim-peekaboo'
+" Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " ===== theme =====
@@ -32,11 +32,10 @@ map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 map ' <Plug>Sneak_;
 map , <Plug>Sneak_,
-" nmap s <Plug>SneakLabel_s
-" nmap S <Plug>SneakLabel_S
 
 " ===== vim-surround =====
 " surround text object (e.g. hw, hW, a{, hp)
+nmap yz  <Plug>Ysurround
 nmap L  <Plug>Ysurround
 " surround line
 nmap LL <Plug>Yssurround
@@ -77,9 +76,10 @@ set shiftwidth=0
 set tabstop=2
 set list
 set listchars=tab:••\|
-set showbreak=↪↪↪↪↪↪
+set showbreak=↪↪↪↪
 
 " ===== statusline =====
+set noshowmode
 set noruler
 set showcmd
 
@@ -131,17 +131,14 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 " ===== keybinds =====
+nnoremap Q :q<CR>
+vnoremap Q <Esc>:q<CR>
 " map alt-space to `:`
 nnoremap <Esc><Space> :
 vnoremap <Esc><Space> :
-
-nnoremap Q :q<CR>
-vnoremap Q <Esc>:q<CR>
-
 " go back and forth in buffer history list (e.g. from gf)
 nmap <M-Left> :bN<cr>
 nmap <M-Right> :bn<cr>
-
 " normal bindings
 " C-z and C-S-z use the same key code, remaping C-S-z would overwrite C-z
 nnoremap <C-c> "+y
@@ -159,14 +156,10 @@ execute "set <S-Tab>=\e[Z"
 nnoremap <S-Tab> <<
 vnoremap <S-Tab> <
 inoremap <S-Tab> <C-d>
-
 " backspace
 inoremap <C-BS> <c-o>db
 inoremap <C-H> <c-w>
 nnoremap <C-H> db
-
-nnoremap <PageUp> <C-u>
-nnoremap <PageDown> <C-d>
 
 " OBSIDIAN_VIMRC_START
 nnoremap <BS> X
@@ -198,6 +191,10 @@ nnoremap I 5gk
 vnoremap I 5gk
 nnoremap K 5gj
 vnoremap K 5gj
+nnoremap <PageUp> 5gk
+nnoremap <PageDown> 5gj
+" nnoremap <PageUp> <C-u>
+" nnoremap <PageDown> <C-d>
 noremap <Home> ^
 inoremap <Up> <Esc>
 vnoremap <Up> <Esc>
