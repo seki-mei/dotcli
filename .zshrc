@@ -126,12 +126,13 @@ autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' file-patterns '*'
 
-_otp() { # pyoathtool
-	local -a completions
-	completions=($(otp -t))
-	compadd "${completions[@]}"
+# Completion for otp
+_otp_completion() {
+  local -a accounts
+  accounts=("${(@f)$(otp --list 2>/dev/null)}")
+  _describe 'account' accounts
 }
-compdef _otp otp
+compdef _otp_completion otp
 
 # =====[history]=====
 HISTSIZE=50000          # Maximum number of commands in the history.
