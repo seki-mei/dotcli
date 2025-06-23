@@ -134,21 +134,17 @@ com! DiffSaved call s:DiffWithSaved()
 nnoremap Q :q<CR>
 vnoremap Q <Esc>:q<CR>
 " map alt-space to `:`
-nnoremap <Esc><Space> :
-vnoremap <Esc><Space> :
+noremap <Esc><Space> :
 " go back and forth in buffer history list (e.g. from gf)
 nmap <M-Left> :bN<cr>
 nmap <M-Right> :bn<cr>
 " normal bindings
 " C-z and C-S-z use the same key code, remaping C-S-z would overwrite C-z
-nnoremap <C-c> "+y
-vnoremap <C-c> "+y
-inoremap <C-v> <C-r>+
-nnoremap <C-z> u
-vnoremap <C-z> u
+noremap  <C-z> u
 inoremap <C-z> <C-o>u
-nnoremap <C-s> :update<CR>
-vnoremap <C-s> <Esc>:update<CR>
+noremap  <C-c> "+y
+inoremap <C-v> <C-r>+
+noremap  <C-s> <Esc>:update<CR>
 inoremap <C-s> <Esc>:update<CR>
 
 " backspace
@@ -156,19 +152,25 @@ inoremap <C-BS> <c-o>db
 inoremap <C-H> <c-w>
 nnoremap <C-H> db
 
+nnoremap <Up> <Up>zz
+nnoremap <Down> <Down>zz
+nnoremap G Gzz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
 " OBSIDIAN_VIMRC_START
-nnoremap <BS> X
-vnoremap <BS> X
+noremap  <BS> X
 nnoremap <C-BS> db
-nnoremap <Del> x
-vnoremap <Del> x
+noremap  <Del> x
 nnoremap <C-Del> dw
 inoremap <C-Del> <C-o>dw
 nnoremap <C-y> :%y+<CR>
-vnoremap <C-x> "+d
-vnoremap <C-v> "+p
-nnoremap <C-v> "+p
+noremap  <C-x> "+d
+noremap  <C-v> "+p
 inoremap <Tab> <Nop>
+
 " inoremap <Tab> <C-O>
 " nnoremap <Tab> >>
 " vnoremap <Tab> >
@@ -177,33 +179,33 @@ inoremap <Tab> <Nop>
 " inoremap <S-Tab> <C-O><<
 " nnoremap <S-Tab> <<
 " vnoremap <S-Tab> <
+
 noremap Y y$
 noremap Z <C-r>
 noremap h i
 noremap gh gi
 noremap j h
-noremap i gk
-noremap k gj
+noremap i gkzz
+noremap k gjzz
 noremap H I
-nnoremap <C-j> <C-Left>
-vnoremap <C-j> <C-Left>
+noremap <C-j> <C-Left>
 inoremap <C-j> <C-O><C-Left>
-nnoremap <C-l> <C-Right>
-vnoremap <C-l> <C-Right>
+noremap <C-l> <C-Right>
 inoremap <C-l> <C-O><C-Right>
-nnoremap I 5gk
-vnoremap I 5gk
-nnoremap K 5gj
-vnoremap K 5gj
-nnoremap <PageUp> 5gk
-nnoremap <PageDown> 5gj
+noremap I 5gkzz
+noremap K 5gjzz
+noremap <PageUp> 5gkzz
+inoremap <PageUp> <C-O>5gkzz
+noremap <PageDown> 5gjzz
+inoremap <PageDown> <C-O>5gjzz
 " nnoremap <PageUp> <C-u>
 " nnoremap <PageDown> <C-d>
 noremap <Home> ^
-inoremap <Up> <Esc>
+inoremap <Home> <C-O>^
 vnoremap <Up> <Esc>
-inoremap <Down> <Esc>
+inoremap <Up> <Esc>
 vnoremap <Down> <Esc>
+inoremap <Down> <Esc>
 
 " insert space
 nnoremap [<space> i<space><esc>l
@@ -230,10 +232,8 @@ inoremap <Up> <C-P>
 inoremap <Down> <C-N>
 
 " === CTRL ===
-nnoremap x <Nop>
-vnoremap x <Nop>
-nnoremap X <Nop>
-vnoremap X <Nop>
+noremap x <Nop>
+noremap X <Nop>
 
 let keys = 'abcdefghijklmnopqrstuvwxyz'
 for i in split(keys, '\zs')
