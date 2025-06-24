@@ -17,27 +17,16 @@ set termguicolors
 syntax enable
 set background=dark
 
-" ===== vim-highlightedyank =====
+" ===== plugins =====
+"   === vim-highlightedyank ===
 let g:highlightedyank_highlight_in_visual = 0
-
-" ===== vim-sneak =====
+"   === vim-sneak ===
 " sticking to default mode because label mode doesn't instantly apply operator
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#map_netrw = 1
 let g:sneak#prompt = '🐍'
-
-" ===== vim-surround =====
+"   === vim-surround ===
 let g:surround_no_mappings = 1
-" surround text object (e.g. hw, hW, a{, hp)
-nmap yz <Plug>Ysurround
-" surround line
-nmap LL <Plug>Yssurround
-" surround selection
-xmap L  <plug>VSurround
-" delete delimiter
-nmap dz <Plug>Dsurround
-" replace delimiters
-nmap cz <Plug>Csurround
 
 if !has('nvim')
 	" ===== gvim =====
@@ -119,7 +108,7 @@ au BufNewFile,BufRead *.json set ft=json syntax=javascript
 :command WSC StripWhitespaceOnChangedLines
 :command Q q!
 
-" === :DiffSaved ===
+"   === :DiffSaved ===
 function! s:DiffWithSaved()
 	let filetype=&ft
 	diffthis
@@ -130,72 +119,83 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 " ===== keybinds =====
-map s <Plug>Sneak_s
-map S <Plug>Sneak_S
-map ' <Plug>Sneak_;
-map , <Plug>Sneak_,
-map ; <Plug>Sneak_,
+map s                 <Plug>Sneak_s
+map S                 <Plug>Sneak_S
+map '                 <Plug>Sneak_;
+map ,                 <Plug>Sneak_,
+map ;                 <Plug>Sneak_,
 
-nnoremap Q        :q<CR>
-vnoremap Q        <Esc>:q<CR>
+" surround text object (e.g. hw, hW, a{, hp)
+nmap yz               <Plug>Ysurround
+" surround line
+nmap LL               <Plug>Yssurround
+" surround selection
+xmap L                <plug>VSurround
+" delete delimiter
+nmap dz               <Plug>Dsurround
+" replace delimiters
+nmap cz               <Plug>Csurround
+
+nnoremap Q            :q<CR>
+vnoremap Q            <Esc>:q<CR>
 " map alt-space to `:`
-noremap <Esc><Space> :
+noremap <Esc><Space>  :
 " go back and forth in buffer history list (e.g. from gf)
-   nmap <M-Left>  :bN<cr>
-   nmap <M-Right> :bn<cr>
+   nmap <M-Left>      :bN<cr>
+   nmap <M-Right>     :bn<cr>
 " normal bindings
 " C-z and C-S-z use the same key code, remaping C-S-z would overwrite C-z
- noremap <C-z>   u
-inoremap <C-z>   <C-o>u
- noremap <C-c>   "+y
-inoremap <C-v>   <C-r>+
- noremap <C-s>   <Esc>:update<CR>
-inoremap <C-s>   <Esc>:update<CR>
+ noremap <C-z>        u
+inoremap <C-z>        <C-o>u
+ noremap <C-c>        "+y
+inoremap <C-v>        <C-r>+
+ noremap <C-s>        <Esc>:update<CR>
+inoremap <C-s>        <Esc>:update<CR>
 
 " backspace
-inoremap <C-BS>  <c-o>db
-inoremap <C-H>   <c-w>
-nnoremap <C-H>   db
+inoremap <C-BS>       <c-o>db
+inoremap <C-H>        <c-w>
+nnoremap <C-H>        db
 
 " keep line centered in edge cases
- noremap <C-End> Gzz
-inoremap <C-End> Gzz
-nnoremap <Up>    <Up>zz
-nnoremap <Down>  <Down>zz
- noremap G       Gzz
- noremap n       nzz
- noremap N       Nzz
- noremap *       *zz
- noremap #       #zz
- noremap w       wzz
- noremap W       Wzz
- noremap e       ezz
- noremap E       Ezz
- noremap b       bzz
- noremap B       Bzz
+ noremap <C-End>      Gzz
+inoremap <C-End>      Gzz
+nnoremap <Up>         <Up>zz
+nnoremap <Down>       <Down>zz
+ noremap G            Gzz
+ noremap n            nzz
+ noremap N            Nzz
+ noremap *            *zz
+ noremap #            #zz
+ noremap w            wzz
+ noremap W            Wzz
+ noremap e            ezz
+ noremap E            Ezz
+ noremap b            bzz
+ noremap B            Bzz
 
 " OBSIDIAN_VIMRC_START
- noremap Y       y$
- noremap Z       <C-r>
+ noremap Y            y$
+ noremap Z            <C-r>
 
- noremap <BS>    X
-nnoremap <C-BS>  db
- noremap <Del>   x
-nnoremap <C-Del> dw
-inoremap <C-Del> <C-o>dw
-nnoremap <C-y>   :%y+<CR>
- noremap <C-x>   "+d
- noremap <C-v>   "+p
-inoremap <Tab>   <Nop>
+ noremap <BS>         X
+nnoremap <C-BS>       db
+ noremap <Del>        x
+nnoremap <C-Del>      dw
+inoremap <C-Del>      <C-o>dw
+nnoremap <C-y>        :%y+<CR>
+ noremap <C-x>        "+d
+ noremap <C-v>        "+p
+inoremap <Tab>        <Nop>
 execute "set <S-Tab>=\e[Z"
-inoremap <S-Tab> <Nop>
+inoremap <S-Tab>      <Nop>
 
- noremap h i
- noremap gh gi
- noremap j h
- noremap i gkzz
- noremap k gjzz
- noremap H I
+ noremap h            i
+ noremap gh           gi
+ noremap j            h
+ noremap i            gkzz
+ noremap k            gjzz
+ noremap H            I
 
  noremap <C-j>        <C-Left>
 inoremap <C-j>        <C-O><C-Left>
@@ -212,10 +212,10 @@ inoremap <S-Down>     <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
  noremap <PageDown>   gjzzgjzzgjzzgjzzgjzz
 inoremap <PageDown>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
 
- noremap <Home> ^
-inoremap <Home> <C-O>^
- noremap <End>  $
-inoremap <End>  <C-O>$
+ noremap <Home>       ^
+inoremap <Home>       <C-O>^
+ noremap <End>        $
+inoremap <End>        <C-O>$
 
 vnoremap <Up>         <Esc>
 inoremap <Up>         <Esc>
@@ -231,8 +231,8 @@ inoremap <S-Down>     <Esc>
 inoremap <S-PageDown> <Esc>
 
 " insert space
-nnoremap [<space> i<space><esc>l
-nnoremap ]<space> a<space><esc>h
+nnoremap [<space>     i<space><esc>l
+nnoremap ]<space>     a<space><esc>h
 " OBSIDIAN_VIMRC_END
 
 " DIFF_SEEK
