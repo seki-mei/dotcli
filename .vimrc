@@ -37,9 +37,9 @@ if !has('nvim')
 	set guioptions-=r    " remove scrollbar
 
 	" ===== cursor shapes =====
-	let &t_SI = "\e[6 q" " Insert mode - vertical bar
-	let &t_SR = "\e[4 q" " Replace mode - underline
-	let &t_EI = "\e[2 q" " Normal mode - block
+	let &t_EI = "\e[2 q" " n mode - block
+	let &t_SI = "\e[6 q" " i mode - vertical bar
+	let &t_SR = "\e[4 q" " r mode - underline
 endif
 
 " ===== cursor =====
@@ -157,21 +157,9 @@ inoremap <C-H>        <c-w>
 nnoremap <C-H>        db
 
 " keep line centered in edge cases
+autocmd CursorMoved * normal! zz
+autocmd ModeChanged * normal! zz
  noremap <C-End>      Gzz
-inoremap <C-End>      Gzz
-nnoremap <Up>         <Up>zz
-nnoremap <Down>       <Down>zz
- noremap G            Gzz
- noremap n            nzz
- noremap N            Nzz
- noremap *            *zz
- noremap #            #zz
- noremap w            wzz
- noremap W            Wzz
- noremap e            ezz
- noremap E            Ezz
- noremap b            bzz
- noremap B            Bzz
 
 " OBSIDIAN_VIMRC_START
  noremap Y            y$
@@ -195,15 +183,15 @@ inoremap <S-Tab>      <Nop>
  noremap gh           gi
  noremap H            I
 
- noremap i            gkzz
- noremap I            5gkzz
- noremap <PageUp>     5gkzz
-inoremap <PageUp>     <Esc>:norm!5gkzz<CR>
+ noremap i            gk
+ noremap I            5gk
+ noremap <PageUp>     5gk
+inoremap <PageUp>     <Esc>5gk
 " zz in 5gjzz doesn't work if last line interrupts
- noremap k            gjzz
- noremap K            gjzzgjzzgjzzgjzzgjzz
- noremap <PageDown>   gjzzgjzzgjzzgjzzgjzz
-inoremap <PageDown>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
+ noremap k            gj
+ noremap K            5gj
+ noremap <PageDown>   5gj
+inoremap <PageDown>   <Esc>5gj
 
 vnoremap <Up>         <Esc>
 inoremap <Up>         <Esc>
