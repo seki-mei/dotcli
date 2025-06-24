@@ -29,15 +29,15 @@ let g:sneak#prompt = '🐍'
 " ===== vim-surround =====
 let g:surround_no_mappings = 1
 " surround text object (e.g. hw, hW, a{, hp)
-nmap yz  <Plug>Ysurround
+nmap yz <Plug>Ysurround
 " surround line
 nmap LL <Plug>Yssurround
 " surround selection
-xmap L   <plug>VSurround
+xmap L  <plug>VSurround
 " delete delimiter
-nmap dz  <Plug>Dsurround
+nmap dz <Plug>Dsurround
 " replace delimiters
-nmap cz  <Plug>Csurround
+nmap cz <Plug>Csurround
 
 if !has('nvim')
 	" ===== gvim =====
@@ -136,26 +136,26 @@ map ' <Plug>Sneak_;
 map , <Plug>Sneak_,
 map ; <Plug>Sneak_,
 
-nnoremap Q :q<CR>
-vnoremap Q <Esc>:q<CR>
+nnoremap Q        :q<CR>
+vnoremap Q        <Esc>:q<CR>
 " map alt-space to `:`
 noremap <Esc><Space> :
 " go back and forth in buffer history list (e.g. from gf)
-nmap <M-Left> :bN<cr>
-nmap <M-Right> :bn<cr>
+   nmap <M-Left>  :bN<cr>
+   nmap <M-Right> :bn<cr>
 " normal bindings
 " C-z and C-S-z use the same key code, remaping C-S-z would overwrite C-z
- noremap <C-z> u
-inoremap <C-z> <C-o>u
- noremap <C-c> "+y
-inoremap <C-v> <C-r>+
- noremap <C-s> <Esc>:update<CR>
-inoremap <C-s> <Esc>:update<CR>
+ noremap <C-z>   u
+inoremap <C-z>   <C-o>u
+ noremap <C-c>   "+y
+inoremap <C-v>   <C-r>+
+ noremap <C-s>   <Esc>:update<CR>
+inoremap <C-s>   <Esc>:update<CR>
 
 " backspace
-inoremap <C-BS> <c-o>db
-inoremap <C-H> <c-w>
-nnoremap <C-H> db
+inoremap <C-BS>  <c-o>db
+inoremap <C-H>   <c-w>
+nnoremap <C-H>   db
 
 " keep line centered in edge cases
  noremap <C-End> Gzz
@@ -175,8 +175,8 @@ nnoremap <Down>  <Down>zz
  noremap B       Bzz
 
 " OBSIDIAN_VIMRC_START
-noremap Y y$
-noremap Z <C-r>
+ noremap Y       y$
+ noremap Z       <C-r>
 
  noremap <BS>    X
 nnoremap <C-BS>  db
@@ -197,10 +197,10 @@ inoremap <S-Tab> <Nop>
  noremap k gjzz
  noremap H I
 
- noremap <C-j> <C-Left>
-inoremap <C-j> <C-O><C-Left>
- noremap <C-l> <C-Right>
-inoremap <C-l> <C-O><C-Right>
+ noremap <C-j>        <C-Left>
+inoremap <C-j>        <C-O><C-Left>
+ noremap <C-l>        <C-Right>
+inoremap <C-l>        <C-O><C-Right>
 
  noremap I            5gkzz
 inoremap <S-Up>       <Esc>:norm!5gkzz<CR>
@@ -247,13 +247,13 @@ nnoremap ]p mc<Down>Vp`c
 nnoremap [d mc<Up>0D`c
 nnoremap ]d mc<Down>0D`c
 
-noremap <CR> <Nop>
-noremap <Space> <Nop>
+noremap <CR>      <Nop>
+noremap <Space>   <Nop>
 noremap <C-Space> <Nop>
 
 " ===== autocomplete =====
-inoremap <Up> <C-P>
-inoremap <Down> <C-N>
+inoremap <Up>     <C-P>
+inoremap <Down>   <C-N>
 
 " === CTRL ===
 noremap x <Nop>
