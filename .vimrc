@@ -1,14 +1,16 @@
 call plug#begin()
+" == Visual ==
 Plug 'morhetz/gruvbox'
-Plug 'justinmk/vim-sneak'
 Plug 'itchyny/vim-cursorword'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
+" == Other ==
+Plug 'justinmk/vim-sneak'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
 call plug#end()
 
 " ===== theme =====
@@ -21,7 +23,6 @@ set background=dark
 "   === vim-highlightedyank ===
 let g:highlightedyank_highlight_in_visual = 0
 "   === vim-sneak ===
-" sticking to default mode because label mode doesn't instantly apply operator
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#map_netrw = 1
 let g:sneak#prompt = '🐍'
@@ -31,7 +32,6 @@ let g:surround_no_mappings = 1
 " ===== vim only =====
 if !has('nvim')
 	" ===== gvim =====
-	set background=dark
 	set guioptions-=T    " remove toolbar
 	set guioptions-=m    " remove menu bar
 	set guioptions-=r    " remove scrollbar
@@ -44,7 +44,6 @@ endif
 
 " ===== cursor =====
 set scrolloff=999
-" set cursorline
 
 " ===== search =====
 set incsearch
@@ -89,6 +88,7 @@ function! UpdateStatuslineHighlight()
 endfunction
 
 " ===== other =====
+" prevent autoinsert of comments on new lines
 autocmd FileType * set formatoptions-=cro
 " use arrow key and backspace across newlines
 set whichwrap=bs<>[]
@@ -97,12 +97,10 @@ set nobackup
 set directory=/var/tmp,/tmp,~/.vim/swap
 
 " ===== fixes =====
-" fix slow exit from insert mode
+" fix slow exit from insert/visual mode
 set timeoutlen=500
-" fix slow exit from insert mode and visual mode. Tried -1 and it didn't work
+" fix slow exit from insert/visual mode. Setting -1 didn't work
 set ttimeoutlen=0
-" json syntax highlighting
-au BufNewFile,BufRead *.json set ft=json syntax=javascript
 
 " ===== commands =====
 :command WS StripWhitespace
@@ -187,47 +185,48 @@ inoremap <C-Del>      <C-o>dw
 nnoremap <C-y>        :%y+<CR>
  noremap <C-x>        "+d
  noremap <C-v>        "+p
+" default behaviour: insert tab char
 inoremap <Tab>        <Nop>
 execute "set <S-Tab>=\e[Z"
 inoremap <S-Tab>      <Nop>
 
+ noremap j            h
  noremap h            i
  noremap gh           gi
- noremap j            h
- noremap i            gkzz
- noremap k            gjzz
  noremap H            I
+
+ noremap i            gkzz
+ noremap I            5gkzz
+ noremap <PageUp>     5gkzz
+inoremap <PageUp>     <Esc>:norm!5gkzz<CR>
+" zz in 5gjzz doesn't work if last line interrupts
+ noremap k            gjzz
+ noremap K            gjzzgjzzgjzzgjzzgjzz
+ noremap <PageDown>   gjzzgjzzgjzzgjzzgjzz
+inoremap <PageDown>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
+
+vnoremap <Up>         <Esc>
+inoremap <Up>         <Esc>
+ noremap <S-Up>       <Nop>
+inoremap <S-Up>       <Nop>
+ noremap <S-PageUp>   <Nop>
+inoremap <S-PageUp>   <Nop>
+vnoremap <Down>       <Esc>
+inoremap <Down>       <Esc>
+ noremap <S-Down>     <Nop>
+inoremap <S-Down>     <Nop>
+ noremap <S-PageDown> <Nop>
+inoremap <S-PageDown> <Nop>
 
  noremap <C-j>        <C-Left>
 inoremap <C-j>        <C-O><C-Left>
  noremap <C-l>        <C-Right>
 inoremap <C-l>        <C-O><C-Right>
 
- noremap I            5gkzz
- noremap <PageUp>     5gkzz
-inoremap <PageUp>     <Esc>:norm!5gkzz<CR>
-" zz in 5gjzz doesn't work if last line interrupts
- noremap K            gjzzgjzzgjzzgjzzgjzz
- noremap <PageDown>   gjzzgjzzgjzzgjzzgjzz
-inoremap <PageDown>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
-
  noremap <Home>       ^
 inoremap <Home>       <C-O>^
  noremap <End>        $
 inoremap <End>        <C-O>$
-
-vnoremap <Up>         <Esc>
-inoremap <Up>         <Esc>
- noremap <S-Up>       <Esc>
-inoremap <S-Up>       <Esc>
- noremap <S-PageUp>   <Esc>
-inoremap <S-PageUp>   <Esc>
-vnoremap <Down>       <Esc>
-inoremap <Down>       <Esc>
- noremap <S-Down>     <Esc>
-inoremap <S-Down>     <Esc>
- noremap <S-PageDown> <Esc>
-inoremap <S-PageDown> <Esc>
 
 " insert space
 nnoremap [<space>     i<space><esc>l
