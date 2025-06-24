@@ -159,6 +159,7 @@ nnoremap <C-H>        db
 " keep line centered in edge cases
 autocmd CursorMoved * normal! zz
 autocmd ModeChanged * normal! zz
+ noremap G            Gzz
  noremap <C-End>      Gzz
 
 " OBSIDIAN_VIMRC_START
