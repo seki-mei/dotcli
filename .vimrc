@@ -23,9 +23,9 @@ set background=dark
 let g:highlightedyank_highlight_in_visual = 0
 
 " ===== vim-sneak =====
+" sticking to default mode because label mode doesn't instantly apply operator
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#prompt = '🐍'
-let g:sneak#target_labels = "0123456789"
 
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
@@ -33,6 +33,7 @@ map ' <Plug>Sneak_;
 map , <Plug>Sneak_,
 
 " ===== vim-surround =====
+let g:surround_no_mappings = 1
 " surround text object (e.g. hw, hW, a{, hp)
 nmap yz  <Plug>Ysurround
 " surround line
