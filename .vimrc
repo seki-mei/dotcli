@@ -181,12 +181,11 @@ nnoremap <C-y> :%y+<CR>
 noremap  <C-x> "+d
 noremap  <C-v> "+p
 inoremap <Tab> <Nop>
-
 " inoremap <Tab> <C-O>
 " nnoremap <Tab> >>
 " vnoremap <Tab> >
-" execute "set <S-Tab>=\e[Z"
-" inoremap <S-Tab> <Nop>
+execute "set <S-Tab>=\e[Z"
+inoremap <S-Tab> <Nop>
 " inoremap <S-Tab> <C-O><<
 " nnoremap <S-Tab> <<
 " vnoremap <S-Tab> <
