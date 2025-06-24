@@ -24,7 +24,6 @@ let g:highlightedyank_highlight_in_visual = 0
 
 " ===== vim-sneak =====
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
-let g:sneak#label = 1
 let g:sneak#prompt = '🐍'
 let g:sneak#target_labels = "0123456789"
 
