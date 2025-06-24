@@ -26,6 +26,7 @@ let g:highlightedyank_highlight_in_visual = 0
 " sticking to default mode because label mode doesn't instantly apply operator
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#prompt = '🐍'
+let g:sneak#map_netrw = 1
 
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
