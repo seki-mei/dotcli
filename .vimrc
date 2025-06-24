@@ -28,6 +28,7 @@ let g:sneak#prompt = '🐍'
 "   === vim-surround ===
 let g:surround_no_mappings = 1
 
+" ===== vim only =====
 if !has('nvim')
 	" ===== gvim =====
 	set background=dark
@@ -203,12 +204,10 @@ inoremap <C-j>        <C-O><C-Left>
 inoremap <C-l>        <C-O><C-Right>
 
  noremap I            5gkzz
-inoremap <S-Up>       <Esc>:norm!5gkzz<CR>
  noremap <PageUp>     5gkzz
 inoremap <PageUp>     <Esc>:norm!5gkzz<CR>
 " zz in 5gjzz doesn't work if last line interrupts
  noremap K            gjzzgjzzgjzzgjzzgjzz
-inoremap <S-Down>     <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
  noremap <PageDown>   gjzzgjzzgjzzgjzzgjzz
 inoremap <PageDown>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
 
@@ -238,25 +237,25 @@ nnoremap ]<space>     a<space><esc>h
 " DIFF_SEEK
 "difference reason: obsidian ran into issue were marks would return to first char in line
 " insert line above/below
-nnoremap [o mcO<Esc>`c
-nnoremap ]o mco<Esc>`c
+nnoremap [o           mcO<Esc>`c
+nnoremap ]o           mco<Esc>`c
 " overwrite line above/below with paste
-nnoremap [p mc<Up>Vp`c
-nnoremap ]p mc<Down>Vp`c
+nnoremap [p           mc<Up>Vp`c
+nnoremap ]p           mc<Down>Vp`c
 " erase contents of line above/below
-nnoremap [d mc<Up>0D`c
-nnoremap ]d mc<Down>0D`c
+nnoremap [d           mc<Up>0D`c
+nnoremap ]d           mc<Down>0D`c
 
-noremap <CR>      <Nop>
-noremap <Space>   <Nop>
-noremap <C-Space> <Nop>
+noremap <CR>          <Nop>
+noremap <Space>       <Nop>
+noremap <C-Space>     <Nop>
 
 " ===== autocomplete =====
-inoremap <Up>     <C-P>
-inoremap <Down>   <C-N>
+inoremap <Up>         <C-P>
+inoremap <Down>       <C-N>
 
 " === CTRL ===
-noremap x <Nop>
+noremap x             <Nop>
 let keys = 'abcdefghijklmnopqrstuvwxyz'
 for i in split(keys, '\zs')
 	execute 'noremap x' . i . ' <C-' . i . '>'
