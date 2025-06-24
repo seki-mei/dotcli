@@ -36,7 +36,6 @@ map , <Plug>Sneak_,
 " ===== vim-surround =====
 " surround text object (e.g. hw, hW, a{, hp)
 nmap yz  <Plug>Ysurround
-nmap L  <Plug>Ysurround
 " surround line
 nmap LL <Plug>Yssurround
 " surround selection
@@ -110,7 +109,7 @@ autocmd FileType * set formatoptions-=cro
 set whichwrap=bs<>[]
 " directories for swp files
 set nobackup
-set directory=/var/tmp,/tmp
+set directory=/var/tmp,/tmp,~/.vim/swap
 
 " ===== fixes =====
 " fix slow exit from insert mode
@@ -154,11 +153,18 @@ nnoremap <C-H> db
 
 nnoremap <Up> <Up>zz
 nnoremap <Down> <Down>zz
+noremap <C-End> Gzz
 nnoremap G Gzz
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
+nnoremap w wzz
+nnoremap W Wzz
+nnoremap e ezz
+nnoremap E Ezz
+nnoremap b bzz
+nnoremap B Bzz
 
 " OBSIDIAN_VIMRC_START
 noremap  <BS> X
@@ -193,11 +199,12 @@ inoremap <C-j> <C-O><C-Left>
 noremap <C-l> <C-Right>
 inoremap <C-l> <C-O><C-Right>
 noremap I 5gkzz
-noremap K 5gjzz
 noremap <PageUp> 5gkzz
 inoremap <PageUp> <C-O>5gkzz
-noremap <PageDown> 5gjzz
-inoremap <PageDown> <C-O>5gjzz
+" zz in 5gjzz doesn't work if last line interrupts
+noremap K gjzzgjzzgjzzgjzzgjzz
+noremap <PageDown> gjzzgjzzgjzzgjzzgjzz
+inoremap <PageDown> <C-O>gjzzgjzzgjzzgjzzgjzz
 " nnoremap <PageUp> <C-u>
 " nnoremap <PageDown> <C-d>
 noremap <Home> ^

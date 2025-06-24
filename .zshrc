@@ -74,6 +74,9 @@ VI_MODE_SET_CURSOR=true
 VI_MODE_CURSOR_INSERT=4
 # fix slow mode change
 KEYTIMEOUT=1
+# start in normal mode
+zle-line-init() { zle -K vicmd; }
+zle -N zle-line-init
 
 # https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
 
