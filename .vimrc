@@ -28,7 +28,7 @@ let g:sneak#prompt = '🐍'
 
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
-map < <Plug>Sneak_;
+map ' <Plug>Sneak_;
 map , <Plug>Sneak_,
 map ; <Plug>Sneak_,
 
@@ -93,17 +93,17 @@ highlight! link StatusLineNormal GruvboxFg1
 highlight! link StatusLineModified GruvboxAqua
 
 augroup StatusLineHighlight
-  autocmd!
-  autocmd BufEnter,BufWritePost,InsertLeave * call UpdateStatuslineHighlight()
-  autocmd TextChanged,TextChangedI * call UpdateStatuslineHighlight()
+	autocmd!
+	autocmd BufEnter,BufWritePost,InsertLeave * call UpdateStatuslineHighlight()
+	autocmd TextChanged,TextChangedI * call UpdateStatuslineHighlight()
 augroup END
 
 function! UpdateStatuslineHighlight()
-  if &modified
-    highlight! link StatusLine StatusLineModified
-  else
-    highlight! link StatusLine StatusLineNormal
-  endif
+	if &modified
+		highlight! link StatusLine StatusLineModified
+	else
+		highlight! link StatusLine StatusLineNormal
+	endif
 endfunction
 
 " ===== other =====
@@ -122,7 +122,12 @@ set ttimeoutlen=0
 " json syntax highlighting
 au BufNewFile,BufRead *.json set ft=json syntax=javascript
 
-" ===== :DiffSaved =====
+" ===== commands =====
+:command WS StripWhitespace
+:command WSC StripWhitespaceOnChangedLines
+:command Q q!
+
+" === :DiffSaved ===
 function! s:DiffWithSaved()
 	let filetype=&ft
 	diffthis
@@ -142,11 +147,11 @@ nmap <M-Left> :bN<cr>
 nmap <M-Right> :bn<cr>
 " normal bindings
 " C-z and C-S-z use the same key code, remaping C-S-z would overwrite C-z
-noremap  <C-z> u
+ noremap <C-z> u
 inoremap <C-z> <C-o>u
-noremap  <C-c> "+y
+ noremap <C-c> "+y
 inoremap <C-v> <C-r>+
-noremap  <C-s> <Esc>:update<CR>
+ noremap <C-s> <Esc>:update<CR>
 inoremap <C-s> <Esc>:update<CR>
 
 " backspace
@@ -155,31 +160,35 @@ inoremap <C-H> <c-w>
 nnoremap <C-H> db
 
 " keep line centered in edge cases
-nnoremap <Up> <Up>zz
-nnoremap <Down> <Down>zz
-noremap <C-End> Gzz
-nnoremap G Gzz
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap w wzz
-nnoremap W Wzz
-nnoremap e ezz
-nnoremap E Ezz
-nnoremap b bzz
-nnoremap B Bzz
+ noremap <C-End> Gzz
+inoremap <C-End> Gzz
+nnoremap <Up>    <Up>zz
+nnoremap <Down>  <Down>zz
+ noremap G       Gzz
+ noremap n       nzz
+ noremap N       Nzz
+ noremap *       *zz
+ noremap #       #zz
+ noremap w       wzz
+ noremap W       Wzz
+ noremap e       ezz
+ noremap E       Ezz
+ noremap b       bzz
+ noremap B       Bzz
 
 " OBSIDIAN_VIMRC_START
-noremap  <BS> X
-nnoremap <C-BS> db
-noremap  <Del> x
+noremap Y y$
+noremap Z <C-r>
+
+ noremap <BS>    X
+nnoremap <C-BS>  db
+ noremap <Del>   x
 nnoremap <C-Del> dw
 inoremap <C-Del> <C-o>dw
-nnoremap <C-y> :%y+<CR>
-noremap  <C-x> "+d
-noremap  <C-v> "+p
-inoremap <Tab> <Nop>
+nnoremap <C-y>   :%y+<CR>
+ noremap <C-x>   "+d
+ noremap <C-v>   "+p
+inoremap Tab>    <Nop>
 " inoremap <Tab> <C-O>
 " nnoremap <Tab> >>
 " vnoremap <Tab> >
@@ -189,33 +198,41 @@ inoremap <S-Tab> <Nop>
 " nnoremap <S-Tab> <<
 " vnoremap <S-Tab> <
 
-noremap Y y$
-noremap Z <C-r>
 noremap h i
 noremap gh gi
 noremap j h
 noremap i gkzz
 noremap k gjzz
 noremap H I
-noremap <C-j> <C-Left>
+
+ noremap <C-j> <C-Left>
 inoremap <C-j> <C-O><C-Left>
-noremap <C-l> <C-Right>
+ noremap <C-l> <C-Right>
 inoremap <C-l> <C-O><C-Right>
-noremap I 5gkzz
-noremap <PageUp> 5gkzz
-inoremap <PageUp> <C-O>5gkzz
+
+ noremap I          5gkzz
+inoremap <S-Up>     <Esc>:norm!5gkzz<CR>
+ noremap <PageUp>   5gkzz
+inoremap <PageUp>   <Esc>:norm!5gkzz<CR>
 " zz in 5gjzz doesn't work if last line interrupts
-noremap K gjzzgjzzgjzzgjzzgjzz
-noremap <PageDown> gjzzgjzzgjzzgjzzgjzz
-inoremap <PageDown> <C-O>gjzzgjzzgjzzgjzzgjzz
-" nnoremap <PageUp> <C-u>
-" nnoremap <PageDown> <C-d>
-noremap <Home> ^
+ noremap K          gjzzgjzzgjzzgjzzgjzz
+inoremap <S-Down>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
+ noremap <PageDown> gjzzgjzzgjzzgjzzgjzz
+inoremap <PageDown> <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
+
+ noremap <Home> ^
 inoremap <Home> <C-O>^
-vnoremap <Up> <Esc>
-inoremap <Up> <Esc>
-vnoremap <Down> <Esc>
-inoremap <Down> <Esc>
+ noremap <End>  $
+inoremap <End>  <C-O>$
+
+vnoremap <Up>     <Esc>
+inoremap <Up>     <Esc>
+ noremap <S-Up>   <Esc>
+inoremap <S-Up>   <Esc>
+vnoremap <Down>   <Esc>
+inoremap <Down>   <Esc>
+ noremap <S-Down> <Esc>
+inoremap <S-Down> <Esc>
 
 " insert space
 nnoremap [<space> i<space><esc>l
