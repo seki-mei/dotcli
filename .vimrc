@@ -46,15 +46,19 @@ nmap dz  <Plug>Dsurround
 nmap cz  <Plug>Csurround
 
 " ===== gvim =====
-set background=dark
-set guioptions-=T    " remove toolbar
-set guioptions-=m    " remove menu bar
-set guioptions-=r    " remove scrollbar
+if !has('nvim')
+	set background=dark
+	set guioptions-=T    " remove toolbar
+	set guioptions-=m    " remove menu bar
+	set guioptions-=r    " remove scrollbar
+endif
 
 " ===== cursor shapes =====
-let &t_SI = "\e[6 q" " Insert mode - vertical bar
-let &t_SR = "\e[4 q" " Replace mode - underline
-let &t_EI = "\e[2 q" " Normal mode - block
+if !has('nvim')
+	let &t_SI = "\e[6 q" " Insert mode - vertical bar
+	let &t_SR = "\e[4 q" " Replace mode - underline
+	let &t_EI = "\e[2 q" " Normal mode - block
+endif
 
 " ===== cursor =====
 set scrolloff=999
