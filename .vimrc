@@ -26,12 +26,6 @@ let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#map_netrw = 1
 let g:sneak#prompt = '🐍'
 
-map s <Plug>Sneak_s
-map S <Plug>Sneak_S
-map ' <Plug>Sneak_;
-map , <Plug>Sneak_,
-map ; <Plug>Sneak_,
-
 " ===== vim-surround =====
 let g:surround_no_mappings = 1
 " surround text object (e.g. hw, hW, a{, hp)
@@ -85,19 +79,17 @@ set noshowmode
 set shortmess+=F
 set noruler
 set showcmd
-
 set laststatus=2
 set statusline=%=%t\ %m%r
+
 highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
 highlight! link StatusLineModified GruvboxAqua
-
 augroup StatusLineHighlight
 	autocmd!
 	autocmd BufEnter,BufWritePost,InsertLeave * call UpdateStatuslineHighlight()
 	autocmd TextChanged,TextChangedI * call UpdateStatuslineHighlight()
 augroup END
-
 function! UpdateStatuslineHighlight()
 	if &modified
 		highlight! link StatusLine StatusLineModified
@@ -138,6 +130,12 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 " ===== keybinds =====
+map s <Plug>Sneak_s
+map S <Plug>Sneak_S
+map ' <Plug>Sneak_;
+map , <Plug>Sneak_,
+map ; <Plug>Sneak_,
+
 nnoremap Q :q<CR>
 vnoremap Q <Esc>:q<CR>
 " map alt-space to `:`
@@ -188,51 +186,49 @@ inoremap <C-Del> <C-o>dw
 nnoremap <C-y>   :%y+<CR>
  noremap <C-x>   "+d
  noremap <C-v>   "+p
-inoremap Tab>    <Nop>
-" inoremap <Tab> <C-O>
-" nnoremap <Tab> >>
-" vnoremap <Tab> >
+inoremap <Tab>   <Nop>
 execute "set <S-Tab>=\e[Z"
 inoremap <S-Tab> <Nop>
-" inoremap <S-Tab> <C-O><<
-" nnoremap <S-Tab> <<
-" vnoremap <S-Tab> <
 
-noremap h i
-noremap gh gi
-noremap j h
-noremap i gkzz
-noremap k gjzz
-noremap H I
+ noremap h i
+ noremap gh gi
+ noremap j h
+ noremap i gkzz
+ noremap k gjzz
+ noremap H I
 
  noremap <C-j> <C-Left>
 inoremap <C-j> <C-O><C-Left>
  noremap <C-l> <C-Right>
 inoremap <C-l> <C-O><C-Right>
 
- noremap I          5gkzz
-inoremap <S-Up>     <Esc>:norm!5gkzz<CR>
- noremap <PageUp>   5gkzz
-inoremap <PageUp>   <Esc>:norm!5gkzz<CR>
+ noremap I            5gkzz
+inoremap <S-Up>       <Esc>:norm!5gkzz<CR>
+ noremap <PageUp>     5gkzz
+inoremap <PageUp>     <Esc>:norm!5gkzz<CR>
 " zz in 5gjzz doesn't work if last line interrupts
- noremap K          gjzzgjzzgjzzgjzzgjzz
-inoremap <S-Down>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
- noremap <PageDown> gjzzgjzzgjzzgjzzgjzz
-inoremap <PageDown> <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
+ noremap K            gjzzgjzzgjzzgjzzgjzz
+inoremap <S-Down>     <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
+ noremap <PageDown>   gjzzgjzzgjzzgjzzgjzz
+inoremap <PageDown>   <Esc>:norm!gjzzgjzzgjzzgjzzgjzz<CR>
 
  noremap <Home> ^
 inoremap <Home> <C-O>^
  noremap <End>  $
 inoremap <End>  <C-O>$
 
-vnoremap <Up>     <Esc>
-inoremap <Up>     <Esc>
- noremap <S-Up>   <Esc>
-inoremap <S-Up>   <Esc>
-vnoremap <Down>   <Esc>
-inoremap <Down>   <Esc>
- noremap <S-Down> <Esc>
-inoremap <S-Down> <Esc>
+vnoremap <Up>         <Esc>
+inoremap <Up>         <Esc>
+ noremap <S-Up>       <Esc>
+inoremap <S-Up>       <Esc>
+ noremap <S-PageUp>   <Esc>
+inoremap <S-PageUp>   <Esc>
+vnoremap <Down>       <Esc>
+inoremap <Down>       <Esc>
+ noremap <S-Down>     <Esc>
+inoremap <S-Down>     <Esc>
+ noremap <S-PageDown> <Esc>
+inoremap <S-PageDown> <Esc>
 
 " insert space
 nnoremap [<space> i<space><esc>l
