@@ -240,12 +240,9 @@ inoremap <Down> <C-N>
 
 " === CTRL ===
 noremap x <Nop>
-noremap X <Nop>
-
 let keys = 'abcdefghijklmnopqrstuvwxyz'
 for i in split(keys, '\zs')
-	execute 'nnoremap x' . i . ' <C-' . i . '>'
-	execute 'vnoremap x' . i . ' <C-' . i . '>'
+	execute 'noremap x' . i . ' <C-' . i . '>'
 endfor
 
 " ===== vim-airline =====
