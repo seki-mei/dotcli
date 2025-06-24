@@ -32,6 +32,7 @@ map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 map ' <Plug>Sneak_;
 map , <Plug>Sneak_,
+map ; <Plug>Sneak_,
 
 " ===== vim-surround =====
 let g:surround_no_mappings = 1
@@ -67,6 +68,7 @@ set cursorline
 set incsearch
 set ignorecase
 set smartcase "ignore case unless search query contains uppercase letter
+set nohlsearch
 
 " ===== completion =====
 set ofu=syntaxcomplete#Complete "enable completion
