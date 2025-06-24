@@ -187,7 +187,6 @@ inoremap <S-Tab>      <Nop>
  noremap I            5gk
  noremap <PageUp>     5gk
 inoremap <PageUp>     <Esc>5gk
-" zz in 5gjzz doesn't work if last line interrupts
  noremap k            gj
  noremap K            5gj
  noremap <PageDown>   5gj
