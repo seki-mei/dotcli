@@ -9,7 +9,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-" Plug 'junegunn/vim-peekaboo'
 " Plug 'vim-airline/vim-airline'
 call plug#end()
 
@@ -25,8 +24,8 @@ let g:highlightedyank_highlight_in_visual = 0
 " ===== vim-sneak =====
 " sticking to default mode because label mode doesn't instantly apply operator
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
-let g:sneak#prompt = '🐍'
 let g:sneak#map_netrw = 1
+let g:sneak#prompt = '🐍'
 
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
@@ -62,7 +61,7 @@ endif
 
 " ===== cursor =====
 set scrolloff=999
-set cursorline
+" set cursorline
 
 " ===== search =====
 set incsearch
@@ -88,9 +87,8 @@ set noruler
 set showcmd
 
 set laststatus=2
-" highlight! link StatusLine Normal
-highlight! link StatusLineNC Normal
 set statusline=%=%t\ %m%r
+highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
 highlight! link StatusLineModified GruvboxAqua
 
