@@ -9,7 +9,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-" Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " ===== theme =====
@@ -29,7 +28,7 @@ let g:sneak#prompt = '🐍'
 
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
-map ' <Plug>Sneak_;
+map < <Plug>Sneak_;
 map , <Plug>Sneak_,
 map ; <Plug>Sneak_,
 
@@ -83,6 +82,7 @@ set showbreak=↪↪↪↪
 
 " ===== statusline =====
 set noshowmode
+set shortmess+=F
 set noruler
 set showcmd
 
@@ -154,6 +154,7 @@ inoremap <C-BS> <c-o>db
 inoremap <C-H> <c-w>
 nnoremap <C-H> db
 
+" keep line centered in edge cases
 nnoremap <Up> <Up>zz
 nnoremap <Down> <Down>zz
 noremap <C-End> Gzz
@@ -233,8 +234,9 @@ nnoremap ]p mc<Down>Vp`c
 nnoremap [d mc<Up>0D`c
 nnoremap ]d mc<Down>0D`c
 
-nnoremap <CR> <Nop>
-nnoremap <Space> <Nop>
+noremap <CR> <Nop>
+noremap <Space> <Nop>
+noremap <C-Space> <Nop>
 
 " ===== autocomplete =====
 inoremap <Up> <C-P>
@@ -246,40 +248,3 @@ let keys = 'abcdefghijklmnopqrstuvwxyz'
 for i in split(keys, '\zs')
 	execute 'noremap x' . i . ' <C-' . i . '>'
 endfor
-
-" ===== vim-airline =====
-" set noshowmode
-" set shortmess+=F
-" let g:airline_powerline_fonts = 1
-" let g:airline_skip_empty_sections = 1
-" let g:airline_section_a=''
-" let g:airline_section_b=''
-" let g:airline_section_x=''
-" let g:airline_section_y=''
-" let g:airline_section_z='%p%%%#__accent_bold#'
-" let g:airline_mode_map = {}
-" let g:airline_mode_map['n'] = 'N'
-" let g:airline_mode_map['v'] = 'V'
-" let g:airline_mode_map['V'] = 'V'
-" let g:airline_mode_map['']= 'B'
-" let g:airline_mode_map['i'] = 'I'
-" let g:airline_mode_map['R'] = 'R'
-" let g:airline_mode_map['c'] = 'C'
-
-" ===== blink-column =====
-" function! BlinkCursorColumn(times, interval)
-" 	let i = 0
-" 	while i < a:times
-" 		set cursorcolumn
-" 		redraw
-" 		execute 'sleep ' . a:interval . 'm'
-" 		set nocursorcolumn
-" 		redraw
-" 		execute 'sleep ' . a:interval . 'm'
-" 		let i += 1
-" 	endwhile
-" endfunction
-" "
-" highlight CursorColumn guibg=#d65d0e
-" " blink column 3 times, 100ms per phase
-" nnoremap zx :call BlinkCursorColumn(3, 100)<CR>
