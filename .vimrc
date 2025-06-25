@@ -211,8 +211,6 @@ inoremap <S-Down>     <Nop>
 inoremap <S-PageDown> <Nop>
 
 nnoremap U            <Nop>
-nnoremap K            <Nop>
-nnoremap L            <Nop>
 nnoremap M            <Nop>
 nnoremap X            <Nop>
 
@@ -260,5 +258,6 @@ for i in split(keys, '\zs')
 	execute 'noremap x' . i . ' <C-' . i . '>'
 endfor
 
+noremap L              <C-w>
 noremap XQ             ZQ
 noremap XX             ZZ
