@@ -185,6 +185,7 @@ inoremap <S-Tab>      <Nop>
  noremap j            h
  noremap h            i
  noremap gh           gi
+nnoremap g'           g;
  noremap H            I
 
  noremap i            gk
@@ -210,7 +211,6 @@ inoremap <S-Down>     <Nop>
 inoremap <S-PageDown> <Nop>
 
 nnoremap U            <Nop>
-nnoremap H            <Nop>
 nnoremap K            <Nop>
 nnoremap L            <Nop>
 nnoremap M            <Nop>
