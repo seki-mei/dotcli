@@ -178,7 +178,7 @@ nnoremap <C-y>        :%y+<CR>
  noremap <C-x>        "+d
  noremap <C-v>        "+p
 " default behaviour: insert tab char
-inoremap <Tab>        <Nop>
+" inoremap <Tab>        <Nop>
 execute "set <S-Tab>=\e[Z"
 inoremap <S-Tab>      <Nop>
 
@@ -248,8 +248,8 @@ nnoremap ]d           mc<Down>0D`c
 " ===== autocomplete =====
 inoremap <Up>         <C-P>
 inoremap <Down>       <C-N>
-inoremap <S-Tab>      <C-P>
-inoremap <Tab>        <C-N>
+" inoremap <S-Tab>      <C-P>
+" inoremap <Tab>        <C-N>
 
 " === CTRL ===
 noremap x             <Nop>
