@@ -225,8 +225,8 @@ inoremap <C-l>        <C-O><C-Right>
 
  noremap <Home>       ^
 inoremap <Home>       <C-O>^
- noremap <End>        $
-inoremap <End>        <C-O>$
+ noremap <End>        g_
+inoremap <End>        <C-O>g_
 
 " insert space
 nnoremap [<space>     i<space><esc>l
