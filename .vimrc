@@ -137,8 +137,11 @@ nmap cz               <Plug>Csurround
 
 nnoremap Q            :q<CR>
 vnoremap Q            <Esc>:q<CR>
+
 " map alt-space to `:`
 noremap <Esc><Space>  :
+noremap q<Space>      q:
+
 " go back and forth in buffer history list (e.g. from gf)
    nmap <M-Left>      :bN<cr>
    nmap <M-Right>     :bn<cr>
@@ -157,8 +160,8 @@ inoremap <C-H>        <c-w>
 nnoremap <C-H>        db
 
 " keep line centered in edge cases
-autocmd CursorMoved * normal! zz
-autocmd ModeChanged * normal! zz
+ autocmd CursorMoved * normal! zz
+ autocmd InsertEnter * normal! zz
  noremap G            Gzz
  noremap <C-End>      Gzz
 
@@ -240,6 +243,8 @@ noremap <C-Space>     <Nop>
 " ===== autocomplete =====
 inoremap <Up>         <C-P>
 inoremap <Down>       <C-N>
+inoremap <S-Tab>      <C-P>
+inoremap <Tab>        <C-N>
 
 " === CTRL ===
 noremap x             <Nop>
