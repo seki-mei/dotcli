@@ -22,10 +22,17 @@ alias Q='exit'
 
 # git
 alias g="git"
-alias gcl="git clone"
+alias ga="git add"
+alias gaa="git add --all"
 alias gc="git commit --verbose"
 alias gca="git commit --verbose --all"
-alias gp="git push --verbose --all"
+alias gp="git push"
+alias gpa="git push --all"
+alias gcl="git clone"
+alias gl="git pull"
+alias gd="git difftool --no-prompt"
+alias gm="git mergetool --no-prompt"
+
 
 # color support
 alias ls='ls --color=auto'
