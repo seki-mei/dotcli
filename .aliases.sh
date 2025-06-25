@@ -1,25 +1,3 @@
-alias v='vim'
-alias sv='sudoedit'
-alias ai='aichat -e'
-alias rm="rm -I"
-alias py3="python3"
-alias pyt="python3"
-alias keydit="sudo -E vim /etc/keyd/default.conf"
-alias keydreload="sudo keyd reload"
-alias keydsys="sudo /usr/bin/systemctl restart keyd"
-
-alias zrc='vim $HOME/.zshrc'
-alias brc 'vim $HOME/.bashrc'
-alias vrc='vim $HOME/.vimrc'
-obsidianvrc="$HOME/Obsidian/.obsidian.vimrc"
-alias orc='vim $obsidianvrc'
-alias orcdiff='vimdiff $HOME/.vimrc $obsidianvrc'
-alias s='vim $HOME/Obsidian/Sketchpad.md'
-alias hk='vim $HOME/Obsidian/Info/Hotkeys.md'
-alias :q='exit'
-alias q='exit'
-alias Q='exit'
-
 # git
 alias g="git"
 alias ga="git add"
@@ -33,6 +11,25 @@ alias gl="git pull"
 alias gd="git difftool --no-prompt"
 alias gm="git mergetool --no-prompt"
 
+# misc
+alias v='vim'
+alias sv='sudoedit'
+alias ai='aichat -e'
+alias rm="rm -I"
+alias py3="python3"
+alias pyt="python3"
+
+alias zrc='vim $HOME/.zshrc'
+alias brc 'vim $HOME/.bashrc'
+alias vrc='vim $HOME/.vimrc'
+obsidianvrc="$HOME/Obsidian/.obsidian.vimrc"
+alias orc='vim $obsidianvrc'
+alias orcdiff='vimdiff $HOME/.vimrc $obsidianvrc'
+alias s='vim $HOME/Obsidian/Sketchpad.md'
+alias hk='vim $HOME/Obsidian/Info/Hotkeys.md'
+alias :q='exit'
+alias q='exit'
+alias Q='exit'
 
 # color support
 alias ls='ls --color=auto'
