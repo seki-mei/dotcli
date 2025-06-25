@@ -190,11 +190,11 @@ inoremap <S-Tab>      <Nop>
  noremap i            gk
  noremap I            5gk
  noremap <PageUp>     5gk
-inoremap <PageUp>     <Esc>5gk
+inoremap <PageUp>     <Nop>
  noremap k            gj
  noremap K            5gj
  noremap <PageDown>   5gj
-inoremap <PageDown>   <Esc>5gj
+inoremap <PageDown>   <Nop>
 
 vnoremap <Up>         <Esc>
 inoremap <Up>         <Esc>
@@ -208,6 +208,17 @@ inoremap <Down>       <Esc>
 inoremap <S-Down>     <Nop>
  noremap <S-PageDown> <Nop>
 inoremap <S-PageDown> <Nop>
+
+nnoremap U            <Nop>
+nnoremap H            <Nop>
+nnoremap K            <Nop>
+nnoremap L            <Nop>
+nnoremap M            <Nop>
+nnoremap X            <Nop>
+
+noremap <CR>          <Nop>
+noremap <Space>       <Nop>
+noremap <C-Space>     <Nop>
 
  noremap <C-j>        <C-Left>
 inoremap <C-j>        <C-O><C-Left>
@@ -236,10 +247,6 @@ nnoremap ]p           mc<Down>Vp`c
 nnoremap [d           mc<Up>0D`c
 nnoremap ]d           mc<Down>0D`c
 
-noremap <CR>          <Nop>
-noremap <Space>       <Nop>
-noremap <C-Space>     <Nop>
-
 " ===== autocomplete =====
 inoremap <Up>         <C-P>
 inoremap <Down>       <C-N>
@@ -252,3 +259,6 @@ let keys = 'abcdefghijklmnopqrstuvwxyz'
 for i in split(keys, '\zs')
 	execute 'noremap x' . i . ' <C-' . i . '>'
 endfor
+
+noremap XQ             ZQ
+noremap XX             ZZ
