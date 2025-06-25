@@ -20,7 +20,12 @@ alias :q='exit'
 alias q='exit'
 alias Q='exit'
 
-
+# git
+alias g="git"
+alias gcl="git clone"
+alias gc="git commit --verbose"
+alias gca="git commit --verbose --all"
+alias gp="git push --verbose --all"
 
 # color support
 alias ls='ls --color=auto'
