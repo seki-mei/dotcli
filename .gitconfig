@@ -1,0 +1,11 @@
+[user]
+	name = seki-mei
+	email = <>
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
