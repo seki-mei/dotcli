@@ -35,9 +35,19 @@ plug() {
 }
 
 # =====[plugins]=====
-setopt promptsubst # needed by agnoster
-plug "agnoster/agnoster-zsh-theme"
+
+setopt promptsubst # needed by prompt
+# plug "agnoster/agnoster-zsh-theme"
 plug "zsh-users/zsh-syntax-highlighting"
+
+# PS1='%F{blue}%~ %(?.%F{green}.%F{red})❯%f '
+autoload -Uz vcs_info
+# Call vcs_info before each prompt
+precmd() { vcs_info }
+# Customize prompt
+PS1='%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
+# Configure vcs_info format
+zstyle ':vcs_info:git:*' formats '(%b)'
 
 # =====[vim]=====
 # download & source

@@ -11,6 +11,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " ===== theme =====
@@ -69,7 +70,17 @@ set shortmess+=F
 set noruler
 set showcmd
 set laststatus=2
-set statusline=%=%t\ %m%r
+" set statusline=%=%t\ %m%r
+function! ConditionalCwd()
+	let l:cwd = getcwd()
+	let l:home = expand('~')
+	if l:cwd ==# l:home
+		return ''
+	else
+		return fnamemodify(l:cwd, ':~') . ' '
+	endif
+endfunction
+set statusline=%=%{FugitiveStatusline()}\ %{ConditionalCwd()}%t\ %m%r
 
 highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
@@ -107,6 +118,22 @@ set ttimeoutlen=0
 :command WSC StripWhitespaceOnChangedLines
 :command Q q!
 
+" nnoremap Xhk :!vim +"/vim" "$HOME/Obsidian/Info/Hotkeys.md"<CR>
+nnoremap Xh :!vim "$HOME/Obsidian/Info/Hotkeys.md"<CR>
+:command VRC !vim $HOME/.vimrc
+:command S !vim $HOME/Obsidian/Sketchpad.md
+" :command -nargs=1 HK execute '!vim +"/' . escape(<q-args>, '\/.*$^~[]#') . '" "$HOME/Obsidian/Info/Hotkeys.md"'
+
+" open hotkeys file with /arg. If no arg given, search for /# vim
+:command -nargs=? HK call HKOpen(<f-args>)
+function! HKOpen(...) abort
+  let pattern = a:0 > 0 ? a:1 : '# vim'
+  let pattern = escape(pattern, '\/.*#$^~[]')
+  execute '!vim +"/' . pattern . '" "$HOME/Obsidian/Info/Hotkeys.md"'
+endfunction
+
+
+
 "   === :DiffSaved ===
 function! s:DiffWithSaved()
 	let filetype=&ft
@@ -127,9 +154,10 @@ map ;                 <Plug>Sneak_,
 " surround text object (e.g. hw, hW, a{, hp)
 nmap yz               <Plug>Ysurround
 " surround line
-nmap LL               <Plug>Yssurround
+nmap yzz              <Plug>Yssurround
 " surround selection
-xmap L                <plug>VSurround
+" doesn't work?
+vmap M                <plug>VSurround
 " delete delimiter
 nmap dz               <Plug>Dsurround
 " replace delimiters
