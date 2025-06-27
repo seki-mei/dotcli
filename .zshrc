@@ -9,7 +9,7 @@ export HISTFILE="$ZDOTDIR/zsh_history" # Location of the history file.
 export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdir -p "$CACHE_DIR"
 
-# =====[plugin management]=====
+# ===== plugin management =====
 plug() {
 	PLUGIN_NAME="${1#*/}"
 	mkdir -p "$PLUGINDIR"
@@ -34,13 +34,13 @@ plug() {
 	echo "Plugin $PLUGIN_NAME not found in expected format." >&2
 }
 
-# =====[plugins]=====
+# ===== plugins =====
 
 setopt promptsubst # needed by prompt
 # plug "agnoster/agnoster-zsh-theme"
 plug "zsh-users/zsh-syntax-highlighting"
 
-# PS1='%F{blue}%~ %(?.%F{green}.%F{red})❯%f '
+# ===== prompt line =====
 autoload -Uz vcs_info
 # Call vcs_info before each prompt
 precmd() { vcs_info }
@@ -49,7 +49,7 @@ PS1='%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
 # Configure vcs_info format
 zstyle ':vcs_info:git:*' formats '(%b)'
 
-# =====[vim]=====
+# ===== vim =====
 # download & source
 VIMODEPLUGDIR="$PLUGINDIR/vi-mode"
 VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin.zsh"
@@ -121,7 +121,7 @@ bindkey -M vicmd '\e[3;5~' kill-word
 bindkey -M vicmd  "^[[1;5C" forward-word
 bindkey -M vicmd "^[[1;5D" backward-word
 
-# =====[completions]=====
+# ===== completions =====
 autoload -U compinit
 compinit -C
 # arrow key menu for completions
@@ -147,14 +147,14 @@ _otp_completion() {
 }
 compdef _otp_completion otp
 
-# =====[history]=====
+# ===== history =====
 HISTSIZE=50000          # Maximum number of commands in the history.
 SAVEHIST=10000          # Number of commands to save between sessions.
 setopt share_history    # Share history between sessions.
 setopt histignoredups
 setopt HIST_VERIFY      # expand !! instead of running it
 
-# =====[key mappings]=====
+# ===== key mappings =====
 # ctrl motion stops at / and -
 autoload -U select-word-style
 select-word-style bash
