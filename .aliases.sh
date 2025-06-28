@@ -10,6 +10,9 @@ alias gl="git pull"
 alias gd="git difftool --no-prompt"
 alias gm="git mergetool --no-prompt"
 
+# ssh
+alias sshphone="ssh u0_a317@192.168.2.103 -p 8022"
+
 # misc
 alias v='vim'
 alias sv='sudoedit'
