@@ -13,6 +13,7 @@ alias gm="git mergetool --no-prompt"
 
 # ssh
 alias sshphone="ssh u0_a317@192.168.2.103 -p 8022"
+alias sftpphone="sftp -P 8022 u0_a317@192.168.2.103"
 
 # misc
 alias v='vim'
