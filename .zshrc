@@ -2,6 +2,7 @@ ZSH_START_TIME=$(date +%s%N)
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH="$PATH:/home/wotton/.local/bin"
 DEFAULT_USER="wotton"
+DEFAULT_HOST="cheshire"
 export EDITOR=vim
 export ZDOTDIR=$HOME/.zsh
 export PLUGINDIR="$ZDOTDIR/zsh_plugins"
@@ -45,7 +46,7 @@ autoload -Uz vcs_info
 # Call vcs_info before each prompt
 precmd() { vcs_info }
 # Customize prompt
-if [[ $USER != $DEFAULT_USER ]]; then
+if [[ $USER != $DEFAULT_USER || $HOST != $DEFAULT_HOST ]]; then
 	SHOW_USERHOST="%F{yellow}%n@%m%f "
 else
 	SHOW_USERHOST=""
