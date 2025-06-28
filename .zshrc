@@ -47,11 +47,11 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 # Customize prompt
 if [[ $USER != $DEFAULT_USER || $HOST != $DEFAULT_HOST ]]; then
-	SHOW_USERHOST="%F{yellow}%n@%m%f "
+	SHOW_USERHOST="%F{green}%n@%m%f "
 else
 	SHOW_USERHOST=""
 fi
-PS1='${SHOW_USERHOST}%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
+PS1='${SHOW_USERHOST}%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
 # PS1='%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
 # Configure vcs_info format
 zstyle ':vcs_info:git:*' formats '(%b)'
