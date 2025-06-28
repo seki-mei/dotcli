@@ -200,5 +200,5 @@ elif [[ "$parent_process" == "yakuake" ]]; then
 # elif [[ "$parent_process" == *termux* ]]; then
 # termux parent process: 569XZhilms
 else
-	jp2a --colors --size=60x48 at5.png
+	jp2a --size=60x48 at5.png
 fi
