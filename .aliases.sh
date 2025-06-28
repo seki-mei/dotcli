@@ -7,6 +7,7 @@ alias gca="git commit --verbose --all"
 alias gp="git push"
 alias gcl="git clone"
 alias gl="git pull"
+alias gpl="git pull"
 alias gd="git difftool --no-prompt"
 alias gm="git mergetool --no-prompt"
 
