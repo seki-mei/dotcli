@@ -54,7 +54,7 @@ fi
 PS1='${SHOW_USERHOST}%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
 # PS1='%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
 # Configure vcs_info format
-zstyle ':vcs_info:git:*' formats '(%b)'
+zstyle ':vcs_info:git:*' formats '%b'
 
 # ===== vim =====
 # download & source
