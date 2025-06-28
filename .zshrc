@@ -45,7 +45,13 @@ autoload -Uz vcs_info
 # Call vcs_info before each prompt
 precmd() { vcs_info }
 # Customize prompt
-PS1='%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
+if [[ $USER != $DEFAULT_USER ]]; then
+	SHOW_USERHOST="%F{yellow}%n@%m%f "
+else
+	SHOW_USERHOST=""
+fi
+PS1='${SHOW_USERHOST}%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
+# PS1='%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
 # Configure vcs_info format
 zstyle ':vcs_info:git:*' formats '(%b)'
 
