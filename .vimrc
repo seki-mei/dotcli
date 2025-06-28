@@ -202,7 +202,12 @@ nnoremap <C-BS>       db
  noremap <Del>        x
 nnoremap <C-Del>      dw
 inoremap <C-Del>      <C-o>dw
-nnoremap <C-y>        :%y+<CR>
+
+if empty($TERMUX_VERSION)
+  " only remap if not termux
+	nnoremap <C-y>        :%y+<CR>
+endif
+
  noremap <C-x>        "+d
  noremap <C-v>        "+p
 " default behaviour: insert tab char
