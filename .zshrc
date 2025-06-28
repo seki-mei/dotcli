@@ -195,8 +195,10 @@ if [[ "$parent_process" == "konsole" ]]; then
 	ZSH_END_TIME=$(date +%s%N)
 	elapsed=$(( (ZSH_END_TIME - ZSH_START_TIME) / 1000000 ))
 	echo "$elapsed ms"
-elif [[ "$parent_process" == *termux* ]]; then
-	jp2a at5.png
-else
+elif [[ "$parent_process" == "yakuake" ]]; then
 	cbonsai -p
+# elif [[ "$parent_process" == *termux* ]]; then
+# termux parent process: 569XZhilms
+else
+	jp2a at5.png
 fi
