@@ -11,6 +11,9 @@ alias gpl="git pull"
 alias gd="git difftool --no-prompt"
 alias gm="git mergetool --no-prompt"
 
+alias gcdot="git -C ~/settings/home commit --all"
+alias gpdot="git -C ~/settings/home push"
+
 # ssh
 alias phonessh="ssh u0_a317@192.168.2.103 -p 8022"
 alias phonsftp="sftp -P 8022 u0_a317@192.168.2.103"

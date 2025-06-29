@@ -132,7 +132,37 @@ function! HKOpen(...) abort
   execute '!vim +"/' . pattern . '" "$HOME/Obsidian/Info/Hotkeys.md"'
 endfunction
 
-
+" open url under cursor
+function! OpenURLUnderCursor()
+	let line = getline('.')
+	let col = col('.') - 1
+	" Regex for a very liberal URL match
+	let url_pattern = 'https\?://[^ \t\n\r<>"''(){}\[\]]\+'
+	" Look for all matches on the line
+	let urls = []
+	let pos = 0
+	while pos >= 0 && pos < len(line)
+		let match = matchstrpos(line, url_pattern, pos)
+		if empty(match) || match[1] == -1
+			break
+		endif
+		call add(urls, match)
+		let pos = match[1] + len(match[0])
+	endwhile
+	" Look for match that includes the cursor
+	for match in urls
+		let [url, start] = [match[0], match[1]]
+		let end = start + len(url)
+		if col >= start && col < end
+			redraw!
+			call system('firefox ' . shellescape(url) . ' &')
+			redraw!
+			return
+		endif
+	endfor
+	echo "No URL found under cursor"
+endfunction
+nnoremap <silent> Xu :call OpenURLUnderCursor()<CR>
 
 "   === :DiffSaved ===
 function! s:DiffWithSaved()
