@@ -114,18 +114,18 @@ set timeoutlen=500
 set ttimeoutlen=0
 
 " ===== commands =====
-:command WS StripWhitespace
-:command WSC StripWhitespaceOnChangedLines
-:command Q q!
+:command! WS StripWhitespace
+:command! WSC StripWhitespaceOnChangedLines
+:command! Q q!
 
 " nnoremap Xhk :!vim +"/vim" "$HOME/Obsidian/Info/Hotkeys.md"<CR>
 nnoremap Xh :!vim "$HOME/Obsidian/Info/Hotkeys.md"<CR>
-:command VRC !vim $HOME/.vimrc
-:command S !vim $HOME/Obsidian/Sketchpad.md
+:command! VRC !vim $HOME/.vimrc
+:command! S !vim $HOME/Obsidian/Sketchpad.md
 " :command -nargs=1 HK execute '!vim +"/' . escape(<q-args>, '\/.*$^~[]#') . '" "$HOME/Obsidian/Info/Hotkeys.md"'
 
 " open hotkeys file with /arg. If no arg given, search for /# vim
-:command -nargs=? HK call HKOpen(<f-args>)
+:command! -nargs=? HK call HKOpen(<f-args>)
 function! HKOpen(...) abort
   let pattern = a:0 > 0 ? a:1 : '# vim'
   let pattern = escape(pattern, '\/.*#$^~[]')
@@ -186,8 +186,7 @@ nmap yz               <Plug>Ysurround
 " surround line
 nmap yzz              <Plug>Yssurround
 " surround selection
-" doesn't work?
-vmap M                <plug>VSurround
+vmap Y                <plug>VSurround
 " delete delimiter
 nmap dz               <Plug>Dsurround
 " replace delimiters
@@ -224,7 +223,7 @@ nnoremap <C-H>        db
  noremap <C-End>      Gzz
 
 " OBSIDIAN_VIMRC_START
- noremap Y            y$
+nnoremap Y            y$
  noremap Z            <C-r>
 
  noremap <BS>         X
