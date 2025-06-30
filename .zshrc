@@ -39,7 +39,7 @@ plug() {
 
 setopt promptsubst # needed by prompt
 # plug "agnoster/agnoster-zsh-theme"
-plug "zsh-users/zsh-syntax-highlighting"
+# warning! zsh-syntax-highlighting should be loaded at the end of the file!
 
 # ===== prompt line =====
 autoload -Uz vcs_info
@@ -187,6 +187,8 @@ sudo() {  # block `sudo vim`
 # source aliases
 source $HOME/.aliases.sh
 
+
+plug "zsh-users/zsh-syntax-highlighting"
 
 parent_process=$(ps -p $PPID -o comm=)
 if [[ "$parent_process" == "konsole" ]]; then
