@@ -13,6 +13,8 @@ alias gm="git mergetool --no-prompt"
 
 alias dotgc="git -C ~/settings/home commit --all"
 alias dotgp="git -C ~/settings/home push"
+alias dotgp="git -C ~/settings/home push"
+alias dotgd="git -C ~/settings/home difftool --no-prompt"
 
 # ssh
 alias phonessh="ssh u0_a317@192.168.2.103 -p 8022"

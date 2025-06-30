@@ -308,8 +308,8 @@ nnoremap [d           mc<Up>0D`c
 nnoremap ]d           mc<Down>0D`c
 
 " ===== autocomplete =====
-inoremap <Up>         <C-P>
-inoremap <Down>       <C-N>
+" inoremap <Up>         <C-P>
+" inoremap <Down>       <C-N>
 " inoremap <S-Tab>      <C-P>
 " inoremap <Tab>        <C-N>
 
