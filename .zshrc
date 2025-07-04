@@ -38,7 +38,6 @@ plug() {
 # ===== plugins =====
 
 setopt promptsubst # needed by prompt
-# plug "agnoster/agnoster-zsh-theme"
 # warning! zsh-syntax-highlighting should be loaded at the end of the file!
 
 # ===== prompt line =====
@@ -183,6 +182,12 @@ sudo() {  # block `sudo vim`
 	fi
 	command sudo "$@"
 }
+
+# fzf
+function f() {
+    vim "$(find -type f | fzf --multi --algo=v1 --height 30%)"
+}
+
 
 # source aliases
 source $HOME/.aliases.sh
