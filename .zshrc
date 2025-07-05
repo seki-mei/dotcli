@@ -6,7 +6,7 @@ DEFAULT_HOST="cheshire"
 export EDITOR=vim
 export ZDOTDIR=$HOME/.zsh
 export PLUGINDIR="$ZDOTDIR/zsh_plugins"
-export HISTFILE="$ZDOTDIR/zsh_history" # Location of the history file.
+export HISTFILE="$ZDOTDIR/zsh_history"
 export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdir -p "$CACHE_DIR"
 
@@ -114,8 +114,11 @@ bindkey -M visual k vi-down-line-or-history
 bindkey -M visual j vi-backward-char
 
 # obj
+bindkey -M visual aW select-a-blank-word
+bindkey -M visual aa select-a-shell-word #select argument
+bindkey -M visual aw select-a-word
 bindkey -M visual hW select-in-blank-word
-bindkey -M visual ha select-in-shell-word
+bindkey -M visual ha select-in-shell-word #select argument
 bindkey -M visual hw select-in-word
 
 # normal mode bindings
@@ -126,6 +129,16 @@ bindkey -M vicmd '\e[3;5~' kill-word
 # ctrl-arrows forward/backward
 bindkey -M vicmd  "^[[1;5C" forward-word
 bindkey -M vicmd "^[[1;5D" backward-word
+
+# surround
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -M vicmd cz change-surround
+bindkey -M vicmd dz delete-surround
+bindkey -M vicmd yz add-surround
+bindkey -M visual Y add-surround
 
 # ===== completions =====
 autoload -U compinit
@@ -204,8 +217,6 @@ if [[ "$parent_process" == "konsole" ]]; then
 	echo "$elapsed ms"
 elif [[ "$parent_process" == "yakuake" ]]; then
 	cbonsai -p
-# elif [[ "$parent_process" == *termux* ]]; then
-# termux parent process: 569XZhilms
 else
 	jp2a --size=60x48 .at.png
 fi
