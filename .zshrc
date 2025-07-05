@@ -103,10 +103,6 @@ bindkey -M vicmd i vi-up-line-or-history
 bindkey -M vicmd k vi-down-line-or-history
 bindkey -M vicmd j vi-backward-char
 
-bindkey -M vicmd hW select-in-blank-word
-bindkey -M vicmd ha select-in-shell-word
-bindkey -M vicmd hw select-in-word
-
 # visual mode
 bindkey -M visual h vi-insert
 bindkey -M visual i vi-up-line-or-history
@@ -114,9 +110,9 @@ bindkey -M visual k vi-down-line-or-history
 bindkey -M visual j vi-backward-char
 
 # obj
-bindkey -M visual aW select-a-blank-word
-bindkey -M visual aa select-a-shell-word #select argument
-bindkey -M visual aw select-a-word
+bindkey -M vicmd hW select-in-blank-word
+bindkey -M vicmd ha select-in-shell-word
+bindkey -M vicmd hw select-in-word
 bindkey -M visual hW select-in-blank-word
 bindkey -M visual ha select-in-shell-word #select argument
 bindkey -M visual hw select-in-word
@@ -135,6 +131,7 @@ autoload -Uz surround
 zle -N delete-surround surround
 zle -N add-surround surround
 zle -N change-surround surround
+# key sequences not working?
 bindkey -M vicmd cz change-surround
 bindkey -M vicmd dz delete-surround
 bindkey -M vicmd yz add-surround
