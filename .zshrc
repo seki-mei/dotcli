@@ -193,9 +193,8 @@ sudo() {  # block `sudo vim`
 	command sudo "$@"
 }
 
-# fzf
-
-
+#===== fzf
+# load fzf
 autoload -Uz is-at-least
 fzf_version=$(fzf --version | awk '{print $1}')
 if is-at-least 0.48.0 $fzf_version; then
@@ -207,6 +206,9 @@ else
 	source "$fzf_plug_dir/completion.zsh"
 fi
 
+# alt-c: cd into dir, tree preview
+export FZF_ALT_C_OPTS=" --preview 'tree -C {}'"
+
 
 export FZF_DEFAULT_OPTS='--multi --height 50% --scroll-off=999 --border=double --info=inline-right --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:yellow,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta'
 # fzf
@@ -214,15 +216,17 @@ function f() {
     vim "$(find -type f | fzf --algo=v1)"
 }
 
-#===
-# Define widget to run fzf
-fzf-widget() {
-  BUFFER+="$(fzf)"
-}
-zle -N fzf-widget
-bindkey '^@' fzf-widget
-#===
+bindkey -M emacs '^@' fzf-file-widget
+bindkey -M vicmd '^@' fzf-file-widget
+bindkey -M viins '^@' fzf-file-widget
 
+bindkey -M emacs '^[ ' fzf-cd-widget
+bindkey -M vicmd '^[ ' fzf-cd-widget
+bindkey -M viins '^[ ' fzf-cd-widget
+
+bindkey -M emacs '^[^@' fzf-history-widget
+bindkey -M vicmd '^[^@' fzf-history-widget
+bindkey -M viins '^[^@' fzf-history-widget
 
 # source aliases
 source $HOME/.aliases.sh
