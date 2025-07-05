@@ -193,9 +193,10 @@ sudo() {  # block `sudo vim`
 	command sudo "$@"
 }
 
+export FZF_DEFAULT_OPTS='--multi --height 50% --scroll-off=999 --border=double --info=inline-right --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:yellow,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta'
 # fzf
 function f() {
-    vim "$(find -type f | fzf --multi --algo=v1 --height 30%)"
+    vim "$(find -type f | fzf --algo=v1)"
 }
 
 
