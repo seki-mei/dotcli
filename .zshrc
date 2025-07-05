@@ -37,11 +37,10 @@ plug() {
 }
 
 # ===== plugins =====
-
-setopt promptsubst # needed by prompt
 # warning! zsh-syntax-highlighting should be loaded at the end of the file!
 
 # ===== prompt line =====
+setopt promptsubst # needed by prompt
 autoload -Uz vcs_info
 # Call vcs_info before each prompt
 precmd() { vcs_info }
