@@ -193,11 +193,35 @@ sudo() {  # block `sudo vim`
 	command sudo "$@"
 }
 
+# fzf
+
+
+autoload -Uz is-at-least
+fzf_version=$(fzf --version | awk '{print $1}')
+if is-at-least 0.48.0 $fzf_version; then
+	source <(fzf --zsh)
+else
+	fzf_plug_dir="/usr/share/doc/fzf/examples"
+	# Source fallback integration
+	source "$fzf_plug_dir/key-bindings.zsh"
+	source "$fzf_plug_dir/completion.zsh"
+fi
+
+
 export FZF_DEFAULT_OPTS='--multi --height 50% --scroll-off=999 --border=double --info=inline-right --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:yellow,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta'
 # fzf
 function f() {
     vim "$(find -type f | fzf --algo=v1)"
 }
+
+#===
+# Define widget to run fzf
+fzf-widget() {
+  BUFFER+="$(fzf)"
+}
+zle -N fzf-widget
+bindkey '^@' fzf-widget
+#===
 
 
 # source aliases
