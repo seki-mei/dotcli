@@ -21,10 +21,6 @@ alias dotgd="git -C ~/settings/home difftool --no-prompt"
 
 alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
 
-# ssh
-alias phonessh="ssh u0_a317@192.168.2.103 -p 8022"
-alias phonsftp="sftp -P 8022 u0_a317@192.168.2.103"
-
 # misc
 alias v='vim'
 alias sv='sudoedit'
