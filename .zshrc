@@ -206,12 +206,16 @@ else
 	source "$fzf_plug_dir/completion.zsh"
 fi
 
+# tenporary hack to make dotfiles show up
+export FZF_CTRL_T_COMMAND='find . -type f \( ! -path "*/.git/*" \)'
+export FZF_ALT_C_COMMAND='find . -type d \( ! -path "*/.git/*" \)'
+
 # alt-c: cd into dir, tree preview
 export FZF_ALT_C_OPTS=" --preview 'tree -C {}'"
 
 
 export FZF_DEFAULT_OPTS='--multi --height 50% --scroll-off=999 --border=double --info=inline-right --marker="● " --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:white,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta'
-# fzf
+
 function f() {
     vim "$(find -type f | fzf --algo=v1)"
 }
