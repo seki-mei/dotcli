@@ -143,12 +143,17 @@ else
 	source "$fzf_plug_dir/completion.zsh"
 fi
 
-# temporary fix to make . show up
-export FZF_CTRL_T_COMMAND='find . -type f \( ! -path "*/.git/*" \)'
-export FZF_ALT_C_COMMAND='find . -type d \( ! -path "*/.git/*" \)'
-# alt-c: cd into dir, tree preview
-export FZF_ALT_C_OPTS=" --preview 'tree -C {}'"
+if command -v fd >/dev/null; then
+	export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"'
+	export FZF_CTRL_T_COMMAND='fd --type file --hidden --exclude ".git"'
+	export FZF_ALT_C_COMMAND='fd --type directory --hidden --exclude ".git"'
+else
+	export FZF_DEFAULT_COMMAND='find . \( ! -path "*/.git/*" \)'
+	export FZF_CTRL_T_COMMAND='find . -type f \( ! -path "*/.git/*" \)'
+	export FZF_ALT_C_COMMAND='find . -type d \( ! -path "*/.git/*" \)'
+fi
 
+export FZF_ALT_C_OPTS=" --preview 'tree -C {}'"
 export FZF_DEFAULT_OPTS='--multi --height 50% --scroll-off=999 --border=double --reverse --info=inline-right --marker="● " --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:white,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta'
 
 bindkey -M emacs '^@' fzf-file-widget
