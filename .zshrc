@@ -9,13 +9,13 @@ export PLUGINDIR="$ZDOTDIR/zsh_plugins"
 export HISTFILE="$ZDOTDIR/zsh_history"
 export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
-mkdir -p "$PLUGINDIR"
 if [ "$HOST" = "cheshire" ]; then
 	export MANPAGER="vim -M +MANPAGER -"
 elif [ "$HOST" = "localhost" ]; then
 	export MANPAGER="vim -M +MANPAGER"
 fi
 
+mkdir -p "$PLUGINDIR"
 mkdir -p "$CACHE_DIR"
 
 # ===== prompt line =====
