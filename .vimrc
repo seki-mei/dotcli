@@ -167,7 +167,7 @@ endfunction
 nnoremap <silent> Xu :call OpenURLUnderCursor()<CR>
 
 " fzf
-nnoremap <space>f :!xdg-open $(fzf --preview="bat --color=always --plain {}")<CR>
+nnoremap <space>f :!xdg-open $(fzf --no-multi --preview="bat --color=always --plain {}")<CR>
 
 "   === :DiffSaved ===
 function! s:DiffWithSaved()
