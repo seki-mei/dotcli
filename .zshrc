@@ -9,6 +9,7 @@ export PLUGINDIR="$ZDOTDIR/zsh_plugins"
 export HISTFILE="$ZDOTDIR/zsh_history"
 export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
+mkdir -p "$PLUGINDIR"
 if [ "$HOST" = "cheshire" ]; then
 	export MANPAGER="vim -M +MANPAGER -"
 elif [ "$HOST" = "localhost" ]; then
@@ -16,34 +17,6 @@ elif [ "$HOST" = "localhost" ]; then
 fi
 
 mkdir -p "$CACHE_DIR"
-
-# ===== plugin management =====
-plug() {
-	PLUGIN_NAME="${1#*/}"
-	mkdir -p "$PLUGINDIR"
-	if [ ! -d "$PLUGINDIR/$PLUGIN_NAME" ]; then
-		git clone "https://github.com/$1.git" "$PLUGINDIR/$PLUGIN_NAME"
-	fi
-	local base="$PLUGINDIR/$PLUGIN_NAME"
-	if [ -f "$base/$PLUGIN_NAME.plugin.zsh" ]; then
-		source "$base/$PLUGIN_NAME.plugin.zsh"
-		return
-	fi
-	local theme_file
-	theme_file=$(find "$base" -maxdepth 1 -name '*.zsh-theme' | head -n 1)
-	if [ -n "$theme_file" ]; then
-		source "$theme_file"
-		return
-	fi
-	if [ -f "$base/$PLUGIN_NAME" ]; then
-		source "$base/$PLUGIN_NAME"
-		return
-	fi
-	echo "Plugin $PLUGIN_NAME not found in expected format." >&2
-}
-
-# ===== plugins =====
-# warning! zsh-syntax-highlighting should be loaded at the end of the file!
 
 # ===== prompt line =====
 setopt promptsubst # needed by prompt
@@ -232,8 +205,11 @@ bindkey -M viins '^[^@' fzf-history-widget
 # source aliases
 source $HOME/.aliases.sh
 
-
-plug "zsh-users/zsh-syntax-highlighting"
+ZSHHL="$PLUGINDIR/zsh-syntax-highlighting"
+if [ ! -d "$ZSHHL" ]; then
+	git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$ZHSHL"
+fi
+source "$ZSHHL/zsh-syntax-highlighting.plugin.zsh"
 
 parent_process=$(ps -p $PPID -o comm=)
 if [[ "$parent_process" == "konsole" ]]; then
