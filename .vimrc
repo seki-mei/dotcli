@@ -166,6 +166,9 @@ function! OpenURLUnderCursor()
 endfunction
 nnoremap <silent> Xu :call OpenURLUnderCursor()<CR>
 
+" fzf
+nnoremap <space>f :!xdg-open $(fzf --preview="bat --color=always --plain {}")<CR>
+
 "   === :DiffSaved ===
 function! s:DiffWithSaved()
 	let filetype=&ft
