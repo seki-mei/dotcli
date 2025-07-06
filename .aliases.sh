@@ -17,13 +17,6 @@ alias gplr="git pull --rebase"
 alias gd="git difftool --no-prompt"
 alias gm="git mergetool --no-prompt"
 
-alias dotgc="git -C ~/settings/home commit"
-alias dotgca="git -C ~/settings/home commit --all"
-alias dotgcp="git -C ~/settings/home commit --patch"
-alias dotgp="git -C ~/settings/home push"
-alias dotgp="git -C ~/settings/home push"
-alias dotgd="git -C ~/settings/home difftool --no-prompt"
-
 alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
 
 # misc
