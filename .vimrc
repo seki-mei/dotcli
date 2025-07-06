@@ -12,8 +12,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " ===== theme =====
