@@ -18,7 +18,7 @@ fi
 mkdir -p "$PLUGINDIR"
 mkdir -p "$CACHE_DIR"
 
-# ===== prompt line =====
+# ===== prompt line
 setopt promptsubst # needed by prompt
 autoload -Uz vcs_info
 # Call vcs_info before each prompt
@@ -34,7 +34,7 @@ PS1='${SHOW_USERHOST}%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{
 # Configure vcs_info format
 zstyle ':vcs_info:git:*' formats '%b'
 
-# ===== vim =====
+#===== vim
 # download & source
 VIMODEPLUGDIR="$PLUGINDIR/vi-mode"
 VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin.zsh"
@@ -74,7 +74,6 @@ KEYTIMEOUT=1
 # zle -N zle-line-init
 
 # https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
-
 #normal mode
 bindkey -M vicmd '^?' backward-delete-char
 bindkey -M vicmd h vi-insert
@@ -116,32 +115,7 @@ bindkey -M vicmd dz delete-surround
 bindkey -M vicmd yz add-surround
 bindkey -M visual Y add-surround
 
-# ===== completions =====
-autoload -U compinit
-compinit -C
-# arrow key menu for completions
-zstyle ':completion:*' menu select
-# case-insensitive (all),partial-word and then substring completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-# colorize completions using default `ls` colors
-zstyle ':completion:*' list-colors ''
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-# complete . and .. special directories
-zstyle ':completion:*' special-dirs true
-# automatically load bash completion functions
-autoload -U +X bashcompinit && bashcompinit
-# Enable completion for files starting with an underscore
-zstyle ':completion:*' special-dirs true
-zstyle ':completion:*' file-patterns '*'
-
-# ===== history =====
-HISTSIZE=50000          # Maximum number of commands in the history.
-SAVEHIST=10000          # Number of commands to save between sessions.
-setopt share_history    # Share history between sessions.
-setopt histignoredups
-setopt HIST_VERIFY      # expand !! instead of running it
-
-# ===== key mappings =====
+#===== key mappings
 # ctrl motion stops at / and -
 autoload -U select-word-style
 select-word-style bash
@@ -155,14 +129,6 @@ bindkey -M viins "^[[Z" reverse-menu-complete
 # ctrl-arrows forward/backward
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
-
-sudo() {  # block `sudo vim`
-	if [[ "$1" == "vim" ]]; then
-		echo "🚫 Stop. Use 'sudoedit' or 'se'." >&2
-		return 1
-	fi
-	command sudo "$@"
-}
 
 #===== fzf
 # load fzf
@@ -183,12 +149,7 @@ export FZF_ALT_C_COMMAND='find . -type d \( ! -path "*/.git/*" \)'
 # alt-c: cd into dir, tree preview
 export FZF_ALT_C_OPTS=" --preview 'tree -C {}'"
 
-
 export FZF_DEFAULT_OPTS='--multi --height 50% --scroll-off=999 --border=double --reverse --info=inline-right --marker="● " --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:white,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta'
-# fzf
-function f() {
-    vim "$(find -type f | fzf --algo=v1)"
-}
 
 bindkey -M emacs '^@' fzf-file-widget
 bindkey -M vicmd '^@' fzf-file-widget
@@ -202,15 +163,52 @@ bindkey -M emacs '^[^@' fzf-history-widget
 bindkey -M vicmd '^[^@' fzf-history-widget
 bindkey -M viins '^[^@' fzf-history-widget
 
+#===== completions
+autoload -U compinit
+compinit -C
+# arrow key menu for completions
+zstyle ':completion:*' menu select
+# case-insensitive (all),partial-word and then substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# colorize completions using default `ls` colors
+zstyle ':completion:*' list-colors ''
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# complete . and .. special directories
+zstyle ':completion:*' special-dirs true
+# automatically load bash completion functions
+autoload -U +X bashcompinit && bashcompinit
+# Enable completion for files starting with an underscore
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' file-patterns '*'
+
+#===== history
+HISTSIZE=50000          # Maximum number of commands in the history.
+SAVEHIST=10000          # Number of commands to save between sessions.
+setopt share_history    # Share history between sessions.
+setopt histignoredups
+setopt HIST_VERIFY      # expand !! instead of running it
+
+#===== custom commands and aliases
+sudo() {  # block `sudo vim`
+	if [[ "$1" == "vim" ]]; then
+		echo "🚫 Stop. Use 'sudoedit' or 'se'." >&2
+		return 1
+	fi
+	command sudo "$@"
+}
+
 # source aliases
 source $HOME/.aliases.sh
 
+#===== end of setup
+# zsh-syntax-highlighting
 ZSHHL="$PLUGINDIR/zsh-syntax-highlighting"
 if [ ! -d "$ZSHHL" ]; then
 	git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$ZHSHL"
 fi
 source "$ZSHHL/zsh-syntax-highlighting.plugin.zsh"
 
+# banner and timer
 parent_process=$(ps -p $PPID -o comm=)
 if [[ "$parent_process" == "konsole" ]]; then
 	sleep 0.2 # give krohnkite time to tile the terminal
