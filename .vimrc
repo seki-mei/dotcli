@@ -1,10 +1,10 @@
 call plug#begin()
-" == Visual ==
+" == visual
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-cursorword'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
-" == Other ==
+" == other
 Plug 'justinmk/vim-sneak'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
@@ -14,49 +14,49 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
-" ===== theme =====
+" ===== theme
 colorscheme gruvbox
 set termguicolors
 syntax enable
 set background=dark
 
-" ===== plugins =====
-"   === vim-highlightedyank ===
+" ===== plugins
+"   === vim-highlightedyank
 let g:highlightedyank_highlight_in_visual = 0
-"   === vim-sneak ===
+"   === vim-sneak
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#map_netrw = 1
 let g:sneak#prompt = '🐍'
-"   === vim-surround ===
+"   === vim-surround
 let g:surround_no_mappings = 1
 
-" ===== vim only =====
+" ===== vim only
 if !has('nvim')
-	" ===== gvim =====
+	" ===== gvim
 	set guioptions-=T    " remove toolbar
 	set guioptions-=m    " remove menu bar
 	set guioptions-=r    " remove scrollbar
 
-	" ===== cursor shapes =====
+	" ===== cursor shapes
 	let &t_EI = "\e[2 q" " n mode - block
 	let &t_SI = "\e[6 q" " i mode - vertical bar
 	let &t_SR = "\e[4 q" " r mode - underline
 endif
 
-" ===== cursor =====
+" ===== cursor
 set scrolloff=999
 
-" ===== search =====
+" ===== search
 set incsearch
 set ignorecase
 set smartcase "ignore case unless search query contains uppercase letter
 set nohlsearch
 
-" ===== completion =====
+" ===== completion
 set ofu=syntaxcomplete#Complete "enable completion
 set wildmenu "completion menu for `:`
 
-" ===== indent =====
+" ===== indent
 set noexpandtab
 set shiftwidth=0
 set tabstop=2
@@ -64,7 +64,7 @@ set list
 set listchars=tab:••\|
 set showbreak=↪↪↪↪
 
-" ===== statusline =====
+" ===== statusline
 set noshowmode
 set shortmess+=F
 set noruler
@@ -98,7 +98,7 @@ function! UpdateStatuslineHighlight()
 	endif
 endfunction
 
-" ===== other =====
+" ===== other
 " prevent autoinsert of comments on new lines
 autocmd FileType * set formatoptions-=cro
 " use arrow key and backspace across newlines
@@ -107,13 +107,13 @@ set whichwrap=bs<>[]
 set nobackup
 set directory=/var/tmp,/tmp,~/.vim/swap
 
-" ===== fixes =====
+" ===== fixes
 " fix slow exit from insert/visual mode
 set timeoutlen=500
 " fix slow exit from insert/visual mode. Setting -1 didn't work
 set ttimeoutlen=0
 
-" ===== commands =====
+" ===== commands
 :command! WS StripWhitespace
 :command! WSC StripWhitespaceOnChangedLines
 :command! Q q!
@@ -167,7 +167,7 @@ nnoremap <silent> Xu :call OpenURLUnderCursor()<CR>
 " fzf
 nnoremap <space>f :!xdg-open $(fzf --no-multi --preview="bat --color=always --plain {}")<CR>
 
-"   === :DiffSaved ===
+"   === :DiffSaved
 function! s:DiffWithSaved()
 	let filetype=&ft
 	diffthis
@@ -177,7 +177,7 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
-" ===== keybinds =====
+" ===== keybinds
 map s                 <Plug>Sneak_s
 map S                 <Plug>Sneak_S
 map '                 <Plug>Sneak_;
@@ -310,13 +310,13 @@ nnoremap ]p           mc<Down>Vp`c
 nnoremap [d           mc<Up>0D`c
 nnoremap ]d           mc<Down>0D`c
 
-" ===== autocomplete =====
+" ===== autocomplete
 " inoremap <Up>         <C-P>
 " inoremap <Down>       <C-N>
 " inoremap <S-Tab>      <C-P>
 " inoremap <Tab>        <C-N>
 
-" === CTRL ===
+" === CTRL
 noremap x             <Nop>
 let keys = 'abcdefghijklmnopqrstuvwxyz'
 for i in split(keys, '\zs')
