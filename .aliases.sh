@@ -26,6 +26,7 @@ alias ai='aichat -e'
 alias rm="rm -I"
 alias py3="python3"
 alias pyt="python3"
+alias gg="cd"
 
 alias zrc='vim $HOME/.zshrc'
 alias brc 'vim $HOME/.bashrc'
