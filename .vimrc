@@ -11,7 +11,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " ===== theme
@@ -304,12 +303,6 @@ nnoremap ]p           mc<Down>Vp`c
 " erase contents of line above/below
 nnoremap [d           mc<Up>0D`c
 nnoremap ]d           mc<Down>0D`c
-
-" ===== autocomplete
-" inoremap <Up>         <C-P>
-" inoremap <Down>       <C-N>
-" inoremap <S-Tab>      <C-P>
-" inoremap <Tab>        <C-N>
 
 noremap L              <C-w>
 noremap XQ             ZQ
