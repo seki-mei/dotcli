@@ -311,13 +311,6 @@ nnoremap ]d           mc<Down>0D`c
 " inoremap <S-Tab>      <C-P>
 " inoremap <Tab>        <C-N>
 
-" " === CTRL
-" noremap x             <Nop>
-" let keys = 'abcdefghijklmnopqrstuvwxyz'
-" for i in split(keys, '\zs')
-" 	execute 'nnoremap x' . i . ' <C-' . i . '>'
-" endfor
-
 noremap L              <C-w>
 noremap XQ             ZQ
 noremap XX             ZZ
