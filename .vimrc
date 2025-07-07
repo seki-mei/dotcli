@@ -168,6 +168,9 @@ inoremap <Esc><Space>  <Esc>:
  noremap <C-z>        u
 inoremap <C-z>        <C-o>u
  noremap <C-c>        "+y
+" there are issues when trying to paste large amounts of text with "+p as a keybind
+nnoremap <C-v>        a<c-r>+
+vnoremap <C-v>        c<C-r>+
 inoremap <C-v>        <C-r>+
  noremap <C-s>        <Esc>:up<CR>
 inoremap <C-s>        <Esc>:up<CR>
@@ -178,10 +181,12 @@ inoremap <C-H>        <c-w>
 nnoremap <C-H>        db
 
 execute "set <S-Tab>=\e[Z"
-" inoremap <Tab>        <Nop>
-" inoremap <S-Tab>      <Nop>
 inoremap <Tab>        <C-n>
 inoremap <S-Tab>      <C-p>
+
+if empty($TERMUX_VERSION)
+	nnoremap <C-y>        :%y+<CR>
+endif
 
 " keep line centered in edge cases
  autocmd CursorMoved * normal! zz
@@ -246,6 +251,9 @@ noremap -            <C-x>
 
 noremap x            "+
 nnoremap <space>v     <C-v>
+
+nnoremap gO moO<Esc>`o
+nnoremap go moo<Esc>`o
 " OBSIDIAN_VIMRC_END
 " insert-mode C-O doesn't work in obsidian
 inoremap <C-Del>      <C-O>dw
@@ -253,24 +261,6 @@ inoremap <C-j>        <C-O><C-Left>
 inoremap <C-l>        <C-O><C-Right>
 inoremap <Home>       <C-O>^
 inoremap <End>        <C-O>g_
-
-" sometimes there are issues when trying to paste large amounts of text with "+p as a keybind
-nnoremap <C-v>        a<c-r>+
-vnoremap <C-v>        c<C-r>+
-
-if empty($TERMUX_VERSION)
-	nnoremap <C-y>        :%y+<CR>
-endif
-
-" insert line above/below
-nnoremap [o           mcO<Esc>`c
-nnoremap ]o           mco<Esc>`c
-" overwrite line above/below with paste
-nnoremap [p           mc<Up>Vp`c
-nnoremap ]p           mc<Down>Vp`c
-" erase contents of line above/below
-nnoremap [d           mc<Up>0D`c
-nnoremap ]d           mc<Down>0D`c
 
 noremap L              <C-w>
 noremap XQ             ZQ
