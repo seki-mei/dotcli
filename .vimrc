@@ -296,6 +296,9 @@ inoremap <End>        <C-O>g_
 " insert space
 nnoremap [<space>     i<space><esc>l
 nnoremap ]<space>     a<space><esc>h
+
+nnoremap +            <C-a>
+nnoremap -            <C-x>
 " OBSIDIAN_VIMRC_END
 
 " DIFF_SEEK
