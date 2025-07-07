@@ -281,10 +281,6 @@ inoremap <Home>       <C-O>^
  noremap <End>        g_
 inoremap <End>        <C-O>g_
 
-" insert space
-nnoremap [<space>     i<space><esc>l
-nnoremap ]<space>     a<space><esc>h
-
  noremap +            <C-a>
  noremap -            <C-x>
 
