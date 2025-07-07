@@ -167,29 +167,30 @@ nnoremap <silent> <space>u :call OpenURLUnderCursor()<CR>
 nnoremap <space>f :silent !xdg-open "$(fzf --no-multi --preview='bat --color=always --plain {}')"<CR>:redraw!<CR>
 
 " ===== keybinds
-map s                 <Plug>Sneak_s
-map S                 <Plug>Sneak_S
-map '                 <Plug>Sneak_;
-map ,                 <Plug>Sneak_,
-map ;                 <Plug>Sneak_,
+map s                  <Plug>Sneak_s
+map S                  <Plug>Sneak_S
+map '                  <Plug>Sneak_;
+map ,                  <Plug>Sneak_,
+map ;                  <Plug>Sneak_,
 
 " surround text object (e.g. hw, hW, a{, hp)
-nmap yz               <Plug>Ysurround
+nmap yz                <Plug>Ysurround
 " surround line
-nmap yzz              <Plug>Yssurround
+nmap yzz               <Plug>Yssurround
 " surround selection
-vmap Y                <plug>VSurround
+vmap Y                 <plug>VSurround
 " delete delimiter
-nmap dz               <Plug>Dsurround
+nmap dz                <Plug>Dsurround
 " replace delimiters
-nmap cz               <Plug>Csurround
+nmap cz                <Plug>Csurround
 
-nnoremap Q            :q<CR>
-vnoremap Q            <Esc>:q<CR>
+nnoremap Q             :q<CR>
+vnoremap Q             <Esc>:q<CR>
 
 " map alt-space to `:`
-noremap <Esc><Space>  :
-noremap q<Space>      q:
+ noremap <Esc><Space>  :
+inoremap <Esc><Space>  <Esc>:
+ noremap q<Space>      q:
 
 " go back and forth in buffer history list (e.g. from gf)
    nmap <M-Left>      :bN<cr>
@@ -200,13 +201,8 @@ noremap q<Space>      q:
 inoremap <C-z>        <C-o>u
  noremap <C-c>        "+y
 inoremap <C-v>        <C-r>+
- noremap <C-s>        <Esc>:update<CR>
-inoremap <C-s>        <Esc>:update<CR>
-if empty($TERMUX_VERSION)
-	nnoremap <C-y>        :%y+<CR>
-endif
- noremap <C-x>        "+d
- noremap <C-v>        "+p
+ noremap <C-s>        <Esc>:up<CR>
+inoremap <C-s>        <Esc>:up<CR>
 
 " backspace
 inoremap <C-BS>       <c-o>db
@@ -227,40 +223,42 @@ inoremap <S-Tab>      <C-p>
 
 " OBSIDIAN_VIMRC_START
 nnoremap Y            y$
- noremap Z            <C-r>
+noremap Z            <C-r>
 
- noremap <BS>         X
+noremap <BS>         X
 nnoremap <C-BS>       db
- noremap <Del>        x
+noremap <Del>        x
 nnoremap <C-Del>      dw
 inoremap <C-Del>      <C-o>dw
 
- noremap j            h
- noremap h            i
- noremap gh           gi
-nnoremap g'           g;
- noremap H            I
+noremap <C-x>        "+d
 
- noremap i            gk
- noremap I            5gk
- noremap <PageUp>     5gk
+noremap j            h
+noremap h            i
+noremap gh           gi
+nnoremap g'           g;
+noremap H            I
+
+noremap i            gk
+noremap I            5gk
+noremap <PageUp>     5gk
 inoremap <PageUp>     <Nop>
- noremap k            gj
- noremap K            5gj
- noremap <PageDown>   5gj
+noremap k            gj
+noremap K            5gj
+noremap <PageDown>   5gj
 inoremap <PageDown>   <Nop>
 
 vnoremap <Up>         <Esc>
 inoremap <Up>         <Esc>
- noremap <S-Up>       <Nop>
+noremap <S-Up>       <Nop>
 inoremap <S-Up>       <Nop>
- noremap <S-PageUp>   <Nop>
+noremap <S-PageUp>   <Nop>
 inoremap <S-PageUp>   <Nop>
 vnoremap <Down>       <Esc>
 inoremap <Down>       <Esc>
- noremap <S-Down>     <Nop>
+noremap <S-Down>     <Nop>
 inoremap <S-Down>     <Nop>
- noremap <S-PageDown> <Nop>
+noremap <S-PageDown> <Nop>
 inoremap <S-PageDown> <Nop>
 
 nnoremap U            <Nop>
@@ -271,25 +269,31 @@ noremap <CR>          <Nop>
 noremap <Space>       <Nop>
 noremap <C-Space>     <Nop>
 
- noremap <C-j>        <C-Left>
+noremap <C-j>        <C-Left>
 inoremap <C-j>        <C-O><C-Left>
- noremap <C-l>        <C-Right>
+noremap <C-l>        <C-Right>
 inoremap <C-l>        <C-O><C-Right>
 
- noremap <Home>       ^
+noremap <Home>       ^
 inoremap <Home>       <C-O>^
- noremap <End>        g_
+noremap <End>        g_
 inoremap <End>        <C-O>g_
 
- noremap +            <C-a>
- noremap -            <C-x>
+noremap +            <C-a>
+noremap -            <C-x>
 
- noremap x            "+
+noremap x            "+
 nnoremap <space>v     <C-v>
 " OBSIDIAN_VIMRC_END
 
-" DIFF_SEEK
-"difference reason: obsidian ran into issue were marks would return to first char in line
+" sometimes there are issues when trying to paste large amounts of text with "+p as a keybind
+nnoremap <C-v>        a<c-r>+
+vnoremap <C-v>        c<C-r>+
+
+if empty($TERMUX_VERSION)
+	nnoremap <C-y>        :%y+<CR>
+endif
+
 " insert line above/below
 nnoremap [o           mcO<Esc>`c
 nnoremap ]o           mco<Esc>`c
