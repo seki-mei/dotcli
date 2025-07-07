@@ -239,23 +239,22 @@ noremap gh           gi
 nnoremap g'           g;
 noremap H            I
 
+inoremap <Up>         <Esc>gk
 noremap i            gk
 noremap I            5gk
 noremap <PageUp>     5gk
-inoremap <PageUp>     <Nop>
+inoremap <PageUp>     <Esc>5gk
+
+inoremap <Down>       <Esc>gj
 noremap k            gj
 noremap K            5gj
 noremap <PageDown>   5gj
-inoremap <PageDown>   <Nop>
+inoremap <PageDown>   <Esc>5gj
 
-vnoremap <Up>         <Esc>
-inoremap <Up>         <Esc>
 noremap <S-Up>       <Nop>
 inoremap <S-Up>       <Nop>
 noremap <S-PageUp>   <Nop>
 inoremap <S-PageUp>   <Nop>
-vnoremap <Down>       <Esc>
-inoremap <Down>       <Esc>
 noremap <S-Down>     <Nop>
 inoremap <S-Down>     <Nop>
 noremap <S-PageDown> <Nop>
