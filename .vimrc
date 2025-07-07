@@ -289,6 +289,7 @@ nnoremap ]<space>     a<space><esc>h
  noremap +            <C-a>
  noremap -            <C-x>
 
+ noremap x            "+
 nnoremap <space>v     <C-v>
 " OBSIDIAN_VIMRC_END
 
