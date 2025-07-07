@@ -114,23 +114,22 @@ set timeoutlen=500
 set ttimeoutlen=0
 
 " ===== commands
+:command! Q q!
 :command! WS StripWhitespace
 :command! WSC StripWhitespaceOnChangedLines
-:command! Q q!
-
-" nnoremap Xhk :!vim +"/vim" "$HOME/Obsidian/Info/Hotkeys.md"<CR>
-nnoremap Xh :!vim "$HOME/Obsidian/Info/Hotkeys.md"<CR>
 :command! VRC !vim $HOME/.vimrc
 :command! S !vim $HOME/Obsidian/Sketchpad.md
-" :command -nargs=1 HK execute '!vim +"/' . escape(<q-args>, '\/.*$^~[]#') . '" "$HOME/Obsidian/Info/Hotkeys.md"'
+nnoremap <F1> :silent !vim "$HOME/Obsidian/Info/Hotkeys.md"<CR>:redraw!<CR>
 
-" open hotkeys file with /arg. If no arg given, search for /# vim
-:command! -nargs=? HK call HKOpen(<f-args>)
-function! HKOpen(...) abort
-  let pattern = a:0 > 0 ? a:1 : '# vim'
-  let pattern = escape(pattern, '\/.*#$^~[]')
-  execute '!vim +"/' . pattern . '" "$HOME/Obsidian/Info/Hotkeys.md"'
+"   === :DiffSaved
+function! s:DiffWithSaved()
+	let filetype=&ft
+	diffthis
+	vnew | r # | normal! 1Gdd
+	diffthis
+	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
+com! DiffSaved call s:DiffWithSaved()
 
 " open url under cursor
 function! OpenURLUnderCursor()
@@ -162,20 +161,10 @@ function! OpenURLUnderCursor()
 	endfor
 	echo "No URL found under cursor"
 endfunction
-nnoremap <silent> Xu :call OpenURLUnderCursor()<CR>
+nnoremap <silent> <space>u :call OpenURLUnderCursor()<CR>
 
 " fzf
 nnoremap <space>f :silent !xdg-open "$(fzf --no-multi --preview='bat --color=always --plain {}')"<CR>:redraw!<CR>
-
-"   === :DiffSaved
-function! s:DiffWithSaved()
-	let filetype=&ft
-	diffthis
-	vnew | r # | normal! 1Gdd
-	diffthis
-	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
 
 " ===== keybinds
 map s                 <Plug>Sneak_s
@@ -297,8 +286,10 @@ inoremap <End>        <C-O>g_
 nnoremap [<space>     i<space><esc>l
 nnoremap ]<space>     a<space><esc>h
 
-nnoremap +            <C-a>
-nnoremap -            <C-x>
+ noremap +            <C-a>
+ noremap -            <C-x>
+
+nnoremap <space>v     <C-v>
 " OBSIDIAN_VIMRC_END
 
 " DIFF_SEEK
@@ -319,12 +310,12 @@ nnoremap ]d           mc<Down>0D`c
 " inoremap <S-Tab>      <C-P>
 " inoremap <Tab>        <C-N>
 
-" === CTRL
-noremap x             <Nop>
-let keys = 'abcdefghijklmnopqrstuvwxyz'
-for i in split(keys, '\zs')
-	execute 'noremap x' . i . ' <C-' . i . '>'
-endfor
+" " === CTRL
+" noremap x             <Nop>
+" let keys = 'abcdefghijklmnopqrstuvwxyz'
+" for i in split(keys, '\zs')
+" 	execute 'nnoremap x' . i . ' <C-' . i . '>'
+" endfor
 
 noremap L              <C-w>
 noremap XQ             ZQ
