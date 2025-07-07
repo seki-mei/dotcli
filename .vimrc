@@ -193,7 +193,7 @@ noremap q<Space>      q:
 " go back and forth in buffer history list (e.g. from gf)
    nmap <M-Left>      :bN<cr>
    nmap <M-Right>     :bn<cr>
-" normal bindings
+" stahdard bindings
 " C-z and C-S-z use the same key code, remaping C-S-z would overwrite C-z
  noremap <C-z>        u
 inoremap <C-z>        <C-o>u
@@ -201,11 +201,22 @@ inoremap <C-z>        <C-o>u
 inoremap <C-v>        <C-r>+
  noremap <C-s>        <Esc>:update<CR>
 inoremap <C-s>        <Esc>:update<CR>
+if empty($TERMUX_VERSION)
+	nnoremap <C-y>        :%y+<CR>
+endif
+ noremap <C-x>        "+d
+ noremap <C-v>        "+p
 
 " backspace
 inoremap <C-BS>       <c-o>db
 inoremap <C-H>        <c-w>
 nnoremap <C-H>        db
+
+execute "set <S-Tab>=\e[Z"
+" inoremap <Tab>        <Nop>
+" inoremap <S-Tab>      <Nop>
+inoremap <Tab>        <C-n>
+inoremap <S-Tab>      <C-p>
 
 " keep line centered in edge cases
  autocmd CursorMoved * normal! zz
@@ -222,18 +233,6 @@ nnoremap <C-BS>       db
  noremap <Del>        x
 nnoremap <C-Del>      dw
 inoremap <C-Del>      <C-o>dw
-
-if empty($TERMUX_VERSION)
-  " only remap if not termux
-	nnoremap <C-y>        :%y+<CR>
-endif
-
- noremap <C-x>        "+d
- noremap <C-v>        "+p
-" default behaviour: insert tab char
-" inoremap <Tab>        <Nop>
-execute "set <S-Tab>=\e[Z"
-inoremap <S-Tab>      <Nop>
 
  noremap j            h
  noremap h            i
