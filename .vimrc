@@ -69,7 +69,7 @@ set shortmess+=F
 set noruler
 set showcmd
 set laststatus=2
-" set statusline=%=%t\ %m%r
+
 function! ConditionalCwd()
 	let l:cwd = getcwd()
 	let l:home = expand('~')
@@ -79,7 +79,8 @@ function! ConditionalCwd()
 		return fnamemodify(l:cwd, ':~') . ' '
 	endif
 endfunction
-set statusline=%=%{FugitiveStatusline()}\ %{ConditionalCwd()}%t\ %m%r
+" set statusline=%=%{FugitiveStatusline()}\ %{ConditionalCwd()}%t\ %m%r
+set statusline=%=%{ConditionalCwd()}%t\ %m%r
 
 highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
