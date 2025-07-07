@@ -229,7 +229,6 @@ noremap <BS>         X
 nnoremap <C-BS>       db
 noremap <Del>        x
 nnoremap <C-Del>      dw
-inoremap <C-Del>      <C-o>dw
 
 noremap <C-x>        "+d
 
@@ -252,13 +251,13 @@ noremap <PageDown>   5gj
 inoremap <PageDown>   <Esc>5gj
 
 noremap <S-Up>       <Nop>
-inoremap <S-Up>       <Nop>
+inoremap <S-Up>       <Esc>
 noremap <S-PageUp>   <Nop>
-inoremap <S-PageUp>   <Nop>
+inoremap <S-PageUp>   <Esc>
 noremap <S-Down>     <Nop>
-inoremap <S-Down>     <Nop>
+inoremap <S-Down>     <Esc>
 noremap <S-PageDown> <Nop>
-inoremap <S-PageDown> <Nop>
+inoremap <S-PageDown> <Esc>
 
 nnoremap U            <Nop>
 nnoremap M            <Nop>
@@ -269,14 +268,10 @@ noremap <Space>       <Nop>
 noremap <C-Space>     <Nop>
 
 noremap <C-j>        <C-Left>
-inoremap <C-j>        <C-O><C-Left>
 noremap <C-l>        <C-Right>
-inoremap <C-l>        <C-O><C-Right>
 
 noremap <Home>       ^
-inoremap <Home>       <C-O>^
 noremap <End>        g_
-inoremap <End>        <C-O>g_
 
 noremap +            <C-a>
 noremap -            <C-x>
@@ -284,6 +279,12 @@ noremap -            <C-x>
 noremap x            "+
 nnoremap <space>v     <C-v>
 " OBSIDIAN_VIMRC_END
+" insert-mode C-O doesn't work in obsidian
+inoremap <C-Del>      <C-O>dw
+inoremap <C-j>        <C-O><C-Left>
+inoremap <C-l>        <C-O><C-Right>
+inoremap <Home>       <C-O>^
+inoremap <End>        <C-O>g_
 
 " sometimes there are issues when trying to paste large amounts of text with "+p as a keybind
 nnoremap <C-v>        a<c-r>+
