@@ -244,7 +244,6 @@ noremap <C-j>        <C-Left>
 noremap <C-l>        <C-Right>
 
 noremap <Home>       ^
-noremap <End>        g_
 
 noremap +            <C-a>
 noremap -            <C-x>
@@ -260,6 +259,8 @@ inoremap <C-Del>      <C-O>dw
 inoremap <C-j>        <C-O><C-Left>
 inoremap <C-l>        <C-O><C-Right>
 inoremap <Home>       <C-O>^
+"obsidian doesn't like g_
+ noremap <End>        g_
 inoremap <End>        <C-O>g_
 
 noremap L              <C-w>
