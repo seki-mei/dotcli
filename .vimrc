@@ -249,6 +249,7 @@ noremap +            <C-a>
 noremap -            <C-x>
 
 noremap x            "+
+noremap X            "0
 nnoremap <space>v     <C-v>
 
 nnoremap gO moO<Esc>`o
