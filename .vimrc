@@ -135,6 +135,8 @@ com! DiffSaved call s:DiffWithSaved()
 nnoremap <space>f :silent !xdg-open "$(fzf --no-multi --preview='bat --color=always --plain {}')"<CR>:redraw!<CR>
 
 " ===== keybinds
+" some free, no-mod sequences:
+	" <fnum> q' g<space>
 map s                  <Plug>Sneak_s
 map S                  <Plug>Sneak_S
 map '                  <Plug>Sneak_;
