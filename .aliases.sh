@@ -20,22 +20,23 @@ alias gm="git mergetool --no-prompt"
 alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
 
 # misc
-alias v='vim'
-alias sv='sudoedit'
+alias e='$EDITOR'
+alias v='echo "use e next time! >:(" && sleep 2 && $EDITOR'
+alias se='sudoedit'
 alias ai='aichat -e'
 alias rm="rm -I"
 alias py3="python3"
 alias pyt="python3"
 alias gg="cd"
 
-alias zrc='vim $HOME/.zshrc'
-alias brc 'vim $HOME/.bashrc'
-alias vrc='vim $HOME/.vimrc'
+alias zrc='$EDITOR $HOME/.zshrc'
+alias brc '$EDITOR $HOME/.bashrc'
+alias vrc='$EDITOR $HOME/.vimrc'
 obsidianvrc="$HOME/Obsidian/.obsidian.vimrc"
-alias orc='vim $obsidianvrc'
+alias orc='$EDITOR $obsidianvrc'
 alias orcdiff='vimdiff $HOME/.vimrc $obsidianvrc'
-alias s='vim $HOME/Obsidian/Sketchpad.md'
-alias hk='vim $HOME/Obsidian/Info/Hotkeys.md'
+alias s='$EDITOR $HOME/Obsidian/Sketchpad.md'
+alias hk='$EDITOR $HOME/Obsidian/Info/Hotkeys.md'
 alias :q='exit'
 alias q='exit'
 alias Q='exit'
