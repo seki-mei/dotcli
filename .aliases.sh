@@ -35,6 +35,8 @@ alias vrc='$EDITOR $HOME/.vimrc'
 obsidianvrc="$HOME/Obsidian/.obsidian.vimrc"
 alias orc='$EDITOR $obsidianvrc'
 alias orcdiff='vimdiff $HOME/.vimrc $obsidianvrc'
+
+alias o='xdg-open'
 alias s='$EDITOR $HOME/Obsidian/Sketchpad.md'
 alias hk='$EDITOR $HOME/Obsidian/Info/Hotkeys.md'
 alias :q='exit'
