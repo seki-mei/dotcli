@@ -21,7 +21,6 @@ alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
 
 # misc
 alias e='$EDITOR'
-alias v='echo "use e next time! >:(" && sleep 2 && $EDITOR'
 alias se='sudoedit'
 alias ai='aichat -e'
 alias rm="rm -I"
