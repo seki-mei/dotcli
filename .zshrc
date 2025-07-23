@@ -102,11 +102,12 @@ bindkey -M vicmd  "^[[1;5C" forward-word
 bindkey -M vicmd "^[[1;5D" backward-word
 
 # surround
+# key sequences not working
+# issue related to KEYTIMEOUT=1
 autoload -Uz surround
 zle -N delete-surround surround
 zle -N add-surround surround
 zle -N change-surround surround
-# key sequences not working?
 bindkey -M vicmd cz change-surround
 bindkey -M vicmd dz delete-surround
 bindkey -M vicmd yz add-surround
