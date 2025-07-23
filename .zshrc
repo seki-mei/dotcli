@@ -143,11 +143,12 @@ else
 	source "$fzf_plug_dir/completion.zsh"
 fi
 
-if command -v fd >/dev/null; then
+if command fd --version >/dev/null; then
 	export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"'
 	export FZF_CTRL_T_COMMAND='fd --type file --hidden --exclude ".git"'
 	export FZF_ALT_C_COMMAND='fd --type directory --hidden --exclude ".git"'
 else
+	echo fzf find fallback
 	export FZF_DEFAULT_COMMAND='find . \( ! -path "*/.git/*" \)'
 	export FZF_CTRL_T_COMMAND='find . -type f \( ! -path "*/.git/*" \)'
 	export FZF_ALT_C_COMMAND='find . -type d \( ! -path "*/.git/*" \)'
