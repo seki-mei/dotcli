@@ -69,9 +69,6 @@ VI_MODE_SET_CURSOR=true
 VI_MODE_CURSOR_INSERT=4
 # fix slow mode change
 KEYTIMEOUT=1
-# start in normal mode
-# zle-line-init() { zle -K vicmd; }
-# zle -N zle-line-init
 
 # https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
 #normal mode
@@ -196,7 +193,7 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' file-patterns '*'
 
 #===== history
-HISTSIZE=50000          # Maximum number of commands in the history.
+HISTSIZE=50000          # Maximum number of commands in history.
 SAVEHIST=10000          # Number of commands to save between sessions.
 setopt share_history    # Share history between sessions.
 setopt histignoredups
