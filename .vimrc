@@ -64,6 +64,10 @@ set list
 set listchars=tab:••\|
 set showbreak=↪↪↪↪
 
+" ===== title
+set title
+set titlestring=%t
+
 " ===== statusline
 set noshowmode
 set shortmess+=F
