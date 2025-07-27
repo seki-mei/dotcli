@@ -81,7 +81,8 @@ function! ConditionalCwd()
 	endif
 endfunction
 " set statusline=%=%{FugitiveStatusline()}\ %{ConditionalCwd()}%t\ %m%r
-set statusline=%=%{ConditionalCwd()}%t\ %m%r
+" set statusline=%=%{ConditionalCwd()}%t\ %m%r
+set statusline=%=%t\ %m%r
 
 highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
