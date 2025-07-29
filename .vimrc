@@ -6,7 +6,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 " == other
 Plug 'justinmk/vim-sneak'
-Plug 'wellle/targets.vim'
+" Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
