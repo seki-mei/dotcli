@@ -5,7 +5,7 @@ Plug 'itchyny/vim-cursorword'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 " == other
-" Plug 'wellle/targets.vim'
+Plug 'wellle/targets.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
