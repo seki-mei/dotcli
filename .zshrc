@@ -73,6 +73,7 @@ KEYTIMEOUT=1
 # https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
 #normal mode
 bindkey -M vicmd '^?' backward-delete-char
+bindkey -M vicmd Y vi-yank-eol
 bindkey -M vicmd h vi-insert
 # bindkey -M vicmd i vi-up-line-or-history
 bindkey -M vicmd i up-line
