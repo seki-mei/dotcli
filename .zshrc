@@ -74,14 +74,18 @@ KEYTIMEOUT=1
 #normal mode
 bindkey -M vicmd '^?' backward-delete-char
 bindkey -M vicmd h vi-insert
-bindkey -M vicmd i vi-up-line-or-history
-bindkey -M vicmd k vi-down-line-or-history
+# bindkey -M vicmd i vi-up-line-or-history
+bindkey -M vicmd i up-line
+# bindkey -M vicmd k vi-down-line-or-history
+bindkey -M vicmd k down-line
 bindkey -M vicmd j vi-backward-char
 
 # visual mode
 bindkey -M visual h vi-insert
-bindkey -M visual i vi-up-line-or-history
-bindkey -M visual k vi-down-line-or-history
+# bindkey -M visual i vi-up-line-or-history
+bindkey -M visual i up-line
+# bindkey -M visual k vi-down-line-or-history
+bindkey -M visual k down-line
 bindkey -M visual j vi-backward-char
 
 # obj
