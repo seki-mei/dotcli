@@ -190,8 +190,9 @@ inoremap <C-H>        <c-w>
 nnoremap <C-H>        db
 
 execute "set <S-Tab>=\e[Z"
-inoremap <Tab>        <C-n>
-inoremap <S-Tab>      <C-p>
+" inoremap <Tab>        <C-n>
+" inoremap <S-Tab>      <C-p>
+inoremap <S-Tab>      <C-d>
 
 if empty($TERMUX_VERSION)
 	nnoremap <C-y>        :%y+<CR>
