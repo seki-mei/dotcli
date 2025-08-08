@@ -170,29 +170,29 @@ inoremap <Esc><Space>  <Esc>:
  noremap q<Space>      q:
 
 " go back and forth in buffer history list (e.g. from gf)
-   nmap <M-Left>      :bN<cr>
-   nmap <M-Right>     :bn<cr>
+   nmap <M-Left>       :bN<cr>
+   nmap <M-Right>      :bn<cr>
 " stahdard bindings
 " C-z and C-S-z use the same key code, remaping C-S-z would overwrite C-z
- noremap <C-z>        u
-inoremap <C-z>        <C-o>u
- noremap <C-c>        "+y
+ noremap <C-z>         u
+inoremap <C-z>         <C-o>u
+ noremap <C-c>         "+y
 " there are issues when trying to paste large amounts of text with "+p as a keybind
-nnoremap <C-v>        a<c-r>+
-vnoremap <C-v>        c<C-r>+
-inoremap <C-v>        <C-r>+
- noremap <C-s>        <Esc>:up<CR>
-inoremap <C-s>        <Esc>:up<CR>
+nnoremap <C-v>         a<c-r>+
+vnoremap <C-v>         c<C-r>+
+inoremap <C-v>         <C-r>+
+ noremap <C-s>         <Esc>:up<CR>
+inoremap <C-s>         <Esc>:up<CR>
 
 " backspace
-inoremap <C-BS>       <c-o>db
-inoremap <C-H>        <c-w>
-nnoremap <C-H>        db
+inoremap <C-BS>        <c-o>db
+inoremap <C-H>         <c-w>
+nnoremap <C-H>         db
 
 execute "set <S-Tab>=\e[Z"
 " inoremap <Tab>        <C-n>
 " inoremap <S-Tab>      <C-p>
-inoremap <S-Tab>      <C-d>
+inoremap <S-Tab>       <C-d>
 
 if empty($TERMUX_VERSION)
 	nnoremap <C-y>        :%y+<CR>
