@@ -218,6 +218,10 @@ sudo() {  # block `sudo vim`
 # source aliases
 source $HOME/.aliases.sh
 
+export GOPATH="$HOME/.go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
+
 #===== end of setup
 # zsh-syntax-highlighting
 ZSHHL="$PLUGINDIR/zsh-syntax-highlighting"
