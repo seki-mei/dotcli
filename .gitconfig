@@ -11,5 +11,3 @@
 	tool = vimdiff
 [pull]
 	rebase = true
-[push]
-	autoSetupRemote = true
