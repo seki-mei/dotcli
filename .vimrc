@@ -13,6 +13,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 " == syntax hl
 Plug 'wuelnerdotexe/vim-astro'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
 " ===== theme
