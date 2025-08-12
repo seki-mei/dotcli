@@ -59,7 +59,7 @@ set wildmenu "completion menu for `:`
 
 " ===== indent
 set noexpandtab
-set shiftwidth=0
+set shiftwidth=0 "0: uses tabstop value
 set tabstop=2
 set list
 set listchars=tab:••\|
@@ -72,7 +72,6 @@ set titlestring=%t
 " ===== statusline
 set noshowmode
 set shortmess+=F
-set noruler
 set showcmd
 set laststatus=2
 
@@ -195,85 +194,85 @@ execute "set <S-Tab>=\e[Z"
 inoremap <S-Tab>       <C-d>
 
 if empty($TERMUX_VERSION)
-	nnoremap <C-y>        :%y+<CR>
+	nnoremap <C-y>       :%y+<CR>
 endif
 
 " keep line centered in edge cases
  autocmd CursorMoved * normal! zz
  autocmd InsertEnter * normal! zz
- noremap G            Gzz
- noremap <C-End>      Gzz
+ noremap G             Gzz
+ noremap <C-End>       Gzz
 
 " OBSIDIAN_VIMRC_START
-nnoremap Y            y$
-noremap Z            <C-r>
+nnoremap Y             y$
+noremap Z              <C-r>
 
-noremap <BS>         X
-nnoremap <C-BS>       db
-noremap <Del>        x
-nnoremap <C-Del>      dw
+noremap <BS>           X
+nnoremap <C-BS>        db
+noremap <Del>          x
+nnoremap <C-Del>       dw
 
-noremap <C-x>        "+d
+noremap <C-x>          "+d
 
-noremap j            h
-noremap h            i
-noremap gh           gi
-nnoremap g'           g;
-noremap H            I
+noremap j              h
+noremap h              i
+noremap gh             gi
+nnoremap g'            g;
+noremap H              I
 
-inoremap <Up>         <Esc>gk
-noremap i            gk
-noremap I            5gk
-noremap <PageUp>     5gk
-inoremap <PageUp>     <Esc>5gk
+inoremap <Up>          <Esc>gk
+noremap i              gk
+noremap I              5gk
+noremap <PageUp>       5gk
+inoremap <PageUp>      <Esc>5gk
 
-inoremap <Down>       <Esc>gj
-noremap k            gj
-noremap K            5gj
-noremap <PageDown>   5gj
-inoremap <PageDown>   <Esc>5gj
+inoremap <Down>        <Esc>gj
+noremap k              gj
+noremap K              5gj
+noremap <PageDown>     5gj
+inoremap <PageDown>    <Esc>5gj
 
-noremap <S-Up>       <Nop>
-inoremap <S-Up>       <Esc>
-noremap <S-PageUp>   <Nop>
-inoremap <S-PageUp>   <Esc>
-noremap <S-Down>     <Nop>
-inoremap <S-Down>     <Esc>
-noremap <S-PageDown> <Nop>
-inoremap <S-PageDown> <Esc>
+noremap <S-Up>         <Nop>
+inoremap <S-Up>        <Esc>
+noremap <S-PageUp>     <Nop>
+inoremap <S-PageUp>    <Esc>
+noremap <S-Down>       <Nop>
+inoremap <S-Down>      <Esc>
+noremap <S-PageDown>   <Nop>
+inoremap <S-PageDown>  <Esc>
 
-nnoremap U            <Nop>
-nnoremap M            <Nop>
-nnoremap X            <Nop>
+nnoremap U             <Nop>
+nnoremap M             <Nop>
+nnoremap X             <Nop>
 
-noremap <CR>          <Nop>
-noremap <Space>       <Nop>
-noremap <C-Space>     <Nop>
+noremap <CR>           <Nop>
+noremap <Space>        <Nop>
+noremap <C-Space>      <Nop>
 
-noremap <C-j>        <C-Left>
-noremap <C-l>        <C-Right>
+noremap <C-j>          <C-Left>
+noremap <C-l>          <C-Right>
 
-noremap <Home>       ^
+noremap <Home>         ^
 
-noremap +            <C-a>
-noremap -            <C-x>
+noremap +              <C-a>
+noremap -              <C-x>
 
-noremap x            "+
-noremap X            "0
-nnoremap <space>v     <C-v>
+noremap x              "+
+noremap X              "0
+nnoremap <space>v      <C-v>
 
-nnoremap gO moO<Esc>`o
-nnoremap go moo<Esc>`o
+nnoremap gO            moO<Esc>`o
+nnoremap go            moo<Esc>`o
 " OBSIDIAN_VIMRC_END
 " insert-mode C-O doesn't work in obsidian
-inoremap <C-Del>      <C-O>dw
-inoremap <C-j>        <C-O><C-Left>
-inoremap <C-l>        <C-O><C-Right>
-inoremap <Home>       <C-O>^
+inoremap <C-Del>       <C-O>dw
+inoremap <C-j>         <C-O><C-Left>
+inoremap <C-l>         <C-O><C-Right>
+inoremap <Home>        <C-O>^
 "obsidian doesn't like g_
- noremap <End>        g_
+ noremap <End>         g_
 " inoremap <End>        <C-O>g_
-inoremap <End>        <C-O>$
+inoremap <End>         <C-O>$
 
 noremap L              <C-w>
 noremap XQ             ZQ
