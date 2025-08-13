@@ -139,7 +139,12 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 " fzf
-nnoremap <space>f :silent !xdg-open "$(fzf --no-multi --preview='bat --color=always --plain {}')"<CR>:redraw!<CR>
+function! FzfOpen()
+	silent !xdg-open "$(fzf --no-multi --preview='bat "
+				\ . "--color=always --plain {}')"
+	redraw!
+endfunction
+nnoremap <space>f :call FzfOpen()<CR>
 
 " ===== keybinds
 " some free, no-mod sequences:
@@ -177,7 +182,7 @@ inoremap <Esc><Space>  <Esc>:
  noremap <C-z>         u
 inoremap <C-z>         <C-o>u
  noremap <C-c>         "+y
-" there are issues when trying to paste large amounts of text with "+p as a keybind
+" there are issues when pasting large amounts of text with "+p as a keybind
 nnoremap <C-v>         a<c-r>+
 vnoremap <C-v>         c<C-r>+
 inoremap <C-v>         <C-r>+
