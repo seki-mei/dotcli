@@ -311,26 +311,3 @@ if exists('g:started_by_firenvim')
 	let fc['.*'] = { 'takeover': 'never' }
 	au BufEnter *.txt set filetype=markdown
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
