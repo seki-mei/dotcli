@@ -120,6 +120,10 @@ set timeoutlen=500
 " fix slow exit from insert/visual mode. Setting -1 didn't work
 set ttimeoutlen=0
 
+if (&ft=='markdown')
+	set statusline+=%{wordcount().words}\W
+endif
+
 " ===== commands
 :command! Q q!
 :command! WS StripWhitespace

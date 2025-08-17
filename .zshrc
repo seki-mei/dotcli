@@ -243,7 +243,7 @@ if [[ "$parent_process" == "konsole" ]]; then
 	cbonsai -p
 	ZSH_END_TIME=$(date +%s%N)
 	elapsed=$(( (ZSH_END_TIME - ZSH_START_TIME) / 1000000 ))
-	echo "$elapsed ms"
+	# echo "$elapsed ms"
 elif [[ "$parent_process" == "yakuake" ]]; then
 	cbonsai -p
 else
