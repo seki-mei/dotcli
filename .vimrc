@@ -89,6 +89,10 @@ endfunction
 " set statusline=%=%{ConditionalCwd()}%t\ %m%r
 set statusline=%=%t\ %m%r
 
+if (&ft=='markdown')
+	set statusline+=%{wordcount().words}\W
+endif
+
 highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
 highlight! link StatusLineModified GruvboxAqua
@@ -119,10 +123,6 @@ set directory=/var/tmp,/tmp,~/.vim/swap
 set timeoutlen=500
 " fix slow exit from insert/visual mode. Setting -1 didn't work
 set ttimeoutlen=0
-
-if (&ft=='markdown')
-	set statusline+=%{wordcount().words}\W
-endif
 
 " ===== commands
 :command! Q q!
