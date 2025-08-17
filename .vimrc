@@ -14,6 +14,9 @@ Plug 'tpope/vim-eunuch'
 " == syntax hl
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'wuelnerdotexe/vim-astro'
+if has('nvim')
+	Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+endif
 call plug#end()
 
 " ===== theme
@@ -287,3 +290,47 @@ inoremap <End>         <C-O>$
 noremap L              <C-w>
 noremap XQ             ZQ
 noremap XX             ZZ
+
+if exists('g:started_by_firenvim')
+	" remove filename but keep the [+] indicator
+	set statusline=%=\ %m%r
+	let g:firenvim_config = {
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'content': 'text',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'always',
+        \ },
+    \ }
+\ }
+	let fc['.*'] = { 'takeover': 'never' }
+	au BufEnter *.txt set filetype=markdown
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
