@@ -16,6 +16,13 @@ alias gpl="git pull"
 alias gplr="git pull --rebase"
 alias gd="git difftool --no-prompt"
 alias gm="git mergetool --no-prompt"
+alias gsw="git switch"
+alias gswc="git switch -c"
+alias gsw="git switch"
+alias gswm="git switch $(git_main_branch)"
+alias gswd="git switch $(git_develop_branch)"
+alias grs="git restore"
+alias grm="git rm"
 
 alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
 
