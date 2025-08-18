@@ -33,12 +33,17 @@ fi
 autoload -Uz vcs_info
 precmd() {
     vcs_info
-    if [[ ${vcs_info_msg_0_} == "main" ]]; then
-        vcs_info_msg_0_="✯"
+    if [[ ${vcs_info_msg_0_} == main* ]]; then
+        vcs_info_msg_0_="✯${vcs_info_msg_0_#main}"
     fi
 }
-zstyle ':vcs_info:git:*' formats '%b'
-PS1='${SHOW_USERHOST}%F{cyan}%~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats '%b%u%c'
+zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
+zstyle ':vcs_info:git:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' stagedstr '+'
+
+PS1='${SHOW_USERHOST}%F{cyan} %(!.%2d.%(3~.%-1~/…/%2d.%~)) %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
 
 #===== vim
 # download & source
