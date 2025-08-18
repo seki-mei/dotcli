@@ -43,7 +43,7 @@ zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' stagedstr '+'
 
-PS1='${SHOW_USERHOST}%F{cyan}%(2~|…/%2~|%~)%F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
+PS1='${SHOW_USERHOST}%F{cyan}%2~%F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
 
 #===== vim
 # download & source
