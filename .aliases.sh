@@ -25,8 +25,7 @@ alias grs="git restore"
 alias gs="git status"
 alias gsw="git switch"
 alias gswc="git switch -c"
-alias gswd="git switch $(git_develop_branch)"
-alias gswm="git switch $(git_main_branch)"
+alias gswm="git switch main"
 
 alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
 
