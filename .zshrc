@@ -40,7 +40,7 @@ precmd() {
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats '%b%u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
-zstyle ':vcs_info:git:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' unstagedstr '°'
 zstyle ':vcs_info:git:*' stagedstr '+'
 
 PS1='${SHOW_USERHOST}%F{cyan}%2~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
