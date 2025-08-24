@@ -49,11 +49,12 @@ PS1='${SHOW_USERHOST}%F{cyan}%2~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F
 # download & source
 VIMODEPLUGDIR="$PLUGINDIR/vi-mode"
 VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin.zsh"
-mkdir -p "$VIMODEPLUGDIR"
 if [ ! -d "$VIMODEPLUGDIR" ]; then
-	wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/vi-mode/vi-mode.plugin.zsh"
+	mkdir -p "$VIMODEPLUGDIR"
+	# wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/vi-mode/vi-mode.plugin.zsh"
+	wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/vi-mode/vi-mode.plugin.zsh"
 fi
-source "$VIMODEPLUGFILE"
+# source "$VIMODEPLUGFILE"
 bindkey -v
 
 autoload -U select-quoted
@@ -116,6 +117,32 @@ bindkey -M vicmd '\e[3;5~' kill-word
 # ctrl-arrows forward/backward
 bindkey -M vicmd  "^[[1;5C" forward-word
 bindkey -M vicmd "^[[1;5D" backward-word
+
+# backspace
+
+bindkey -M emacs '^?' backward-delete-char
+bindkey -M vicmd '^?' backward-delete-char
+bindkey -M viins '^?' backward-delete-char
+
+# delete
+
+bindkey -M emacs '^[[3~' delete-char
+bindkey -M vicmd '^[[3~' delete-char
+bindkey -M viins '^[[3~' delete-char
+
+# home
+
+bindkey -M emacs '^[[H' beginning-of-line
+bindkey -M vicmd '^[[H' beginning-of-line
+bindkey -M viins '^[[H' beginning-of-line
+bindkey -M visual '^[[H' beginning-of-line
+
+# end
+
+bindkey -M emacs '^[[F' end-of-line
+bindkey -M vicmd '^[[F' end-of-line
+bindkey -M viins '^[[F' end-of-line
+bindkey -M visual '^[[F' end-of-line
 
 # surround
 # key sequences not working
@@ -235,11 +262,11 @@ export PATH="$GOBIN:$PATH"
 
 #===== end of setup
 # zsh-syntax-highlighting
-ZSHHL="$PLUGINDIR/zsh-syntax-highlighting"
-if [ ! -d "$ZSHHL" ]; then
-	git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$ZHSHL"
+ZSH_HL="$PLUGINDIR/zsh-syntax-highlighting"
+if [ ! -d "$ZSH_HL" ]; then
+	git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$ZSH_HL"
 fi
-source "$ZSHHL/zsh-syntax-highlighting.plugin.zsh"
+source "$ZSH_HL/zsh-syntax-highlighting.plugin.zsh"
 
 # banner and timer
 parent_process=$(ps -p $PPID -o comm=)

@@ -9,17 +9,17 @@ alias gco="git checkout"
 alias gcp="git cherry-pick"
 alias gcp="git commit --verbose --patch"
 alias gcpa="git cherry-pick --abort"
-alias gcpc="git cherry-pick --cobtinue"
+alias gcpc="git cherry-pick --continue"
 alias gd="git difftool --no-prompt"
 alias gl="git pull"
 alias glr="git pull --rebase"
 alias gm="git mergetool --no-prompt"
 alias gma="git merge --abort"
-alias gmc="git merge --cobtinue"
+alias gmc="git merge --continue"
 alias gp="git push"
 alias grb="git rebase"
 alias grba="git rebase --abort"
-alias grbc="git rebase --cobtinue"
+alias grbc="git rebase --continue"
 alias grm="git rm"
 alias grs="git restore"
 alias gs="git status"
@@ -34,6 +34,7 @@ alias e='$EDITOR'
 alias se='sudoedit'
 alias ai='aichat -e'
 alias rm="rm -I"
+alias zyp='zypper'
 alias py3="python3"
 alias pyt="python3"
 alias gg="cd"
@@ -53,7 +54,6 @@ alias q='exit'
 alias Q='exit'
 
 # color support
-alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'

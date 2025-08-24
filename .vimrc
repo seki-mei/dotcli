@@ -1,3 +1,4 @@
+set encoding=utf-8
 call plug#begin()
 " == visual
 Plug 'morhetz/gruvbox'
@@ -219,7 +220,7 @@ noremap Z              <C-r>
 
 noremap <BS>           X
 nnoremap <C-BS>        db
-noremap <Del>          x
+nnoremap <Del>         dl
 nnoremap <C-Del>       dw
 
 noremap <C-x>          "+d
@@ -267,8 +268,11 @@ noremap <Home>         ^
 noremap +              <C-a>
 noremap -              <C-x>
 
-noremap x              "+
-noremap X              "0
+" xy<motion> -> copy to clipborad, xd<motion> delete to clipboard, xc<motion>...
+nnoremap x              "+
+vnoremap x              "+
+nnoremap X              "0
+vnoremap X              "0
 nnoremap <space>v      <C-v>
 
 nnoremap gO            moO<Esc>`o
