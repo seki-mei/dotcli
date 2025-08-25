@@ -220,8 +220,12 @@ noremap Z              <C-r>
 
 noremap <BS>           X
 nnoremap <C-BS>        db
-nnoremap <Del>         dl
+nnoremap <Del>         x
+noremap [3~          x
 nnoremap <C-Del>       dw
+nnoremap [3;5~       dw
+inoremap <C-Del>       <C-O>dw
+inoremap [3;5~       <C-O>dw
 
 noremap <C-x>          "+d
 
@@ -262,6 +266,10 @@ noremap <C-Space>      <Nop>
 
 noremap <C-j>          <C-Left>
 noremap <C-l>          <C-Right>
+noremap <C-i>          5gk
+inoremap <C-i>         <Esc>k
+noremap <C-k>          5gj
+inoremap <C-k>         <Esc>j
 
 noremap <Home>         ^
 
@@ -291,3 +299,4 @@ inoremap <End>         <C-O>$
 noremap L              <C-w>
 noremap XQ             ZQ
 noremap XX             ZZ
+
