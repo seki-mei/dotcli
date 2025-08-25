@@ -266,10 +266,16 @@ noremap <C-Space>      <Nop>
 
 noremap <C-j>          <C-Left>
 noremap <C-l>          <C-Right>
+
 noremap <C-i>          5gk
 inoremap <C-i>         <Esc>k
+noremap <C-Up>         5gk
+inoremap <C-Up>        <Esc>k
+
 noremap <C-k>          5gj
 inoremap <C-k>         <Esc>j
+noremap <C-Down>       5gj
+inoremap <C-Down>      <Esc>j
 
 noremap <Home>         ^
 
