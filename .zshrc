@@ -196,7 +196,7 @@ else
 fi
 
 export FZF_ALT_C_OPTS=" --preview 'tree -C {}'"
-export FZF_DEFAULT_OPTS='--multi --height 50% --scroll-off=999 --border=double --reverse --info=inline-right --marker="● " --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:white,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta'
+export FZF_DEFAULT_OPTS="--multi --height 50% --scroll-off=999 --border=double --reverse --info=inline-right --marker='● ' --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:white,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta"
 export FZF_COMPLETION_TRIGGER='@'
 
 edit-with-fzf() {
