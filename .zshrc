@@ -119,30 +119,26 @@ bindkey -M vicmd  "^[[1;5C" forward-word
 bindkey -M vicmd "^[[1;5D" backward-word
 
 # backspace
-
 bindkey -M emacs '^?' backward-delete-char
 bindkey -M vicmd '^?' backward-delete-char
 bindkey -M viins '^?' backward-delete-char
 
 # delete
-
 bindkey -M emacs '^[[3~' delete-char
 bindkey -M vicmd '^[[3~' delete-char
 bindkey -M viins '^[[3~' delete-char
 
-# home
-
-bindkey -M emacs '^[[H' beginning-of-line
-bindkey -M vicmd '^[[H' beginning-of-line
-bindkey -M viins '^[[H' beginning-of-line
-bindkey -M visual '^[[H' beginning-of-line
-
 # end
-
 bindkey -M emacs '^[[F' end-of-line
 bindkey -M vicmd '^[[F' end-of-line
 bindkey -M viins '^[[F' end-of-line
 bindkey -M visual '^[[F' end-of-line
+
+# home
+bindkey -M emacs '^[[H' beginning-of-line
+bindkey -M vicmd '^[[H' beginning-of-line
+bindkey -M viins '^[[H' beginning-of-line
+bindkey -M visual '^[[H' beginning-of-line
 
 # surround
 # key sequences not working
