@@ -240,6 +240,14 @@ setopt histignoredups
 setopt HIST_VERIFY      # expand !! instead of running it
 setopt HIST_IGNORE_SPACE # don't save to history commands with leading space
 
+#===== konsole names
+names=(子 丑 寅 卯 辰 巳 午 未 申 酉 戌 亥 猫)
+tty_number=$(tty | sed 's#/dev/pts/##')
+index=$(( (tty_number % ${#names[@]}) + 1 ))
+title=${names[$index]}
+echo -ne "\033]0;${title}\007"
+
+
 #===== custom commands and aliases
 sudo() {  # block `sudo vim`
 	if [[ "$1" == "vim" ]]; then
