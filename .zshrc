@@ -47,13 +47,12 @@ PS1='${SHOW_USERHOST}%F{cyan}%2~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F
 
 #===== vim
 # download & source
-VIMODEPLUGDIR="$PLUGINDIR/vi-mode"
-VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin.zsh"
-if [ ! -d "$VIMODEPLUGDIR" ]; then
-	mkdir -p "$VIMODEPLUGDIR"
-	# wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/vi-mode/vi-mode.plugin.zsh"
-	wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/vi-mode/vi-mode.plugin.zsh"
-fi
+# VIMODEPLUGDIR="$PLUGINDIR/vi-mode"
+# VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin.zsh"
+# if [ ! -d "$VIMODEPLUGDIR" ]; then
+# 	mkdir -p "$VIMODEPLUGDIR"
+# 	wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/vi-mode/vi-mode.plugin.zsh"
+# fi
 # source "$VIMODEPLUGFILE"
 bindkey -v
 
