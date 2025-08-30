@@ -46,14 +46,6 @@ zstyle ':vcs_info:git:*' stagedstr '+'
 PS1='${SHOW_USERHOST}%F{cyan}%2~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
 
 #===== vim
-# download & source
-# VIMODEPLUGDIR="$PLUGINDIR/vi-mode"
-# VIMODEPLUGFILE="$VIMODEPLUGDIR/vi-mode.plugin.zsh"
-# if [ ! -d "$VIMODEPLUGDIR" ]; then
-# 	mkdir -p "$VIMODEPLUGDIR"
-# 	wget -O "$VIMODEPLUGFILE" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/vi-mode/vi-mode.plugin.zsh"
-# fi
-# source "$VIMODEPLUGFILE"
 bindkey -v
 
 autoload -U select-quoted
@@ -72,34 +64,21 @@ for m in visual viopp; do
 	done
 done
 
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode
-MODE_INDICATOR=""
-# MODE_INDICATOR="%F{white}[N]%f"
-# INSERT_MODE_INDICATOR="%F{cyan}[I]%f"
-VI_MODE_SET_CURSOR=true
-VI_MODE_CURSOR_INSERT=4
-# fix slow mode change
-KEYTIMEOUT=1
+KEYTIMEOUT=1 # fix slow mode change
 
 # https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
 #normal mode
 bindkey -M vicmd '^?' backward-delete-char
 bindkey -M vicmd Y vi-yank-eol
 bindkey -M vicmd h vi-insert
-# bindkey -M vicmd i vi-up-line-or-history
 bindkey -M vicmd i up-line
-# bindkey -M vicmd k vi-down-line-or-history
 bindkey -M vicmd k down-line
 bindkey -M vicmd j vi-backward-char
-
 # visual mode
 bindkey -M visual h vi-insert
-# bindkey -M visual i vi-up-line-or-history
 bindkey -M visual i up-line
-# bindkey -M visual k vi-down-line-or-history
 bindkey -M visual k down-line
 bindkey -M visual j vi-backward-char
-
 # obj
 bindkey -M vicmd hW select-in-blank-word
 bindkey -M vicmd ha select-in-shell-word
@@ -107,41 +86,30 @@ bindkey -M vicmd hw select-in-word
 bindkey -M visual hW select-in-blank-word
 bindkey -M visual ha select-in-shell-word #select argument
 bindkey -M visual hw select-in-word
-
 # normal mode bindings
-# ctrl-backspace: delete previous word
-bindkey -M vicmd '^H' backward-kill-word
-# ctrl-delete: delete next word
-bindkey -M vicmd '\e[3;5~' kill-word
-# ctrl-arrows forward/backward
-bindkey -M vicmd  "^[[1;5C" forward-word
-bindkey -M vicmd "^[[1;5D" backward-word
-
+bindkey -M vicmd '^H' backward-kill-word #ctrl-backspace
+bindkey -M vicmd '\e[3;5~' kill-word     #ctrl-delete
+bindkey -M vicmd  "^[[1;5C" forward-word # ctrl-right
+bindkey -M vicmd "^[[1;5D" backward-word # ctrl-left
 # backspace
 bindkey -M emacs '^?' backward-delete-char
 bindkey -M vicmd '^?' backward-delete-char
 bindkey -M viins '^?' backward-delete-char
-
 # delete
 bindkey -M emacs '^[[3~' delete-char
 bindkey -M vicmd '^[[3~' delete-char
 bindkey -M viins '^[[3~' delete-char
-
 # end
 bindkey -M emacs '^[[F' end-of-line
 bindkey -M vicmd '^[[F' end-of-line
 bindkey -M viins '^[[F' end-of-line
 bindkey -M visual '^[[F' end-of-line
-
 # home
 bindkey -M emacs '^[[H' beginning-of-line
 bindkey -M vicmd '^[[H' beginning-of-line
 bindkey -M viins '^[[H' beginning-of-line
 bindkey -M visual '^[[H' beginning-of-line
-
 # surround
-# key sequences not working
-# issue related to KEYTIMEOUT=1
 autoload -Uz surround
 zle -N delete-surround surround
 zle -N add-surround surround
@@ -250,10 +218,6 @@ sudo() {  # block `sudo vim`
 
 # source aliases
 source $HOME/.aliases.sh
-
-export GOPATH="$HOME/.go"
-export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$PATH"
 
 #===== end of setup
 # zsh-syntax-highlighting
