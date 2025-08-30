@@ -37,12 +37,12 @@ precmd() {
         vcs_info_msg_0_="✯${vcs_info_msg_0_#main}"
     fi
 }
+
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats '%b%u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 zstyle ':vcs_info:git:*' unstagedstr '°'
 zstyle ':vcs_info:git:*' stagedstr '+'
-
 PS1='${SHOW_USERHOST}%F{cyan}%2~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
 
 #===== vim and keybinds
@@ -131,14 +131,7 @@ bindkey -M visual Y add-surround
 # load fzf
 autoload -Uz is-at-least
 fzf_version=$(fzf --version | awk '{print $1}')
-if is-at-least 0.48.0 $fzf_version; then
-	source <(fzf --zsh)
-else
-	fzf_plug_dir="/usr/share/doc/fzf/examples"
-	# Source fallback integration
-	source "$fzf_plug_dir/key-bindings.zsh"
-	source "$fzf_plug_dir/completion.zsh"
-fi
+source <(fzf --zsh)
 
 if command fd --version >/dev/null; then
 	export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git" --exclude "*cache*" --exclude "*Cache*"'
@@ -201,16 +194,17 @@ setopt HIST_VERIFY      # expand !! instead of running it
 setopt HIST_IGNORE_SPACE # don't save to history commands with leading space
 
 #===== custom commands and aliases
-sudo() {  # block `sudo vim`
+# source aliases
+source $HOME/.aliases.sh
+
+# block `sudo vim`
+sudo() {
 	if [[ "$1" == "vim" ]]; then
 		echo "🚫 Stop. Use 'sudoedit' or 'se'." >&2
 		return 1
 	fi
 	command sudo "$@"
 }
-
-# source aliases
-source $HOME/.aliases.sh
 
 #===== end of setup
 # zsh-syntax-highlighting
