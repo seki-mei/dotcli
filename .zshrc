@@ -69,7 +69,6 @@ done
 autoload -U select-word-style bash
 select-word-style bash
 # normal mode
-bindkey -M vicmd '^?' backward-delete-char
 bindkey -M vicmd Y vi-yank-eol
 bindkey -M vicmd h vi-insert
 bindkey -M vicmd i up-line
@@ -85,16 +84,17 @@ bindkey -M vicmd hW select-in-blank-word
 bindkey -M vicmd ha select-in-shell-word
 bindkey -M vicmd hw select-in-word
 bindkey -M visual hW select-in-blank-word
-bindkey -M visual ha select-in-shell-word #select argument
+bindkey -M visual ha select-in-shell-word  # select argument
 bindkey -M visual hw select-in-word
 # normal mode bindings
-bindkey -M vicmd '^H' backward-kill-word # ctrl-backspace
+bindkey -M vicmd '^?' backward-delete-char # backspace
+bindkey -M vicmd '^H' backward-kill-word   # ctrl-backspace
 bindkey          '^H' backward-kill-word
-bindkey -M vicmd '\e[3;5~' kill-word     # ctrl-delete
+bindkey -M vicmd '\e[3;5~' kill-word       # ctrl-delete
 bindkey          '\e[3;5~' kill-word
-bindkey -M vicmd "^[[1;5C" forward-word  # ctrl-right
+bindkey -M vicmd "^[[1;5C" forward-word    # ctrl-right
 bindkey          "^[[1;5C" forward-word
-bindkey -M vicmd "^[[1;5D" backward-word # ctrl-left
+bindkey -M vicmd "^[[1;5D" backward-word   # ctrl-left
 bindkey          "^[[1;5D" backward-word
 # backspace
 bindkey -M emacs '^?' backward-delete-char
@@ -194,9 +194,6 @@ setopt HIST_VERIFY      # expand !! instead of running it
 setopt HIST_IGNORE_SPACE # don't save to history commands with leading space
 
 #===== custom commands and aliases
-# source aliases
-source $HOME/.aliases.sh
-
 # block `sudo vim`
 sudo() {
 	if [[ "$1" == "vim" ]]; then
@@ -205,6 +202,8 @@ sudo() {
 	fi
 	command sudo "$@"
 }
+# source aliases
+source $HOME/.aliases.sh
 
 #===== end of setup
 # zsh-syntax-highlighting
