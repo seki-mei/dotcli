@@ -45,8 +45,10 @@ zstyle ':vcs_info:git:*' stagedstr '+'
 
 PS1='${SHOW_USERHOST}%F{cyan}%2~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})❯%f '
 
-#===== vim
+#===== vim and keybinds
+# https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
 bindkey -v
+KEYTIMEOUT=1 # fix slow mode change
 
 autoload -U select-quoted
 zle -N select-quoted
@@ -55,7 +57,6 @@ for m in visual viopp; do
 		bindkey -M $m $c select-quoted
 	done
 done
-
 autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
@@ -64,10 +65,10 @@ for m in visual viopp; do
 	done
 done
 
-KEYTIMEOUT=1 # fix slow mode change
-
-# https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
-#normal mode
+# ctrl motion stops at / and -
+autoload -U select-word-style bash
+select-word-style bash
+# normal mode
 bindkey -M vicmd '^?' backward-delete-char
 bindkey -M vicmd Y vi-yank-eol
 bindkey -M vicmd h vi-insert
@@ -87,10 +88,14 @@ bindkey -M visual hW select-in-blank-word
 bindkey -M visual ha select-in-shell-word #select argument
 bindkey -M visual hw select-in-word
 # normal mode bindings
-bindkey -M vicmd '^H' backward-kill-word #ctrl-backspace
-bindkey -M vicmd '\e[3;5~' kill-word     #ctrl-delete
-bindkey -M vicmd  "^[[1;5C" forward-word # ctrl-right
+bindkey -M vicmd '^H' backward-kill-word # ctrl-backspace
+bindkey          '^H' backward-kill-word
+bindkey -M vicmd '\e[3;5~' kill-word     # ctrl-delete
+bindkey          '\e[3;5~' kill-word
+bindkey -M vicmd "^[[1;5C" forward-word  # ctrl-right
+bindkey          "^[[1;5C" forward-word
 bindkey -M vicmd "^[[1;5D" backward-word # ctrl-left
+bindkey          "^[[1;5D" backward-word
 # backspace
 bindkey -M emacs '^?' backward-delete-char
 bindkey -M vicmd '^?' backward-delete-char
@@ -109,6 +114,9 @@ bindkey -M emacs '^[[H' beginning-of-line
 bindkey -M vicmd '^[[H' beginning-of-line
 bindkey -M viins '^[[H' beginning-of-line
 bindkey -M visual '^[[H' beginning-of-line
+# shift-tab
+bindkey -M emacs "^[[Z" reverse-menu-complete
+bindkey -M viins "^[[Z" reverse-menu-complete
 # surround
 autoload -Uz surround
 zle -N delete-surround surround
@@ -118,21 +126,6 @@ bindkey -M vicmd cz change-surround
 bindkey -M vicmd dz delete-surround
 bindkey -M vicmd yz add-surround
 bindkey -M visual Y add-surround
-
-#===== key mappings
-# ctrl motion stops at / and -
-autoload -U select-word-style
-select-word-style bash
-# ctrl-backspace: delete previous word
-bindkey '^H' backward-kill-word
-# ctrl-delete: delete next word
-bindkey '\e[3;5~' kill-word
-# shift-tab - move through the completion menu backwards
-bindkey -M emacs "^[[Z" reverse-menu-complete
-bindkey -M viins "^[[Z" reverse-menu-complete
-# ctrl-arrows forward/backward
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
 
 #===== fzf
 # load fzf
@@ -167,8 +160,8 @@ edit-with-fzf() {
     zle fzf-file-widget
 }
 zle -N edit-with-fzf
-bindkey '^E' edit-with-fzf
 
+bindkey '^E' edit-with-fzf
 bindkey -M emacs '^@' fzf-file-widget
 bindkey -M vicmd '^@' fzf-file-widget
 bindkey -M viins '^@' fzf-file-widget
