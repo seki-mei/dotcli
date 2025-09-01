@@ -145,8 +145,7 @@ com! DiffSaved call s:DiffWithSaved()
 
 " fzf
 function! FzfOpen()
-	silent !xdg-open "$(fzf --no-multi --preview='bat "
-				\ . "--color=always --plain {}')"
+	silent !xdg-open "$(fzf --no-multi --preview='bat --theme=gruvbox-dark --color=always --plain {}')"
 	redraw!
 endfunction
 nnoremap <space>f :call FzfOpen()<CR>
