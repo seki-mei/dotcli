@@ -15,6 +15,9 @@ Plug 'tpope/vim-eunuch'
 " == syntax hl
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'wuelnerdotexe/vim-astro'
+if has('nvim')
+	Plug 'epwalsh/obsidian.nvim'
+endif
 call plug#end()
 
 " ===== theme
@@ -54,6 +57,9 @@ set incsearch
 set ignorecase
 set smartcase "ignore case unless search query contains uppercase letter
 set nohlsearch
+
+" ===== highliting
+au BufNewFile,BufRead *.qss setfiletype css
 
 " ===== completion
 set ofu=syntaxcomplete#Complete "enable completion
