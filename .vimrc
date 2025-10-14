@@ -121,7 +121,7 @@ set directory=/var/tmp,/tmp,~/.vim/swap
 
 " ===== fixes
 " fix slow exit from insert/visual mode
-set timeoutlen=500
+" set timeoutlen=1000
 " fix slow exit from insert/visual mode. Setting -1 didn't work
 set ttimeoutlen=0
 
@@ -306,3 +306,6 @@ noremap L              <C-w>
 noremap XQ             ZQ
 noremap XX             ZZ
 
+" fix timeout delay
+inoremap <nowait> <Esc> <Esc>
+vnoremap <nowait> <Esc> <Esc>
