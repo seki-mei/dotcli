@@ -176,6 +176,7 @@ nmap dz                <Plug>Dsurround
 " replace delimiters
 nmap cz                <Plug>Csurround
 
+
 nnoremap Q             :q<CR>
 vnoremap Q             <Esc>:q<CR>
 
@@ -310,6 +311,9 @@ inoremap <End>         <C-O>$
 noremap L              <C-w>
 noremap XQ             ZQ
 noremap XX             ZZ
+
+" match obsidian normal mode surround behaviour
+nmap U                 yzhw
 
 " fix timeout delay
 inoremap <nowait> <Esc> <Esc>
