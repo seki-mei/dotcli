@@ -6,6 +6,7 @@ Plug 'itchyny/vim-cursorword'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 " == other
+Plug 'lervag/vimtex'
 Plug 'wellle/targets.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-commentary'
@@ -19,6 +20,10 @@ if has('nvim')
 	Plug 'epwalsh/obsidian.nvim'
 endif
 call plug#end()
+
+" ===== testing ground
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
 
 " ===== theme
 colorscheme gruvbox
