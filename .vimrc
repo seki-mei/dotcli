@@ -225,6 +225,10 @@ endif
  autocmd InsertEnter * normal! zz
  noremap G             Gzz
  noremap <C-End>       Gzz
+ noremap o             o<C-o>zz
+ noremap O             O<C-o>zz
+ noremap u             uzz
+autocmd ModeChanged [vV\x16]*:* normal! zz
 
 " OBSIDIAN_VIMRC_START
 nnoremap Y             y$
