@@ -224,5 +224,7 @@ if [[ "$parent_process" == "konsole" ]]; then
 elif [[ "$parent_process" == "yakuake" ]]; then
 	cbonsai -p
 else
-	jp2a --size=60x48 .at.png
+	# jp2a --size=60x48 .at.png
+	# figlet -f block "@PP"
+	figlet "welcome"
 fi
