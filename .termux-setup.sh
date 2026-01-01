@@ -11,6 +11,7 @@ pkg install termux-auth \
 	bat \
 	tree \
 	fd \
+	figlet \
 	wget
 
 mkdir -p $HOME/.termux
