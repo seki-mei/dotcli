@@ -227,4 +227,5 @@ else
 	# jp2a --size=60x48 .at.png
 	# figlet -f block "@PP"
 	figlet "welcome"
+	ls -a
 fi
