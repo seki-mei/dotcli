@@ -1,5 +1,5 @@
-mv dotfiles/.* .
-rmdir dotfiles
+mv dotcli/.* .
+rmdir dotcli
 
 pkg install termux-auth \
 	termux-api \
