@@ -22,6 +22,8 @@ endif
 call plug#end()
 
 " ===== testing ground
+set cursorline
+set colorcolumn=75
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
 command! LatexNew :r ~/.vim/templates/article.tex | :1d
@@ -285,13 +287,9 @@ noremap <C-Space>      <Nop>
 noremap <C-j>          <C-Left>
 noremap <C-l>          <C-Right>
 
-" noremap <C-i>          5gk
-" inoremap <C-i>         <Esc>k
 noremap <C-Up>         5gk
 inoremap <C-Up>        <Esc>k
 
-" noremap <C-k>          5gj
-" inoremap <C-k>         <Esc>j
 noremap <C-Down>       5gj
 inoremap <C-Down>      <Esc>j
 
@@ -300,7 +298,8 @@ noremap <Home>         ^
 noremap +              <C-a>
 noremap -              <C-x>
 
-" xy<motion> -> copy to clipborad, xd<motion> delete to clipboard, xc<motion>...
+" xy<motion> -> copy to clipboard
+" xd<motion> -> delete to clipboard
 nnoremap x              "+
 vnoremap x              "+
 nnoremap X              "0
