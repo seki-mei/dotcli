@@ -22,8 +22,8 @@ endif
 call plug#end()
 
 " ===== testing ground
-set cursorline
 set colorcolumn=75
+
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
 command! LatexNew :r ~/.vim/templates/article.tex | :1d
@@ -59,6 +59,7 @@ endif
 
 " ===== cursor
 set scrolloff=999
+set cursorline
 
 " ===== search
 set incsearch
@@ -284,14 +285,8 @@ noremap <CR>           <Nop>
 noremap <Space>        <Nop>
 noremap <C-Space>      <Nop>
 
-noremap <C-j>          <C-Left>
-noremap <C-l>          <C-Right>
-
-noremap <C-Up>         5gk
-inoremap <C-Up>        <Esc>k
-
-noremap <C-Down>       5gj
-inoremap <C-Down>      <Esc>j
+noremap <C-Left>       <C-Left>
+noremap <C-Right>      <C-Right>
 
 noremap <Home>         ^
 
@@ -320,6 +315,20 @@ inoremap <Home>        <C-O>^
 inoremap <End>         <C-O>$
 
 noremap L              <C-w>
+noremap Li             <C-w>k
+noremap Lj             <C-w>h
+noremap Lk             <C-w>j
+noremap Ll             <C-w>l
+noremap L-             <C-w>-
+noremap L+             <C-w>+
+noremap L<             <C-w><
+noremap L>             <C-w>>
+
+nnoremap <C-I> <C-w>k
+nnoremap <C-J> <C-w>h
+nnoremap <C-K> <C-w>j
+nnoremap <C-L> <C-w>l
+
 noremap XQ             ZQ
 noremap XX             ZZ
 
