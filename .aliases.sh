@@ -39,14 +39,14 @@ alias py3="python3"
 alias pyt="python3"
 alias gg="cd"
 
-# using $HOME/settings/home
-# because we want vim to find .git/
-alias zrc='$EDITOR $HOME/settings/home/.zshrc'
-alias brc '$EDITOR $HOME/settings/home.bashrc'
-alias vrc='$EDITOR $HOME/settings/home/.vimrc'
-obsidianvrc="$HOME/Obsidian/.obsidian.vimrc"
-alias orc='$EDITOR $obsidianvrc'
-alias orcdiff='vimdiff $HOME/.vimrc $obsidianvrc'
+# using $HOME/settings/home/
+# because we want vim-fugitive to find .git/
+SETTINGSHOME="$HOME/settings/home"
+alias zrc="$SETTINGSHOME/.zshrc"
+alias vrc="$EDITOR $SETTINGSHOME/.vimrc"
+OBSIDIANVRC="$HOME/Obsidian/.obsidian.vimrc"
+alias orc="$EDITOR $OBSIDIANVRC"
+alias orcdiff="vimdiff $SETTINGSHOME/.vimrc $OBSIDIANVRC"
 
 alias o='xdg-open'
 alias s='$EDITOR $HOME/Obsidian/Sketchpad.md'
