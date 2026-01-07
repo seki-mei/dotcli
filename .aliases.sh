@@ -39,6 +39,8 @@ alias py3="python3"
 alias pyt="python3"
 alias gg="cd"
 
+# using $HOME/settings/home
+# because we want vim to find .git/
 alias zrc='$EDITOR $HOME/settings/home/.zshrc'
 alias brc '$EDITOR $HOME/settings/home.bashrc'
 alias vrc='$EDITOR $HOME/settings/home/.vimrc'
