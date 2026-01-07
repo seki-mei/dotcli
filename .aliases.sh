@@ -39,9 +39,9 @@ alias py3="python3"
 alias pyt="python3"
 alias gg="cd"
 
-alias zrc='$EDITOR $HOME/.zshrc'
-alias brc '$EDITOR $HOME/.bashrc'
-alias vrc='$EDITOR $HOME/.vimrc'
+alias zrc='$EDITOR $HOME/settings/home/.zshrc'
+alias brc '$EDITOR $HOME/settings/home.bashrc'
+alias vrc='$EDITOR $HOME/settings/home/.vimrc'
 obsidianvrc="$HOME/Obsidian/.obsidian.vimrc"
 alias orc='$EDITOR $obsidianvrc'
 alias orcdiff='vimdiff $HOME/.vimrc $obsidianvrc'
