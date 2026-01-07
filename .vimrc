@@ -134,6 +134,11 @@ set whichwrap=bs<>[]
 set nobackup
 set directory=/var/tmp,/tmp,~/.vim/swap
 
+augroup tsv
+autocmd!
+	au BufReadPost *.tsv setlocal tabstop=20
+augroup END
+
 " ===== fixes
 " fix slow exit from insert/visual mode
 " set timeoutlen=1000
