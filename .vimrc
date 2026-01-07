@@ -93,18 +93,12 @@ set shortmess+=F
 set showcmd
 set laststatus=2
 
-function! ConditionalCwd()
-	let l:cwd = getcwd()
-	let l:home = expand('~')
-	if l:cwd ==# l:home
-		return ''
-	else
-		return fnamemodify(l:cwd, ':~') . ' '
-	endif
-endfunction
-" set statusline=%=%{FugitiveStatusline()}\ %{ConditionalCwd()}%t\ %m%r
-" set statusline=%=%{ConditionalCwd()}%t\ %m%r
-set statusline=%=%t\ %m%r
+if has_key(plugs, 'vim-fugitive')
+	highlight GitBranchColor guifg=#d79921 guibg=NONE
+	set statusline=%=%#GitBranchColor#%{FugitiveHead()}%*\ %t\ %m%r
+else
+	set statusline=%=%t\ %m%r
+endif
 
 if (&ft=='markdown')
 	set statusline+=%{wordcount().words}\W
@@ -112,7 +106,7 @@ endif
 
 highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
-highlight! link StatusLineModified GruvboxAqua
+highlight! link StatusLineModified GruvboxOrange
 augroup StatusLineHighlight
 	autocmd!
 	autocmd BufEnter,BufWritePost,InsertLeave * call UpdateStatuslineHighlight()
