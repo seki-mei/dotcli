@@ -322,9 +322,6 @@ nnoremap <C-J> <C-w>h
 nnoremap <C-K> <C-w>j
 nnoremap <C-L> <C-w>l
 
-noremap XQ             ZQ
-noremap XX             ZZ
-
 " match obsidian normal mode surround behaviour
 nmap U                 yzhw
 
