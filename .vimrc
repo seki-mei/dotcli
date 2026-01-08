@@ -6,7 +6,6 @@ Plug 'itchyny/vim-cursorword'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 " == other
-Plug 'lervag/vimtex'
 Plug 'wellle/targets.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-commentary'
@@ -16,6 +15,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 " == syntax hl
 " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'lervag/vimtex'
 Plug 'wuelnerdotexe/vim-astro'
 if has('nvim')
 	Plug 'epwalsh/obsidian.nvim'
