@@ -172,7 +172,7 @@ map ;                  <Plug>Sneak_;
 " surround text object (e.g. hw, hW, a{, hp)
 nmap yz                <Plug>Ysurround
 " surround line
-" nmap yzz               <Plug>Yssurround
+nmap yzz               <Plug>Yssurround
 " surround selection
 vmap Y                 <plug>VSurround
 " delete delimiter
