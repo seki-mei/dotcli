@@ -23,7 +23,6 @@ endif
 call plug#end()
 
 " ===== testing ground
-set colorcolumn=75
 
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
@@ -61,6 +60,9 @@ endif
 " ===== cursor
 set scrolloff=999
 set cursorline
+
+" ===== ruler
+set colorcolumn=75
 
 " ===== search
 set incsearch
