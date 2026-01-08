@@ -95,11 +95,10 @@ set shortmess+=F
 set showcmd
 set laststatus=2
 
+set statusline=%=%t\ %m%r
 if has_key(plugs, 'vim-fugitive')
 	highlight GitBranchColor guifg=#d79921 guibg=NONE
 	set statusline=%=%#GitBranchColor#%{FugitiveHead()}%*\ %t\ %m%r
-else
-	set statusline=%=%t\ %m%r
 endif
 
 highlight! link StatusLineNC Normal
