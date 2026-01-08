@@ -140,8 +140,6 @@ set ttimeoutlen=0
 " ===== commands
 :command! Q q!
 :command! WS StripWhitespace
-:command! WSC StripWhitespaceOnChangedLines
-:command! VRC !vim $HOME/.vimrc
 :command! S !vim $HOME/Obsidian/Sketchpad.md
 nnoremap <F1> :silent !vim "$HOME/Obsidian/Info/Hotkeys.md"<CR>:redraw!<CR>
 
