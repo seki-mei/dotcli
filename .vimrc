@@ -102,10 +102,6 @@ else
 	set statusline=%=%t\ %m%r
 endif
 
-if (&ft=='markdown')
-	set statusline+=%{wordcount().words}\W
-endif
-
 highlight! link StatusLineNC Normal
 highlight! link StatusLineNormal GruvboxFg1
 highlight! link StatusLineModified GruvboxOrange
