@@ -185,9 +185,9 @@ nnoremap Q             :q<CR>
 vnoremap Q             <Esc>:q<CR>
 
 " map alt-space to `:`
- noremap <Esc><Space>  :
-inoremap <Esc><Space>  <Esc>:
- noremap q<Space>      q:
+ " noremap <Esc><Space>  :
+" inoremap <Esc><Space>  <Esc>:
+ " noremap q<Space>      q:
 
 " go back and forth in buffer history list (e.g. from gf)
    nmap <M-Left>       :bN<cr>
