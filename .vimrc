@@ -214,7 +214,9 @@ execute "set <S-Tab>=\e[Z"
 " inoremap <S-Tab>      <C-p>
 inoremap <S-Tab>       <C-d>
 
-nnoremap <C-y>       :%y+<CR>
+if empty($TERMUX_VERSION)
+	nnoremap <C-y>       :%y+<CR>
+endif
 
 " keep line centered in edge cases
  autocmd CursorMoved * normal! zz
