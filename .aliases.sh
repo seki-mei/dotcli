@@ -42,7 +42,7 @@ alias gg="cd"
 # using $HOME/settings/home/
 # because we want vim-fugitive to find .git/
 SETTINGSHOME="$HOME/settings/home"
-alias zrc="$SETTINGSHOME/.zshrc"
+alias zrc="$EDITOR $SETTINGSHOME/.zshrc"
 alias vrc="$EDITOR $SETTINGSHOME/.vimrc"
 OBSIDIANVRC="$HOME/Obsidian/.obsidian.vimrc"
 alias orc="$EDITOR $OBSIDIANVRC"
