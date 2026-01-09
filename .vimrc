@@ -23,7 +23,6 @@ endif
 call plug#end()
 
 " ===== testing ground
-
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
 command! LatexNew :r ~/.vim/templates/article.tex | :1d
