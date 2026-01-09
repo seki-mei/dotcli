@@ -237,8 +237,8 @@ nnoremap <Del>         x
 noremap [3~          x
 nnoremap <C-Del>       dw
 nnoremap [3;5~       dw
-inoremap <C-Del>       <C-O>dw
-inoremap [3;5~       <C-O>dw
+" inoremap <C-Del>       <C-O>dw
+" inoremap [3;5~       <C-O>dw
 
 noremap <C-x>          "+d
 
@@ -300,6 +300,7 @@ nnoremap go            moo<Esc>`o
 " OBSIDIAN_VIMRC_END
 " insert-mode C-O doesn't work in obsidian
 inoremap <C-Del>       <C-O>dw
+inoremap [3;5~       <C-O>dw
 inoremap <C-j>         <C-O><C-Left>
 inoremap <C-l>         <C-O><C-Right>
 inoremap <Home>        <C-O>^
