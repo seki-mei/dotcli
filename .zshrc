@@ -206,6 +206,7 @@ sudo() {
 source $HOME/.aliases.sh
 
 #===== end of setup
+export MAN_POSIXLY_CORRECT=1 # man complains otherwise
 # zsh-syntax-highlighting
 ZSH_HL="$PLUGINDIR/zsh-syntax-highlighting"
 if [ ! -d "$ZSH_HL" ]; then
