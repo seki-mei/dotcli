@@ -14,18 +14,13 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 " == syntax hl
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'lervag/vimtex'
-Plug 'wuelnerdotexe/vim-astro'
 if has('nvim')
 	Plug 'epwalsh/obsidian.nvim'
 endif
 call plug#end()
 
 " ===== testing ground
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_method = 'latexmk'
-command! LatexNew :r ~/.vim/templates/article.tex | :1d
 
 " ===== theme
 colorscheme gruvbox
@@ -125,10 +120,15 @@ set whichwrap=bs<>[]
 set nobackup
 set directory=/var/tmp,/tmp,~/.vim/swap
 
+" ===== Language-specific
 augroup tsv
 autocmd!
 	au BufReadPost *.tsv setlocal tabstop=20
 augroup END
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+command! LatexNew :r ~/.vim/templates/article.tex | :1d
 
 " ===== fixes
 " fix slow exit from insert/visual mode
