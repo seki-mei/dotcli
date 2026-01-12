@@ -21,6 +21,7 @@ endif
 call plug#end()
 
 " ===== testing ground
+set nohlsearch
 
 " ===== theme
 colorscheme gruvbox
@@ -208,6 +209,16 @@ inoremap <C-BS>        <c-o>db
 inoremap <C-H>         <c-w>
 nnoremap <C-H>         db
 
+"pageupdown
+noremap <PageUp>       <C-U>
+inoremap <PageUp>      <Esc><C-U>
+noremap <PageDown>     <C-F>
+inoremap <PageDown>    <Esc><C-F>
+noremap <S-PageUp>     <Nop>
+inoremap <S-PageUp>    <Esc>
+noremap <S-PageDown>   <Nop>
+inoremap <S-PageDown>  <Esc>
+
 execute "set <S-Tab>=\e[Z"
 " inoremap <Tab>        <C-n>
 " inoremap <S-Tab>      <C-p>
@@ -252,24 +263,16 @@ nnoremap <Up>          gk
 inoremap <Up>          <Esc>gk
 noremap i              gk
 noremap I              5gk
-noremap <PageUp>       <C-U>
-inoremap <PageUp>      <Esc><C-U>
 
 nnoremap <Down>        gj
 inoremap <Down>        <Esc>gj
 noremap k              gj
 noremap K              5gj
-noremap <PageDown>       <C-F>
-inoremap <PageDown>      <Esc><C-F>
 
 noremap <S-Up>         <Nop>
 inoremap <S-Up>        <Esc>
-noremap <S-PageUp>     <Nop>
-inoremap <S-PageUp>    <Esc>
 noremap <S-Down>       <Nop>
 inoremap <S-Down>      <Esc>
-noremap <S-PageDown>   <Nop>
-inoremap <S-PageDown>  <Esc>
 
 nnoremap U             <Nop>
 nnoremap M             <Nop>
