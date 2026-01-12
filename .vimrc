@@ -259,15 +259,14 @@ nnoremap <Up>          gk
 inoremap <Up>          <Esc>gk
 noremap i              gk
 noremap I              5gk
+noremap <S-Up>         5gk
+inoremap <S-Up>        <Esc>
 
 nnoremap <Down>        gj
 inoremap <Down>        <Esc>gj
 noremap k              gj
 noremap K              5gj
-
-noremap <S-Up>         <Nop>
-inoremap <S-Up>        <Esc>
-noremap <S-Down>       <Nop>
+noremap <S-Down>       5gj
 inoremap <S-Down>      <Esc>
 
 nnoremap U             <Nop>
