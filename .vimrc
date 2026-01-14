@@ -78,7 +78,7 @@ set shiftwidth=0 "0: uses tabstop value
 set tabstop=2
 set list
 set listchars=tab:••\|
-set showbreak=↪↪↪↪
+set showbreak=└─▶
 
 " ===== title
 set title
