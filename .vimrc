@@ -23,10 +23,11 @@ call plug#end()
 if has('nvim')
   augroup HighlightYank
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
   augroup END
 else
 	packadd! hlyank
+	:let g:hlyank_hlgroup = 'Search'
 	let g:hlyank_invisual = v:false
 	let g:hlyank_duration = 200
 endif
