@@ -27,7 +27,8 @@ if has('nvim')
   augroup END
 else
 	packadd! hlyank
-	:let g:hlyank_invisual = v:false
+	let g:hlyank_invisual = v:false
+	let g:hlyank_duration = 200
 endif
 
 autocmd User SneakLeave highlight clear Sneak | highlight clear SneakCurrent
