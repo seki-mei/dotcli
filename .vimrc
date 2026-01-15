@@ -91,11 +91,16 @@ set titlestring=%t
 " ===== highliting
 au BufNewFile,BufRead *.qss setfiletype css
 " fix erroneous _ highlight for $math$ and $$math$$ blocks
-augroup markdown_math_fix
+" Treat $...$ and $$...$$ as literal/tex math regions in markdown
+augroup markdown_math_tex
 	  autocmd!
-		  autocmd Syntax markdown syntax match markdownMath /\$\([^$]*\)\$/ containedin=ALL
-			  autocmd Syntax markdown syntax match markdownMath /\$\$\([^$]*\)\$\$/ containedin=ALL
-				  autocmd Syntax markdown highlight link markdownMath Normal
+		  " Inline math
+		  autocmd Syntax markdown syntax region markdownMath matchgroup=Delimiter start=+\$+ end=+\$+ contains=@tex
+			  " Block math
+			  autocmd Syntax markdown syntax region markdownMathBlock matchgroup=Delimiter start=+\$\$+ end=+\$\$+ contains=@tex
+				  " Link highlighting to TeX math
+				  autocmd Syntax markdown highlight link markdownMath texMathZone
+					  autocmd Syntax markdown highlight link markdownMathBlock texMathZone
 augroup END
 
 " ===== statusline
