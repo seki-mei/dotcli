@@ -21,6 +21,8 @@ endif
 call plug#end()
 
 " ===== testing ground
+" autocmd User SneakLeave highlight clear Sneak | highlight clear SneakCurrent
+
 set nohlsearch
 
 " ===== theme
@@ -189,7 +191,7 @@ vnoremap Q             <Esc>:q<CR>
 " inoremap <Esc><Space>  <Esc>:
  " noremap q<Space>      q:
 
-" go back and forth in buffer history list (e.g. from gf)
+" go back and forth in buffer history list
    nmap <M-Left>       :bN<cr>
    nmap <M-Right>      :bn<cr>
 " stahdard bindings
