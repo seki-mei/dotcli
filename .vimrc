@@ -110,23 +110,19 @@ set laststatus=2
 
 set statusline=%=%t\ %m%r
 if has_key(plugs, 'vim-fugitive')
-	highlight GitBranchColor guifg=#d79921 guibg=NONE
+		highlight! link GitBranchColor GruvboxGray
 	set statusline=%=%#GitBranchColor#%{FugitiveHead()}%*\ %t\ %m%r
 endif
 
-highlight! link StatusLineNC Normal
-highlight! link StatusLineNormal GruvboxFg1
-highlight! link StatusLineModified GruvboxOrange
 augroup StatusLineHighlight
-	autocmd!
-	autocmd BufEnter,BufWritePost,InsertLeave * call UpdateStatuslineHighlight()
-	autocmd TextChanged,TextChangedI * call UpdateStatuslineHighlight()
+	autocmd BufEnter,BufWritePost,TextChanged,TextChangedI * call UpdateStatuslineHighlight()
 augroup END
 function! UpdateStatuslineHighlight()
 	if &modified
-		highlight! link StatusLine StatusLineModified
+		highlight! link StatusLine GruvboxRed
 	else
-		highlight! link StatusLine StatusLineNormal
+		" highlight! link StatusLine GruvboxFg1
+		highlight! link StatusLine GruvboxGray
 	endif
 endfunction
 
