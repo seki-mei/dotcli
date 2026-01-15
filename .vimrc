@@ -43,8 +43,6 @@ syntax enable
 set background=dark
 
 " ===== plugins
-"   === vim-highlightedyank
-let g:highlightedyank_highlight_in_visual = 0
 "   === vim-sneak
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#map_netrw = 1
