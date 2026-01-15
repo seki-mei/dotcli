@@ -307,10 +307,11 @@ noremap -              <C-x>
 
 " xy<motion> -> copy to clipboard
 " xd<motion> -> delete to clipboard
-nnoremap x              "+
-vnoremap x              "+
-nnoremap X              "0
-vnoremap X              "0
+" nah, I always use <C-c> or <C-x> instead
+" nnoremap x              "+
+" vnoremap x              "+
+" nnoremap X              "0
+" vnoremap X              "0
 nnoremap <space>v      <C-v>
 
 nnoremap gO            moO<Esc>`o
@@ -336,14 +337,6 @@ noremap L-             <C-w>-
 noremap L+             <C-w>+
 noremap L<             <C-w><
 noremap L>             <C-w>>
-
-" nnoremap <C-I> <C-w>k
-" nnoremap <C-J> <C-w>h
-" nnoremap <C-K> <C-w>j
-" nnoremap <C-L> <C-w>l
-
-" match obsidian normal mode surround behaviour
-nmap U                 yzhw
 
 " fix timeout delay
 inoremap <nowait> <Esc> <Esc>
