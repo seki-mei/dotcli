@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-cursorword'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'machakann/vim-highlightedyank'
 " == other
 Plug 'justinmk/vim-sneak'
 Plug 'wellle/targets.vim'
@@ -20,21 +21,6 @@ endif
 call plug#end()
 
 " ===== testing ground
-if has('nvim')
-  augroup HighlightYank
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
-  augroup END
-else
-	packadd! hlyank
-	:let g:hlyank_hlgroup = 'Search'
-	let g:hlyank_invisual = v:false
-	let g:hlyank_duration = 200
-endif
-
-autocmd User SneakLeave highlight clear Sneak | highlight clear SneakCurrent
-
-set nohlsearch
 
 " ===== theme
 colorscheme gruvbox
@@ -43,10 +29,14 @@ syntax enable
 set background=dark
 
 " ===== plugins
+" highlightedyank
+let g:highlightedyank_highlight_duration = 200
+let g:highlightedyank_highlight_in_visual = 0
 "   === vim-sneak
 let g:sneak#use_ic_scs = 1 " use own case sensitivity settings
 let g:sneak#map_netrw = 1
 let g:sneak#prompt = '🐍'
+autocmd User SneakLeave highlight clear Sneak | highlight clear SneakCurrent
 "   === vim-surround
 let g:surround_no_mappings = 1
 
@@ -97,10 +87,10 @@ set showbreak=└─▶ " maybe ↳?
 set title
 set titlestring=%t
 
-" ===== highliting
+" ===== highlighting
 au BufNewFile,BufRead *.qss setfiletype css
-" fix erroneous _ highlight for $math$ and $$math$$ blocks
-" Treat $...$ and $$...$$ as literal/tex math regions in markdown
+
+" $$ fields in markdown
 augroup markdown_math_tex
 	  autocmd!
 		  " Inline math
