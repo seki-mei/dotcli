@@ -67,9 +67,6 @@ set ignorecase
 set smartcase "ignore case unless search query contains uppercase letter
 set nohlsearch
 
-" ===== highliting
-au BufNewFile,BufRead *.qss setfiletype css
-
 " ===== completion
 set ofu=syntaxcomplete#Complete "enable completion
 set wildmenu "completion menu for `:`
@@ -90,6 +87,16 @@ set showbreak=└─▶ " maybe ↳?
 " ===== title
 set title
 set titlestring=%t
+
+" ===== highliting
+au BufNewFile,BufRead *.qss setfiletype css
+" fix erroneous _ highlight for $math$ and $$math$$ blocks
+augroup markdown_math_fix
+	  autocmd!
+		  autocmd Syntax markdown syntax match markdownMath /\$\([^$]*\)\$/ containedin=ALL
+			  autocmd Syntax markdown syntax match markdownMath /\$\$\([^$]*\)\$\$/ containedin=ALL
+				  autocmd Syntax markdown highlight link markdownMath Normal
+augroup END
 
 " ===== statusline
 set noshowmode
