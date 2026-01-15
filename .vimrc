@@ -53,8 +53,9 @@ if !has('nvim')
 	let &t_SR = "\e[4 q" " r mode - underline
 endif
 
+" ===== nvim only
 if has('nvim')
-" neovide only
+" neovide
 	set guifont=Roboto_Mono:h12
 	let g:neovide_padding_top = 20
 	let g:neovide_padding_bottom = 20
