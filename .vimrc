@@ -324,10 +324,10 @@ noremap L+             <C-w>+
 noremap L<             <C-w><
 noremap L>             <C-w>>
 
-nnoremap <C-I> <C-w>k
-nnoremap <C-J> <C-w>h
-nnoremap <C-K> <C-w>j
-nnoremap <C-L> <C-w>l
+" nnoremap <C-I> <C-w>k
+" nnoremap <C-J> <C-w>h
+" nnoremap <C-K> <C-w>j
+" nnoremap <C-L> <C-w>l
 
 " match obsidian normal mode surround behaviour
 nmap U                 yzhw
