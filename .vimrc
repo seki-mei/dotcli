@@ -53,6 +53,16 @@ if !has('nvim')
 	let &t_SR = "\e[4 q" " r mode - underline
 endif
 
+if has('nvim')
+" neovide only
+	set guifont=Roboto_Mono:h12
+	let g:neovide_padding_top = 20
+	let g:neovide_padding_bottom = 20
+	let g:neovide_padding_right = 20
+	let g:neovide_padding_left = 20
+endif
+
+
 " ===== cursor
 set scrolloff=999
 set cursorline
