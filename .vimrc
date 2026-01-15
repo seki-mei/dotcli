@@ -92,14 +92,13 @@ au BufNewFile,BufRead *.qss setfiletype css
 
 " $$ fields in markdown
 augroup markdown_math_tex
-	  autocmd!
-		  " Inline math
-		  autocmd Syntax markdown syntax region markdownMath matchgroup=Delimiter start=+\$+ end=+\$+ contains=@tex
-			  " Block math
-			  autocmd Syntax markdown syntax region markdownMathBlock matchgroup=Delimiter start=+\$\$+ end=+\$\$+ contains=@tex
-				  " Link highlighting to TeX math
-				  autocmd Syntax markdown highlight link markdownMath texMathZone
-					  autocmd Syntax markdown highlight link markdownMathBlock texMathZone
+	autocmd!
+	" Inline math
+	autocmd Syntax markdown syntax region markdownMath matchgroup=Question start=+\$+ end=+\$+ contains=@tex
+	autocmd Syntax markdown highlight link markdownMath Type
+	" Block math
+	autocmd Syntax markdown syntax region markdownMathBlock matchgroup=Define start=+\$\$+ end=+\$\$+ contains=@tex
+	autocmd Syntax markdown highlight link markdownMathBlock Title
 augroup END
 
 " ===== statusline
