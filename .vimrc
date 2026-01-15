@@ -74,13 +74,18 @@ au BufNewFile,BufRead *.qss setfiletype css
 set ofu=syntaxcomplete#Complete "enable completion
 set wildmenu "completion menu for `:`
 
-" ===== indent
+" ===== indent & listchars
 set noexpandtab
 set shiftwidth=0 "0: uses tabstop value
 set tabstop=2
 set list
 set listchars=tab:••\|
-set showbreak=└─▶
+" eol important for highlight-yank: you can see linebreaks being yanked
+set listchars+=eol:⤶ " alternative: ↵
+set listchars+=space:•
+set listchars+=leadmultispace:_ " ▢▢▢▢ looks really ugly in indents (python)
+set listchars+=trail:▢
+set showbreak=└─▶ " maybe ↳?
 
 " ===== title
 set title
