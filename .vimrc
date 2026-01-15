@@ -159,7 +159,8 @@ set ttimeoutlen=0
 " ===== commands
 :command! Q q!
 :command! WS StripWhitespace
-:command! S !vim $HOME/Obsidian/Sketchpad.md
+:command! S e $HOME/Obsidian/Sketchpad.md
+:command! HK e $HOME/Obsidian/Info/Hotkeys.md
 nnoremap <F1> :silent !vim "$HOME/Obsidian/Info/Hotkeys.md"<CR>:redraw!<CR>
 
 "   === :DiffSaved
