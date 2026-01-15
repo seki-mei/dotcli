@@ -16,7 +16,6 @@ Plug 'tpope/vim-fugitive'
 " == syntax hl
 Plug 'lervag/vimtex'
 if has('nvim')
-	Plug 'epwalsh/obsidian.nvim'
 endif
 call plug#end()
 
