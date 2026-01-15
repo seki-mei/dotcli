@@ -3,7 +3,6 @@ call plug#begin()
 " == visual
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-cursorword'
-Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 " == other
 Plug 'justinmk/vim-sneak'
@@ -21,7 +20,17 @@ endif
 call plug#end()
 
 " ===== testing ground
-" autocmd User SneakLeave highlight clear Sneak | highlight clear SneakCurrent
+if has('nvim')
+  augroup HighlightYank
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+  augroup END
+else
+	packadd! hlyank
+	:let g:hlyank_invisual = v:false
+endif
+
+autocmd User SneakLeave highlight clear Sneak | highlight clear SneakCurrent
 
 set nohlsearch
 
