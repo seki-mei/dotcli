@@ -3,16 +3,16 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH="$PATH:/home/wotton/.local/bin"
 DEFAULT_USER="wotton"
 DEFAULT_HOST="cheshire"
-export EDITOR=vim
+export EDITOR=nvim
 export ZDOTDIR=$HOME/.zsh
 export PLUGINDIR="$ZDOTDIR/zsh_plugins"
 export HISTFILE="$ZDOTDIR/zsh_history"
 export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 if [ "$HOST" = "cheshire" ]; then
-	export MANPAGER="vim -M +MANPAGER -"
+	export MANPAGER="$EDITOR -M +MANPAGER -"
 elif [ "$HOST" = "localhost" ]; then
-	export MANPAGER="vim -M +MANPAGER"
+	export MANPAGER="$EDITOR -M +MANPAGER"
 fi
 
 mkdir -p "$PLUGINDIR"
@@ -196,7 +196,7 @@ setopt HIST_IGNORE_SPACE # don't save to history commands with leading space
 #===== custom commands and aliases
 # block `sudo vim`
 sudo() {
-	if [[ "$1" == "vim" ]]; then
+	if [[ "$1" == "vim" || "$1" == "nvim" ]]; then
 		echo "🚫 Stop. Use 'sudoedit' or 'se'." >&2
 		return 1
 	fi
