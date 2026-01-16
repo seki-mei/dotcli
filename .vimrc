@@ -17,11 +17,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 if has('nvim')
 " nvim plugins
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-" Plug 'epwalsh/obsidian.nvim'
-" Plug 'preservim/vim-markdown'
-" Plug 'hrsh7th/nvim-cmp'
 endif
 call plug#end()
 
