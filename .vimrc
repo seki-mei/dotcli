@@ -137,7 +137,6 @@ function! UpdateStatuslineHighlight()
 	if &modified
 		highlight! link StatusLine GruvboxRed
 	else
-		" highlight! link StatusLine GruvboxFg1
 		highlight! link StatusLine GruvboxGray
 	endif
 endfunction
