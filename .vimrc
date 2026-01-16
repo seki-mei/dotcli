@@ -177,8 +177,6 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 " ===== keybinds
-" some free, no-mod sequences:
-	" <fnum> q' g<space>
 map s                  <Plug>Sneak_s
 map S                  <Plug>Sneak_S
 map '                  <Plug>Sneak_;
