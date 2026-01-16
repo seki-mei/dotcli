@@ -14,12 +14,17 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 " == syntax hl
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 if has('nvim')
 endif
 call plug#end()
 
 " ===== testing ground
+augroup pandoc_syntax
+	    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+set conceallevel=1
 
 " ===== theme
 colorscheme gruvbox
