@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 if has('nvim')
+" nvim plugins
 endif
 call plug#end()
 
@@ -26,11 +27,30 @@ augroup pandoc_syntax
 augroup END
 set conceallevel=1
 
+
+
 " ===== theme
 colorscheme gruvbox
 set termguicolors
 syntax enable
 set background=dark
+
+" ===== vim only
+if !has('nvim')
+	" ===== cursor shapes
+	let &t_EI = "\e[2 q" " n mode - block
+	let &t_SI = "\e[6 q" " i mode - vertical bar
+	let &t_SR = "\e[4 q" " r mode - underline
+	" ===== gvim
+	set guioptions-=T    " remove toolbar
+	set guioptions-=m    " remove menu bar
+	set guioptions-=r    " remove scrollbar
+endif
+
+" ===== nvim only
+if has('nvim')
+" nvim plugins
+endif
 
 " ===== plugins
 " highlightedyank
@@ -42,31 +62,11 @@ let g:sneak#map_netrw = 1
 let g:sneak#prompt = '🐍'
 autocmd User SneakLeave highlight clear Sneak | highlight clear SneakCurrent
 "   === vim-surround
-let g:surround_no_mappings = 1
-
-" ===== vim only
-if !has('nvim')
-	" ===== gvim
-	set guioptions-=T    " remove toolbar
-	set guioptions-=m    " remove menu bar
-	set guioptions-=r    " remove scrollbar
-
-	" ===== cursor shapes
-	let &t_EI = "\e[2 q" " n mode - block
-	let &t_SI = "\e[6 q" " i mode - vertical bar
-	let &t_SR = "\e[4 q" " r mode - underline
-endif
-
-" ===== nvim only
-if has('nvim')
-" neovide
-	set guifont=Roboto_Mono:h12
-	let g:neovide_padding_top = 20
-	let g:neovide_padding_bottom = 20
-	let g:neovide_padding_right = 20
-	let g:neovide_padding_left = 20
-endif
-
+let g:surround_no_mappings = 1 " remove default mappings
+"   === tex
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+command! LatexNew :r ~/.vim/templates/article.tex | :1d
 
 " ===== cursor
 set scrolloff=999
@@ -78,7 +78,7 @@ set colorcolumn=75
 " ===== search
 set incsearch
 set ignorecase
-set smartcase "ignore case unless search query contains uppercase letter
+set smartcase
 set nohlsearch
 
 " ===== completion
@@ -91,7 +91,7 @@ set shiftwidth=0 "0: uses tabstop value
 set tabstop=2
 set list
 set listchars=tab:••\|
-" eol important for highlight-yank: you can see linebreaks being yanked
+    " eol important for highlight-yank: you can see linebreaks being yanked
 set listchars+=eol:⤶ " alternative: ↵
 set listchars+=space:•
 set listchars+=leadmultispace:_ " ▢▢▢▢ looks really ugly in indents (python)
@@ -123,6 +123,7 @@ set showcmd
 set laststatus=2
 
 set statusline=%=%t\ %m%r
+
 if has_key(plugs, 'vim-fugitive')
 		highlight! link GitBranchColor GruvboxGray
 	set statusline=%=%#GitBranchColor#%{FugitiveHead()}%*\ %t\ %m%r
@@ -131,6 +132,7 @@ endif
 augroup StatusLineHighlight
 	autocmd BufEnter,BufWritePost,TextChanged,TextChangedI * call UpdateStatuslineHighlight()
 augroup END
+
 function! UpdateStatuslineHighlight()
 	if &modified
 		highlight! link StatusLine GruvboxRed
@@ -155,22 +157,14 @@ autocmd!
 	au BufReadPost *.tsv setlocal tabstop=20
 augroup END
 
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_method = 'latexmk'
-command! LatexNew :r ~/.vim/templates/article.tex | :1d
-
 " ===== fixes
-" fix slow exit from insert/visual mode
-" set timeoutlen=1000
-" fix slow exit from insert/visual mode. Setting -1 didn't work
-set ttimeoutlen=0
+set ttimeoutlen=0 " -1 didn't work
 
 " ===== commands
 :command! Q q!
 :command! WS StripWhitespace
 :command! S e $HOME/Obsidian/Sketchpad.md
-:command! HK e $HOME/Obsidian/Info/Hotkeys.md
-nnoremap <F1> :silent !vim "$HOME/Obsidian/Info/Hotkeys.md"<CR>:redraw!<CR>
+nnoremap <F1> :e ~/Obsidian/Info/Hotkeys.md<CR>
 
 "   === :DiffSaved
 function! s:DiffWithSaved()
@@ -181,13 +175,6 @@ function! s:DiffWithSaved()
 	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
-
-" fzf
-function! FzfOpen()
-	silent !xdg-open "$(fzf --no-multi --preview='bat --theme=gruvbox-dark --color=always --plain {}')"
-	redraw!
-endfunction
-nnoremap <space>f :call FzfOpen()<CR>
 
 " ===== keybinds
 " some free, no-mod sequences:
@@ -208,7 +195,6 @@ vmap Y                 <plug>VSurround
 nmap dz                <Plug>Dsurround
 " replace delimiters
 nmap cz                <Plug>Csurround
-
 
 nnoremap Q             :q<CR>
 vnoremap Q             <Esc>:q<CR>
@@ -314,13 +300,6 @@ noremap <Home>         ^
 noremap +              <C-a>
 noremap -              <C-x>
 
-" xy<motion> -> copy to clipboard
-" xd<motion> -> delete to clipboard
-" nah, I always use <C-c> or <C-x> instead
-" nnoremap x              "+
-" vnoremap x              "+
-" nnoremap X              "0
-" vnoremap X              "0
 nnoremap <space>v      <C-v>
 
 nnoremap gO            moO<Esc>`o
