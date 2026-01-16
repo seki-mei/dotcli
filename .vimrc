@@ -165,6 +165,7 @@ map S                  <Plug>Sneak_S
 map '                  <Plug>Sneak_;
 map ,                  <Plug>Sneak_,
 map ;                  <Plug>Sneak_;
+map \                  <Plug>Sneak_,
 
 " surround text object (e.g. hw, hW, a{, hp)
 nmap yz                <Plug>Ysurround
