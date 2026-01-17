@@ -79,6 +79,9 @@ set nohlsearch
 " ===== completion
 set ofu=syntaxcomplete#Complete "enable completion
 set wildmenu "completion menu for `:`
+set completeopt+=menu,menuone,noselect,fuzzy
+set spell
+set spelllang=en
 
 " ===== indent & listchars
 set noexpandtab
