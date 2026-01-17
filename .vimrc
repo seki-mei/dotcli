@@ -77,6 +77,7 @@ set smartcase
 set nohlsearch
 
 " ===== completion
+set infercase
 set completeopt+=menu,menuone,noselect,fuzzy
 set wildmenu "completion menu for `:`
 
@@ -297,7 +298,6 @@ inoremap <Home>        <C-O>^
  noremap <End>         g_
 " inoremap <End>        <C-O>g_
 inoremap <End>         <C-O>$
-inoremap <C-Space>      <C-X><C-F>
 
 noremap L              <C-w>
 noremap Li             <C-w>k
