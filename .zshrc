@@ -9,10 +9,16 @@ export PLUGINDIR="$ZDOTDIR/zsh_plugins"
 export HISTFILE="$ZDOTDIR/zsh_history"
 export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
-if [ "$HOST" = "cheshire" ]; then
-	export MANPAGER="$EDITOR -M +MANPAGER -"
-elif [ "$HOST" = "localhost" ]; then
-	export MANPAGER="$EDITOR -M +MANPAGER"
+if [ "$EDITOR" = "vim" ]; then
+	if [ "$HOST" = "cheshire" ]; then
+		export MANPAGER="$EDITOR -M +MANPAGER -"
+	elif [ "$HOST" = "localhost" ]; then
+		export MANPAGER="$EDITOR -M +MANPAGER"
+	fi
+elif [ "$EDITOR" = "nvim" ]; then
+	export MANPAGER="$EDITOR +Man!"
+else
+	export MANPAGER="less -R"
 fi
 
 mkdir -p "$PLUGINDIR"
