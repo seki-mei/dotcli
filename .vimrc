@@ -77,11 +77,8 @@ set smartcase
 set nohlsearch
 
 " ===== completion
-set ofu=syntaxcomplete#Complete "enable completion
-set wildmenu "completion menu for `:`
 set completeopt+=menu,menuone,noselect,fuzzy
-set spell
-set spelllang=en
+set wildmenu "completion menu for `:`
 
 " ===== indent & listchars
 set noexpandtab
@@ -300,6 +297,7 @@ inoremap <Home>        <C-O>^
  noremap <End>         g_
 " inoremap <End>        <C-O>g_
 inoremap <End>         <C-O>$
+inoremap <C-Space>      <C-X><C-F>
 
 noremap L              <C-w>
 noremap Li             <C-w>k
