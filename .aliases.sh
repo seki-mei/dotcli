@@ -41,7 +41,6 @@ alias pyt="python3"
 alias gg="cd"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
-alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
 
 # using $HOME/settings/home/
 # because we want vim-fugitive to find .git/
