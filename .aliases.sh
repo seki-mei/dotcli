@@ -28,7 +28,7 @@ alias gsw="git switch"
 alias gswc="git switch -c"
 alias gswm="git switch main"
 
-alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
+# alias kp="flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC"
 
 # misc
 alias e='$EDITOR'
