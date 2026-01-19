@@ -88,11 +88,11 @@ set tabstop=2
 set list
 set listchars=tab:••\|
     " eol important for highlight-yank: you can see linebreaks being yanked
-set listchars+=eol:⤶ " alternative: ↵
+set listchars+=eol:⤶ "
 set listchars+=space:•
 set listchars+=leadmultispace:_ " ▢▢▢▢ looks really ugly in indents (python)
 set listchars+=trail:▢
-set showbreak=└─▶ " maybe ↳?
+set showbreak=└─▶
 
 " ===== title
 set title
