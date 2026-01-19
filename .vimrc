@@ -214,6 +214,8 @@ noremap <PageDown>     <C-F>
 inoremap <PageDown>    <Esc><C-F>
 
 execute "set <S-Tab>=\e[Z"
+nnoremap <Tab>          >>^
+nnoremap <S-Tab>        <<^
 " inoremap <Tab>        <C-n>
 " inoremap <S-Tab>      <C-p>
 inoremap <S-Tab>       <C-d>
