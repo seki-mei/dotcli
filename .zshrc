@@ -8,6 +8,7 @@ export ZDOTDIR=$HOME/.zsh
 export PLUGINDIR="$ZDOTDIR/zsh_plugins"
 export HISTFILE="$ZDOTDIR/zsh_history"
 export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+export ZSH_COMPDUMP="$CACHE_DIR/zcompdump"
 
 if [ "$EDITOR" = "vim" ]; then
 	if [ "$HOST" = "cheshire" ]; then
@@ -176,7 +177,7 @@ bindkey -M viins '^[^@' fzf-history-widget
 
 #===== completions
 autoload -U compinit
-compinit -C
+compinit -C -d "$ZSH_COMPDUMP"
 # arrow key menu for completions
 zstyle ':completion:*' menu select
 # case-insensitive (all),partial-word and then substring completion
