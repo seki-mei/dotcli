@@ -127,6 +127,8 @@ function! UpdateStatuslineHighlight()
 endfunction
 
 " ===== other
+" disable intro message
+set shm+=I
 " prevent autoinsert of comments on new lines
 autocmd FileType * set formatoptions-=cro
 " use arrow key and backspace across newlines
