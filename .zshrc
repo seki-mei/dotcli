@@ -124,6 +124,12 @@ bindkey -M visual '^[[H' beginning-of-line
 # shift-tab
 bindkey -M emacs "^[[Z" reverse-menu-complete
 bindkey -M viins "^[[Z" reverse-menu-complete
+# c-n
+bindkey -M emacs "^N" menu-complete
+bindkey -M viins "^N" menu-complete
+# c-p
+bindkey -M emacs "^P" reverse-menu-complete
+bindkey -M viins "^P" reverse-menu-complete
 # surround
 autoload -Uz surround
 zle -N delete-surround surround
