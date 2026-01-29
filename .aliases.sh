@@ -73,6 +73,7 @@ alias less='less -i'
 alias mkdir='mkdir -pv'
 alias ping='ping -c 3'
 alias feh='feh --scale-down --auto-zoom'
+alias htop='htop --tree'
 alias ..='cd ..'
 
 # privileged access
