@@ -298,10 +298,6 @@ inoremap [3;5~       <C-O>dw
 inoremap <C-j>         <C-O><C-Left>
 inoremap <C-l>         <C-O><C-Right>
 inoremap <Home>        <C-O>^
-"obsidian doesn't like g_
- noremap <End>         g_
-" inoremap <End>        <C-O>g_
-inoremap <End>         <C-O>$
 
 noremap L              <C-w>
 noremap Li             <C-w>k
