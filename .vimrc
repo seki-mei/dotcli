@@ -181,8 +181,8 @@ nmap dz                <Plug>Dsurround
 " replace delimiters
 nmap cz                <Plug>Csurround
 
-nnoremap Q             :q<CR>
-vnoremap Q             <Esc>:q<CR>
+nnoremap <C-q>             :q<CR>
+vnoremap <C-q>             <Esc>:q<CR>
 
 " map alt-space to `:`
  " noremap <Esc><Space>  :
@@ -239,6 +239,7 @@ autocmd ModeChanged [vV\x16]*:* normal! zz
 " OBSIDIAN_VIMRC_START
 nnoremap Y             y$
 noremap Z              <C-r>
+nnoremap <A-v>         <C-q>
 
 noremap <BS>           X
 nnoremap <C-BS>        db
@@ -250,6 +251,11 @@ nnoremap [3;5~       dw
 " inoremap [3;5~       <C-O>dw
 
 noremap <C-x>          "+d
+
+noremap gi            <Nop>
+noremap gj            <Nop>
+noremap gk            <Nop>
+noremap gl            <Nop>
 
 noremap j              h
 noremap h              i
@@ -286,8 +292,6 @@ noremap <Home>         ^
 
 noremap +              <C-a>
 noremap -              <C-x>
-
-nnoremap <space>v      <C-v>
 
 nnoremap gO            moO<Esc>`o
 nnoremap go            moo<Esc>`o
