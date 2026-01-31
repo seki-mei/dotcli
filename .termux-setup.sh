@@ -3,7 +3,8 @@ rmdir dotcli
 
 pkg install termux-auth \
 	termux-api \
-	vim \
+	termux-tools \
+	nvim \
 	zsh \
 	git \
 	rclone \
