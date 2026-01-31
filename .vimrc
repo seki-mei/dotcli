@@ -239,7 +239,7 @@ autocmd ModeChanged [vV\x16]*:* normal! zz
 " OBSIDIAN_VIMRC_START
 nnoremap Y             y$
 noremap Z              <C-r>
-nnoremap <A-v>         <C-q>
+noremap <A-v>         <C-q>
 
 noremap <BS>           X
 nnoremap <C-BS>        db
