@@ -94,7 +94,6 @@ bindkey -M visual hW select-in-blank-word
 bindkey -M visual ha select-in-shell-word  # select argument
 bindkey -M visual hw select-in-word
 # normal mode bindings
-bindkey -M vicmd '^?' backward-delete-char # backspace
 bindkey -M vicmd '^H' backward-kill-word   # ctrl-backspace
 bindkey          '^H' backward-kill-word
 bindkey -M vicmd '\e[3;5~' kill-word       # ctrl-delete
@@ -141,11 +140,7 @@ bindkey -M vicmd yz add-surround
 bindkey -M visual Y add-surround
 
 #===== fzf
-# load fzf
-autoload -Uz is-at-least
-fzf_version=$(fzf --version | awk '{print $1}')
 source <(fzf --zsh)
-
 if command fd --version >/dev/null; then
 	export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git" --exclude "*cache*" --exclude "*Cache*"'
 	export FZF_CTRL_T_COMMAND='fd --type file --hidden --exclude ".git" --exclude "*cache*" --exclude "*Cache*"'
@@ -160,7 +155,6 @@ fi
 export FZF_ALT_C_OPTS=" --preview 'tree -C {}'"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=plain --line-range=:50 {}'"
 export FZF_DEFAULT_OPTS="--multi --height 50% --scroll-off=999 --border=double --reverse --info=inline-right --marker='● ' --prompt='❯' --separator='' --scrollbar='' --color=pointer:blue,marker:white,prompt:magenta,border:white,gutter:black,hl:cyan,hl+:magenta"
-export FZF_COMPLETION_TRIGGER='@'
 
 edit-with-fzf() {
     LBUFFER="${LBUFFER}e "
@@ -190,7 +184,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 # colorize completions using default `ls` colors
 zstyle ':completion:*' list-colors ''
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # complete . and .. special directories
 zstyle ':completion:*' special-dirs true
 # automatically load bash completion functions
@@ -236,11 +229,7 @@ if [[ "$parent_process" == "konsole" ]]; then
 	ZSH_END_TIME=$(date +%s%N)
 	elapsed=$(( (ZSH_END_TIME - ZSH_START_TIME) / 1000000 ))
 	# echo "$elapsed ms"
-elif [[ "$parent_process" == "yakuake" ]]; then
-	cbonsai -p
 else
-	# jp2a --size=60x48 .at.png
-	# figlet -f block "@PP"
 	figlet "welcome"
 	ls -a
 fi
