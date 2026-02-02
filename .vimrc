@@ -240,6 +240,8 @@ autocmd ModeChanged [vV\x16]*:* normal! zz
 nnoremap Y             y$
 noremap Z              <C-r>
 noremap <A-v>         <C-q>
+" <c-i> is tab in most terminals
+noremap <A-o>         <C-i>
 
 noremap <BS>           X
 nnoremap <C-BS>        db
