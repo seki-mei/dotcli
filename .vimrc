@@ -98,9 +98,6 @@ set showbreak=└─▶
 set title
 set titlestring=%t
 
-" ===== highlighting
-au BufNewFile,BufRead *.qss setfiletype css
-
 " ===== statusline
 set noshowmode
 set shortmess+=F
@@ -108,16 +105,13 @@ set showcmd
 set laststatus=2
 
 set statusline=%=%t\ %m%r
-
 if has_key(plugs, 'vim-fugitive')
 		highlight! link GitBranchColor GruvboxGray
 	set statusline=%=%#GitBranchColor#%{FugitiveHead()}%*\ %t\ %m%r
 endif
-
 augroup StatusLineHighlight
 	autocmd BufEnter,BufWritePost,TextChanged,TextChangedI * call UpdateStatuslineHighlight()
 augroup END
-
 function! UpdateStatuslineHighlight()
 	if &modified
 		highlight! link StatusLine GruvboxRed
@@ -143,13 +137,13 @@ autocmd!
 	au BufReadPost *.tsv setlocal tabstop=20
 augroup END
 
+au BufNewFile,BufRead *.qss setfiletype css
+
 " ===== fixes
 set ttimeoutlen=0 " -1 didn't work
 
 " ===== commands
-:command! Q q!
 :command! WS StripWhitespace
-:command! S e $HOME/Obsidian/Sketchpad.md
 nnoremap <F1> :e ~/Obsidian/Info/Hotkeys.md<CR>
 
 "   === :DiffSaved
@@ -240,6 +234,7 @@ autocmd ModeChanged [vV\x16]*:* normal! zz
 nnoremap Y             y$
 noremap Z              <C-r>
 noremap <A-v>         <C-q>
+noremap <C-x>          "+d
 " <c-i> is tab in most terminals
 noremap <A-o>         <C-i>
 
@@ -251,8 +246,6 @@ nnoremap <C-Del>       dw
 nnoremap [3;5~       dw
 " inoremap <C-Del>       <C-O>dw
 " inoremap [3;5~       <C-O>dw
-
-noremap <C-x>          "+d
 
 noremap gi            <Nop>
 noremap gj            <Nop>
