@@ -164,15 +164,10 @@ map ,                  <Plug>Sneak_,
 map ;                  <Plug>Sneak_;
 map \                  <Plug>Sneak_,
 
-" surround text object (e.g. hw, hW, a{, hp)
 nmap yz                <Plug>Ysurround
-" surround line
 nmap yzz               <Plug>Yssurround
-" surround selection
 vmap Y                 <plug>VSurround
-" delete delimiter
 nmap dz                <Plug>Dsurround
-" replace delimiters
 nmap cz                <Plug>Csurround
 
 nnoremap <C-q>             :q<CR>
@@ -181,7 +176,6 @@ vnoremap <C-q>             <Esc>:q<CR>
 " map alt-space to `:`
  " noremap <Esc><Space>  :
 " inoremap <Esc><Space>  <Esc>:
- " noremap q<Space>      q:
 
 " go back and forth in buffer history list
    nmap <M-Left>       :bN<cr>
