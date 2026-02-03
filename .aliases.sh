@@ -47,12 +47,11 @@ alias wlp="wl-paste"
 SETTINGSHOME="$HOME/settings/home"
 alias zrc="$EDITOR $SETTINGSHOME/.zshrc"
 alias vrc="$EDITOR $SETTINGSHOME/.vimrc"
-OBSIDIANVRC="$HOME/Obsidian/.obsidian.vimrc"
+OBSIDIANVRC="$HOME/Obsidian/.vimrc"
 alias orc="$EDITOR $OBSIDIANVRC"
 alias orcdiff="vimdiff $SETTINGSHOME/.vimrc $OBSIDIANVRC"
 
 alias o='xdg-open'
-alias s='$EDITOR $HOME/Obsidian/Sketchpad.md'
 alias hk='$EDITOR $HOME/Obsidian/Info/Hotkeys.md'
 alias :q='exit'
 alias q='exit'
