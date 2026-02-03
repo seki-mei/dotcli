@@ -130,17 +130,14 @@ set whichwrap=bs<>[]
 " directories for swp files
 set nobackup
 set directory=/var/tmp,/tmp,~/.vim/swap
+set ttimeoutlen=0 " -1 didn't work
 
 " ===== Language-specific
+au BufNewFile,BufRead *.qss setfiletype css
 augroup tsv
 autocmd!
 	au BufReadPost *.tsv setlocal tabstop=20
 augroup END
-
-au BufNewFile,BufRead *.qss setfiletype css
-
-" ===== fixes
-set ttimeoutlen=0 " -1 didn't work
 
 " ===== commands
 :command! WS StripWhitespace
