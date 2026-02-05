@@ -177,7 +177,7 @@ bindkey -M viins '^[^@' fzf-history-widget
 
 #===== completions
 autoload -U compinit
-compinit -C -d "$ZSH_COMPDUMP"
+compinit -d "$ZSH_COMPDUMP"
 # arrow key menu for completions
 zstyle ':completion:*' menu select
 # case-insensitive (all),partial-word and then substring completion
