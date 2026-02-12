@@ -53,6 +53,7 @@ alias orcdiff="vimdiff $SETTINGSHOME/.vimrc $OBSIDIANVRC"
 
 alias o='xdg-open'
 alias hk='$EDITOR $HOME/Obsidian/Info/Hotkeys.md'
+alias st="$EDITOR '/data/data/com.termux/files/home/shared_storage/Obsidian/Info/⌂ Tasklog.md'"
 alias :q='exit'
 alias q='exit'
 alias Q='exit'
