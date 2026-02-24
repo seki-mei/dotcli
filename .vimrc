@@ -167,6 +167,13 @@ vmap Y                 <plug>VSurround
 nmap dz                <Plug>Dsurround
 nmap cz                <Plug>Csurround
 
+nnoremap X             <Nop>
+nmap xy                <Plug>Ysurround
+nmap xx               <Plug>Yssurround
+vmap x                 <plug>VSurround
+nmap xd                <Plug>Dsurround
+nmap xc                <Plug>Csurround
+
 nnoremap <C-q>             :q<CR>
 vnoremap <C-q>             <Esc>:q<CR>
 
