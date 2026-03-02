@@ -134,10 +134,16 @@ autoload -Uz surround
 zle -N delete-surround surround
 zle -N add-surround surround
 zle -N change-surround surround
+
 bindkey -M vicmd cz change-surround
 bindkey -M vicmd dz delete-surround
 bindkey -M vicmd yz add-surround
 bindkey -M visual Y add-surround
+
+bindkey -M vicmd x add-surround
+bindkey -M vicmd cx change-surround
+bindkey -M vicmd dx delete-surround
+bindkey -M visual x add-surround
 
 #===== fzf
 source <(fzf --zsh)
