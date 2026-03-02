@@ -161,17 +161,9 @@ map ,                  <Plug>Sneak_,
 map ;                  <Plug>Sneak_;
 map \                  <Plug>Sneak_,
 
-nmap yz                <Plug>Ysurround
-nmap yzz               <Plug>Yssurround
-vmap Y                 <plug>VSurround
-nmap dz                <Plug>Dsurround
-nmap cz                <Plug>Csurround
-
-nnoremap x             <Nop>
-nnoremap X             <Nop>
 nmap x                 <Plug>Ysurround
 nmap X                 <Plug>Yssurround
-vmap x                 <plug>VSurround
+vmap x                 <Plug>VSurround
 nmap dx                <Plug>Dsurround
 nmap cx                <Plug>Csurround
 
@@ -271,9 +263,8 @@ noremap K              5gj
 noremap <S-Down>       5gj
 inoremap <S-Down>      <Esc>
 
-nnoremap U             <Nop>
-nnoremap M             <Nop>
-" nnoremap X             <Nop>
+noremap U             <Nop>
+noremap M             <Nop>
 
 noremap <CR>           <Nop>
 noremap <Space>        <Nop>
