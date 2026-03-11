@@ -142,6 +142,12 @@ augroup END
 " ===== commands
 :command! WS StripWhitespace
 nnoremap <F1> :e ~/Obsidian/Info/Hotkeys.md<CR>
+"run script
+nnoremap <F2> :!%:p<CR>
+"open with default app
+nnoremap <F3> :!xdg-open %<CR>
+"render latex
+nnoremap <F4> :!pdflatex %
 
 "   === :DiffSaved
 function! s:DiffWithSaved()
