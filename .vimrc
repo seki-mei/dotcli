@@ -148,7 +148,7 @@ nnoremap <F2> :!%:p<CR>
 "open with default app
 nnoremap <F3> :!xdg-open %<CR>
 "render latex
-nnoremap <F4> :!pdflatex %
+nnoremap <F4> :!pdflatex %<CR>
 
 "   === :DiffSaved
 function! s:DiffWithSaved()
