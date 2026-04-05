@@ -220,6 +220,9 @@ if empty($TERMUX_VERSION)
 endif
 
 " keep line centered in edge cases
+if exists('+scrolloffpad')
+	set scrolloffpad
+else
  autocmd CursorMoved * normal! zz
  autocmd InsertEnter * normal! zz
  autocmd ModeChanged [vV\x16]*:* normal! zz
@@ -228,6 +231,7 @@ endif
  noremap o             o<C-o>zz
  noremap O             O<C-o>zz
  noremap u             uzz
+endif
 
 " OBSIDIAN_VIMRC_START
 nnoremap Y             y$
