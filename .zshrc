@@ -87,6 +87,7 @@ autoload -U select-word-style bash
 select-word-style bash
 # normal mode
 bindkey -M vicmd Y vi-yank-eol
+bindkey -M vicmd H vi-insert-bol
 bindkey -M vicmd h vi-insert
 bindkey -M vicmd i up-line
 bindkey -M vicmd k down-line
