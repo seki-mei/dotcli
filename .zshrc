@@ -96,6 +96,10 @@ bindkey -M visual h vi-insert
 bindkey -M visual i up-line
 bindkey -M visual k down-line
 bindkey -M visual j vi-backward-char
+# operator pending mode
+bindkey -M viopp j vi-backward-char
+bindkey -M viopp i up-line
+bindkey -M viopp k down-line
 # obj
 bindkey -M vicmd hW select-in-blank-word
 bindkey -M vicmd ha select-in-shell-word
