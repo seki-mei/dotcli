@@ -142,6 +142,12 @@ augroup END
 
 " ===== commands
 :command! WS StripWhitespace
+
+command! -nargs=0 SavePoint let b:checkpoint = changenr()
+command! -nargs=0 ToSavePoint execute 'undo ' . b:checkpoint
+nnoremap \sp :SavePoint<CR>
+nnoremap \tp :ToSavePoint<CR>
+
 nnoremap <F1> :e ~/Obsidian/Info/Hotkeys.md<CR>
 "run script
 nnoremap <F2> :!%:p<CR>
