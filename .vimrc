@@ -147,9 +147,9 @@ nnoremap <F1> :e ~/Obsidian/Info/Hotkeys.md<CR>
 nnoremap <F2> :!%:p<CR>
 "open with default app
 nnoremap <F3> :!xdg-open %<CR>
-"render latex
+"save & render latex
 " nnoremap <F4> :!pdflatex %<CR>
-nnoremap <F4> :!lualatex %<CR>
+nnoremap <F4> :w<CR>:!lualatex %<CR>
 
 "   === :DiffSaved
 function! s:DiffWithSaved()
