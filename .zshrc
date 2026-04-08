@@ -57,6 +57,16 @@ PS1='${SHOW_USERHOST}%F{cyan}%2~ %F{yellow}${vcs_info_msg_0_} %(?.%F{magenta}.%F
 bindkey -v
 KEYTIMEOUT=1 # fix slow mode change
 
+# cursor shape
+function zle-keymap-select zle-line-init {
+    case $KEYMAP in
+        vicmd)      print -n '\e[2 q' ;;
+        viins|main) print -n '\e[4 q' ;;
+    esac
+}
+zle -N zle-keymap-select
+zle -N zle-line-init
+
 autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
