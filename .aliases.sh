@@ -50,6 +50,8 @@ alias vrc="$EDITOR $SETTINGSHOME/.vimrc"
 OBSIDIANVRC="$HOME/Obsidian/.vimrc"
 alias orc="$EDITOR $OBSIDIANVRC"
 alias orcdiff="vimdiff $SETTINGSHOME/.vimrc $OBSIDIANVRC"
+alias playbackstart="pactl load-module module-loopback latency_msec=30"
+alias playbackstop="pactl unload-module module-loopback"
 
 alias o='xdg-open'
 alias hk='$EDITOR $HOME/Obsidian/Info/Hotkeys.md'
