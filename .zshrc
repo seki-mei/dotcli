@@ -26,9 +26,7 @@ mkdir -p "$CACHE_DIR"
 
 # ===== prompt line
 setopt promptsubst # needed by prompt
-autoload -Uz vcs_info
-# Call vcs_info before each prompt
-precmd() { vcs_info }
+
 # Customize prompt
 if [[ $USER != $DEFAULT_USER || $HOST != $DEFAULT_HOST ]]; then
 	SHOW_USERHOST="%F{green}%n@%m%f "
