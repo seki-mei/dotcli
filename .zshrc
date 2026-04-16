@@ -111,10 +111,10 @@ bindkey -M viopp i up-line
 bindkey -M viopp k down-line
 # obj
 bindkey -M vicmd hW select-in-blank-word
-bindkey -M vicmd ha select-in-shell-word
+bindkey -M vicmd ha select-in-shell-word  # select argument
 bindkey -M vicmd hw select-in-word
 bindkey -M visual hW select-in-blank-word
-bindkey -M visual ha select-in-shell-word  # select argument
+bindkey -M visual ha select-in-shell-word
 bindkey -M visual hw select-in-word
 # normal mode bindings
 bindkey -M vicmd '^H' backward-kill-word   # ctrl-backspace
@@ -137,10 +137,16 @@ bindall '^?' backward-delete-char #backspace
 bindall '^[[3~' delete-char #del
 bindall '^[[F' end-of-line #end
 bindall '^[[H' beginning-of-line #home
-bindall "^[[Z" reverse-menu-complete #shift-tab
-bindall "^N" menu-complete #ctrl-n
-bindall "^P" reverse-menu-complete #ctrl-p
+bindall '^[[Z' reverse-menu-complete #shift-tab
+bindall '^N' menu-complete #ctrl-n
+bindall '^P' reverse-menu-complete #ctrl-p
 bindall '^U' kill-whole-line #ctrl-u
+# fzf
+bindkey '^E' edit-with-fzf # ctrl-e
+bindall '^@' fzf-file-widget # ctrl-space (ctrl-t)
+bindall '^[ ' fzf-cd-widget # alt-space
+bindall '^[^@' fzf-history-widget # ctrl-alt-space
+
 # home/end visual mode
 bindkey -M visual '^[[F' end-of-line
 bindkey -M visual '^[[H' beginning-of-line
@@ -167,21 +173,6 @@ edit-with-fzf() {
     zle fzf-file-widget
 }
 zle -N edit-with-fzf
-
-# ctrl-e
-bindkey '^E' edit-with-fzf
-# ctrl-space (ctrl-t)
-bindkey -M emacs '^@' fzf-file-widget
-bindkey -M vicmd '^@' fzf-file-widget
-bindkey -M viins '^@' fzf-file-widget
-# alt-space
-bindkey -M emacs '^[ ' fzf-cd-widget
-bindkey -M vicmd '^[ ' fzf-cd-widget
-bindkey -M viins '^[ ' fzf-cd-widget
-# ctrl-alt-space
-bindkey -M emacs '^[^@' fzf-history-widget
-bindkey -M vicmd '^[^@' fzf-history-widget
-bindkey -M viins '^[^@' fzf-history-widget
 
 #===== completions
 autoload -U compinit
