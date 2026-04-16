@@ -141,11 +141,6 @@ bindall '^[[Z' reverse-menu-complete #shift-tab
 bindall '^N' menu-complete #ctrl-n
 bindall '^P' reverse-menu-complete #ctrl-p
 bindall '^U' kill-whole-line #ctrl-u
-# fzf
-bindkey '^E' edit-with-fzf # ctrl-e
-bindall '^@' fzf-file-widget # ctrl-space (ctrl-t)
-bindall '^[ ' fzf-cd-widget # alt-space
-bindall '^[^@' fzf-history-widget # ctrl-alt-space
 
 # home/end visual mode
 bindkey -M visual '^[[F' end-of-line
@@ -173,6 +168,12 @@ edit-with-fzf() {
     zle fzf-file-widget
 }
 zle -N edit-with-fzf
+
+# keybinds
+bindkey '^E' edit-with-fzf # ctrl-e
+bindall '^@' fzf-file-widget # ctrl-space (ctrl-t)
+bindall '^[ ' fzf-cd-widget # alt-space
+bindall '^[^@' fzf-history-widget # ctrl-alt-space
 
 #===== completions
 autoload -U compinit
