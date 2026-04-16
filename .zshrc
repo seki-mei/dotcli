@@ -79,7 +79,18 @@ for m in visual viopp; do
 	done
 done
 
-# ctrl motion stops at / and -
+# surround
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+
+bindkey -M vicmd x add-surround
+bindkey -M visual x add-surround
+bindkey -M vicmd cx change-surround
+bindkey -M vicmd dx delete-surround
+
+# ctrl motion stop at / and -
 autoload -U select-word-style bash
 select-word-style bash
 # normal mode
@@ -114,47 +125,25 @@ bindkey -M vicmd "^[[1;5C" forward-word    # ctrl-right
 bindkey          "^[[1;5C" forward-word
 bindkey -M vicmd "^[[1;5D" backward-word   # ctrl-left
 bindkey          "^[[1;5D" backward-word
-# backspace
-bindkey -M emacs '^?' backward-delete-char
-bindkey -M vicmd '^?' backward-delete-char
-bindkey -M viins '^?' backward-delete-char
-# delete
-bindkey -M emacs '^[[3~' delete-char
-bindkey -M vicmd '^[[3~' delete-char
-bindkey -M viins '^[[3~' delete-char
-# end
-bindkey -M emacs '^[[F' end-of-line
-bindkey -M vicmd '^[[F' end-of-line
-bindkey -M viins '^[[F' end-of-line
+
+bindall() {
+  local key="$1"; shift
+  for map in emacs vicmd viins; do
+    bindkey -M $map "$key" "$@"
+  done
+}
+
+bindall '^?' backward-delete-char #backspace
+bindall '^[[3~' delete-char #del
+bindall '^[[F' end-of-line #end
+bindall '^[[H' beginning-of-line #home
+bindall "^[[Z" reverse-menu-complete #shift-tab
+bindall "^N" menu-complete #ctrl-n
+bindall "^P" reverse-menu-complete #ctrl-p
+bindall '^U' kill-whole-line #ctrl-u
+# home/end visual mode
 bindkey -M visual '^[[F' end-of-line
-# home
-bindkey -M emacs '^[[H' beginning-of-line
-bindkey -M vicmd '^[[H' beginning-of-line
-bindkey -M viins '^[[H' beginning-of-line
 bindkey -M visual '^[[H' beginning-of-line
-# shift-tab
-bindkey -M emacs "^[[Z" reverse-menu-complete
-bindkey -M viins "^[[Z" reverse-menu-complete
-# c-n
-bindkey -M emacs "^N" menu-complete
-bindkey -M viins "^N" menu-complete
-# c-p
-bindkey -M emacs "^P" reverse-menu-complete
-bindkey -M viins "^P" reverse-menu-complete
-# surround
-autoload -Uz surround
-zle -N delete-surround surround
-zle -N add-surround surround
-zle -N change-surround surround
-
-bindkey -M vicmd cz change-surround
-bindkey -M vicmd dz delete-surround
-bindkey -M vicmd yz add-surround
-
-bindkey -M vicmd x add-surround
-bindkey -M vicmd cx change-surround
-bindkey -M vicmd dx delete-surround
-bindkey -M visual x add-surround
 
 #===== fzf
 source <(fzf --zsh)
