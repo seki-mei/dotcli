@@ -179,15 +179,17 @@ edit-with-fzf() {
 }
 zle -N edit-with-fzf
 
+# ctrl-e
 bindkey '^E' edit-with-fzf
+# ctrl-space (ctrl-t)
 bindkey -M emacs '^@' fzf-file-widget
 bindkey -M vicmd '^@' fzf-file-widget
 bindkey -M viins '^@' fzf-file-widget
-
+# alt-space
 bindkey -M emacs '^[ ' fzf-cd-widget
 bindkey -M vicmd '^[ ' fzf-cd-widget
 bindkey -M viins '^[ ' fzf-cd-widget
-
+# ctrl-alt-space
 bindkey -M emacs '^[^@' fzf-history-widget
 bindkey -M vicmd '^[^@' fzf-history-widget
 bindkey -M viins '^[^@' fzf-history-widget
