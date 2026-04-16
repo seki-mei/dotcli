@@ -228,7 +228,7 @@ endif
 
 " keep line centered in edge cases
 if exists('+scrolloffpad')
-	set scrolloffpad
+	set scrolloffpad=1
 else
  autocmd CursorMoved * normal! zz
  autocmd InsertEnter * normal! zz
