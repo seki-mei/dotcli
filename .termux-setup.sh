@@ -19,9 +19,9 @@ pkg install termux-auth \
 
 mkdir -p "$HOME/.vim" "$HOME/.config/nvim" "$HOME/.local/share/nvim"
 
-ln "$HOME/.vim" "$HOME/.config/nvim"
-ln "$HOME/.vim" "$HOME/.local/share/nvim"
-ln "$HOME/.vimrc" "$HOME/.vim/init.vim"
+ln -s "$HOME/.vim" "$HOME/.config/nvim"
+ln -s "$HOME/.vim" "$HOME/.local/share/nvim"
+ln -s "$HOME/.vimrc" "$HOME/.vim/init.vim"
 
 mkdir -p $HOME/.termux
 wget https://raw.githubusercontent.com/termux/termux-styling/refs/heads/master/app/src/main/assets/colors/gruvbox-dark.properties
