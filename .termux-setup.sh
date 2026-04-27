@@ -13,8 +13,8 @@ pkg install termux-auth \
 	nvim \
 	rclone \
 	tree \
-	unzip
-	wget
+	unzip \
+	wget \
 	zsh \
 
 mkdir -p "$HOME/.vim" "$HOME/.config/nvim" "$HOME/.local/share/nvim"
