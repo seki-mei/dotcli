@@ -146,6 +146,10 @@ bindall '^U' kill-whole-line #ctrl-u
 bindkey -M visual '^[[F' end-of-line
 bindkey -M visual '^[[H' beginning-of-line
 
+# cycle through last argument of previous commands
+bindkey '^[p' insert-last-word
+
+
 #===== fzf
 source <(fzf --zsh)
 if command fd --version >/dev/null; then
