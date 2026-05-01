@@ -62,8 +62,8 @@ let g:surround_no_mappings = 1 " remove default mappings
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
 
-command! LatexNew :r ~/Projects/documents/templates/article.tex | :1d
-command! LatexLetter :r ~/Projects/documents/templates/letter.tex | :1d
+command! LatexNew :r ~/paperwork/templates/article.tex | :1d
+command! LatexLetter :r ~/paperwork/templates/letter.tex | :1d
 
 " ===== cursor
 set scrolloff=999
