@@ -149,7 +149,7 @@ command! -nargs=0 ToSavePoint execute 'undo ' . b:checkpoint
 nnoremap \sp :SavePoint<CR>
 nnoremap \tp :ToSavePoint<CR>
 
-nnoremap <F1> :e ~/Obsidian/Info/Hotkeys.md<CR>
+nnoremap <F1> :e ~/obsidian/Info/Hotkeys.md<CR>
 "run script
 nnoremap <F2> :!%:p<CR>
 "open with default app
