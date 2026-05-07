@@ -17,6 +17,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 if has('nvim')
 " nvim plugins
+Plug 'preservim/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 endif
 call plug#end()
 
