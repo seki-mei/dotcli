@@ -76,6 +76,7 @@ alias mkdir='mkdir -pv'
 alias ping='ping -c 3'
 alias feh='feh --scale-down --auto-zoom'
 alias htop='htop --tree'
+alias history='fc -lt "%F %T"'
 alias ..='cd ..'
 
 # privileged access

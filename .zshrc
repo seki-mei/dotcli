@@ -203,6 +203,7 @@ setopt share_history    # Share history between sessions.
 setopt histignoredups
 setopt HIST_VERIFY      # expand !! instead of running it
 setopt HIST_IGNORE_SPACE # don't save to history commands with leading space
+setopt EXTENDED_HISTORY # save timestamps and duration
 
 #===== custom commands and aliases
 # block `sudo vim`
