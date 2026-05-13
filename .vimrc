@@ -19,7 +19,7 @@ if has('nvim')
 	" nvim plugins
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'epwalsh/obsidian.nvim'
+	Plug 'obsidian-nvim/obsidian.nvim'
 	Plug 'preservim/vim-markdown'
 	let g:vim_markdown_folding_disabled = 1
 endif
@@ -29,10 +29,12 @@ call plug#end()
 set conceallevel=2
 lua << EOF
 require("obsidian").setup({
+legacy_commands = false,
 workspaces = {
 	{
 			name = "my-vault",
 			path = "~/shared_storage/obsidian",
+			path = "~/obsidian",
 	},
 },
 })
