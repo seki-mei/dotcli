@@ -16,13 +16,27 @@ Plug 'tpope/vim-fugitive'
 " == syntax hl
 Plug 'lervag/vimtex'
 if has('nvim')
-" nvim plugins
-Plug 'preservim/vim-markdown'
-let g:vim_markdown_folding_disabled = 1
+	" nvim plugins
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'epwalsh/obsidian.nvim'
+	Plug 'preservim/vim-markdown'
+	let g:vim_markdown_folding_disabled = 1
 endif
 call plug#end()
 
 " ===== testing ground
+set conceallevel=2
+lua << EOF
+require("obsidian").setup({
+workspaces = {
+	{
+			name = "my-vault",
+			path = "~/shared_storage/obsidian",
+	},
+},
+})
+EOF
 
 
 
