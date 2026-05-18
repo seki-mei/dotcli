@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 if has('nvim')
 " nvim plugins
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 endif
@@ -181,6 +182,7 @@ map \                  <Plug>Sneak_,
 nmap x                 <Plug>Ysurround
 nmap X                 <Plug>Yssurround
 vmap x                 <Plug>VSurround
+vmap X                 <Plug>VSurround
 nmap dx                <Plug>Dsurround
 nmap cx                <Plug>Csurround
 
