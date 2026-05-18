@@ -181,8 +181,8 @@ map \                  <Plug>Sneak_,
 
 nmap x                 <Plug>Ysurround
 nmap X                 <Plug>Yssurround
-vmap x                 <Plug>VSurround
-vmap X                 <Plug>VgSurround
+vmap x                 <Plug>VgSurround
+vmap X                 <Plug>VSurround
 nmap dx                <Plug>Dsurround
 nmap cx                <Plug>Csurround
 
