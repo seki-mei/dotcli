@@ -85,10 +85,19 @@ zle -N delete-surround surround
 zle -N add-surround surround
 zle -N change-surround surround
 
+add-surround-line() {
+    zle beginning-of-line
+    zle set-mark-command
+    zle end-of-line
+    zle add-surround
+}
+zle -N add-surround-line
+
 bindkey -M vicmd x add-surround
 bindkey -M visual x add-surround
 bindkey -M vicmd cx change-surround
 bindkey -M vicmd dx delete-surround
+bindkey -M vicmd X add-surround-line
 
 # ctrl motion stop at / and -
 autoload -U select-word-style bash
