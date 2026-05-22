@@ -38,6 +38,7 @@ alias rm="rm -I"
 alias zyp='zypper'
 alias py3="python3"
 alias pyt="python3"
+alias py="python3"
 alias gg="cd"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
