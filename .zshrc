@@ -205,6 +205,12 @@ autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' file-patterns '*'
 
+_KHAL_COMP="$CACHE_DIR/zsh/_khal_completion"
+if [[ ! -f "$_KHAL_COMP" ]]; then
+    mkdir -p "${_KHAL_COMP:h}"
+    _KHAL_COMPLETE=zsh_source khal > "$_KHAL_COMP"
+fi
+source "$_KHAL_COMP"
 #===== history
 HISTSIZE=50000          # Maximum number of commands in history.
 SAVEHIST=10000          # Number of commands to save between sessions.
@@ -238,7 +244,7 @@ source "$ZSH_HL/zsh-syntax-highlighting.plugin.zsh"
 # banner and timer
 parent_process=$(ps -p $PPID -o comm=)
 if [[ "$parent_process" == "konsole" ]]; then
-	sleep 0.15 # give krohnkite time to tile the terminal
+	# sleep 0.15 # give krohnkite time to tile the terminal
 	cbonsai -p
 	ZSH_END_TIME=$(date +%s%N)
 	elapsed=$(( (ZSH_END_TIME - ZSH_START_TIME) / 1000000 ))
