@@ -10,7 +10,7 @@ pkg install termux-auth \
 	fzf \
 	git \
 	htop \
-	nvim \
+	neovim \
 	rclone \
 	tree \
 	unzip \
