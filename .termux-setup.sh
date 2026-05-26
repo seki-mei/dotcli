@@ -17,7 +17,7 @@ pkg install termux-auth \
 	wget \
 	zsh \
 
-mkdir -p "$HOME/.vim" "$HOME/.config/nvim" "$HOME/.local/share/nvim"
+mkdir -p "$HOME/.vim" "$HOME/.config/" "$HOME/.local/share/"
 
 ln -s "$HOME/.vim" "$HOME/.config/nvim"
 ln -s "$HOME/.vim" "$HOME/.local/share/nvim"
