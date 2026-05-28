@@ -42,6 +42,8 @@ alias py="python3"
 alias gg="cd"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
+alias tmxc="termux-clipboard-set"
+alias tmxp="termux-clipboard-get"
 
 # using $HOME/settings/home/
 # because we want vim-fugitive to find .git/
