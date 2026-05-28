@@ -34,7 +34,6 @@ alias gswm="git switch main"
 alias e='$EDITOR'
 alias se='sudoedit'
 alias ai='aichat -e'
-alias rm="rm -I"
 alias zyp='zypper'
 alias py3="python3"
 alias pyt="python3"
