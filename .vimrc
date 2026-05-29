@@ -3,8 +3,8 @@ call plug#begin()
 " == visual
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-cursorword'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'machakann/vim-highlightedyank'
+Plug 'ntpeters/vim-better-whitespace'
 " == other
 Plug 'justinmk/vim-sneak'
 Plug 'wellle/targets.vim'
