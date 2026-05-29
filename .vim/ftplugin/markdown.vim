@@ -1,22 +1,22 @@
 " onoremap hh :<c-u>execute "normal! ?^#\r:nohlsearch\rjV/^#\rk"<CR>
 " onoremap ah :<c-u>execute "normal! ?^#\r:nohlsearch\rV/^#\rk"<CR>
 
-nnoremap <buffer> } :call search('^#\+ ', 'W')<CR>
-nnoremap <buffer> { :call search('^#\+ ', 'bW')<CR>
+nnoremap <silent><buffer> } :call search('^#\+ ', 'W')<CR>
+nnoremap <silent><buffer> { :call search('^#\+ ', 'bW')<CR>
 
-xnoremap <buffer> } :call search('^#\+ ', 'W')<CR>
-xnoremap <buffer> { :call search('^#\+ ', 'bW')<CR>
+xnoremap <silent><buffer> } :call search('^#\+ ', 'W')<CR>
+xnoremap <silent><buffer> { :call search('^#\+ ', 'bW')<CR>
 
-onoremap <buffer> } :call search('^#\+ ', 'W')<CR>
-onoremap <buffer> { :call search('^#\+ ', 'bW')<CR>
+onoremap <silent><buffer> } :call search('^#\+ ', 'W')<CR>
+onoremap <silent><buffer> { :call search('^#\+ ', 'bW')<CR>
 
 
-nnoremap <buffer> } :call search('^#\+ ', 'W')<CR>
-nnoremap <buffer> { :call search('^#\+ ', 'bW')<CR>
-xnoremap <buffer> } :call search('^#\+ ', 'W')<CR>
-xnoremap <buffer> { :call search('^#\+ ', 'bW')<CR>
-onoremap <buffer> } :call search('^#\+ ', 'W')<CR>
-onoremap <buffer> { :call search('^#\+ ', 'bW')<CR>
+nnoremap <silent><buffer> } :call search('^#\+ ', 'W')<CR>
+nnoremap <silent><buffer> { :call search('^#\+ ', 'bW')<CR>
+xnoremap <silent><buffer> } :call search('^#\+ ', 'W')<CR>
+xnoremap <silent><buffer> { :call search('^#\+ ', 'bW')<CR>
+onoremap <silent><buffer> } :call search('^#\+ ', 'W')<CR>
+onoremap <silent><buffer> { :call search('^#\+ ', 'bW')<CR>
 
 function! s:MarkdownHeadingObject(around)
   " Find the heading at or above cursor (don't move cursor)
