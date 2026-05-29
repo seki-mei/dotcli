@@ -18,7 +18,6 @@ Plug 'lervag/vimtex'
 if has('nvim')
 " nvim plugins
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 endif
