@@ -144,13 +144,18 @@ autocmd!
 	au BufReadPost *.tsv setlocal tabstop=20
 augroup END
 
-" ===== commands
+" ===== commands & leadkey
 :command! WS StripWhitespace
 
 command! -nargs=0 SavePoint let b:checkpoint = changenr()
 command! -nargs=0 ToSavePoint execute 'undo ' . b:checkpoint
 nnoremap \sp :SavePoint<CR>
 nnoremap \tp :ToSavePoint<CR>
+
+nnoremap \ga :Git add %<CR>
+nnoremap \grss :Git restore --staged %<CR>
+nnoremap \gc :Git commit --verbose %<CR>
+nnoremap \gs :Git status<CR>
 
 nnoremap <F1> :e ~/obsidian/Info/Hotkeys.md<CR>
 "run script
