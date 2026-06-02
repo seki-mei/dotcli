@@ -25,8 +25,6 @@ call plug#end()
 
 " ===== testing ground
 
-
-
 " ===== theme
 colorscheme gruvbox
 set termguicolors
@@ -239,6 +237,12 @@ endif
 if exists('+scrolloffpad')
 	set scrolloffpad=1
 else
+	augroup VCenterCursor
+	au!
+	au BufEnter,WinEnter,WinNew,VimResized *,*.*
+				\ let &scrolloff=winheight(win_getid())/2
+	augroup END
+
  autocmd CursorMoved * normal! zz
  autocmd InsertEnter * normal! zz
  autocmd ModeChanged [vV\x16]*:* normal! zz
