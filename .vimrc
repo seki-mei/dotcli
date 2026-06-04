@@ -155,7 +155,7 @@ nnoremap \grss :Git restore --staged %<CR>
 nnoremap \gc :Git commit --verbose %<CR>
 nnoremap \gs :Git status<CR>
 
-nnoremap <F1> :e ~/obsidian/Info/Hotkeys.md<CR>
+nnoremap <F1> :e ~/obsidian/Hotkeys.md<CR>
 "run script
 nnoremap <F2> :!%:p<CR>
 "open with default app

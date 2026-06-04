@@ -57,8 +57,8 @@ alias playbackstart="pactl load-module module-loopback latency_msec=30"
 alias playbackstop="pactl unload-module module-loopback"
 
 alias o='xdg-open'
-alias hk='$EDITOR $HOME/obsidian/Info/Hotkeys.md'
-alias st="$EDITOR '/data/data/com.termux/files/home/shared_storage/obsidian/Info/⌂ Tasklog.md'"
+alias hk='$EDITOR $HOME/obsidian/Hotkeys.md'
+alias st="$EDITOR '/data/data/com.termux/files/home/shared_storage/obsidian/⌂ Tasklog.md'"
 alias :q='exit'
 alias q='exit'
 alias Q='exit'
