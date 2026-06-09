@@ -17,6 +17,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 if has('nvim')
 " nvim plugins
+Plug 'obsidian-nvim/obsidian.nvim', {'for': 'markdown'}
+Plug 'nvim-lua/plenary.nvim', {'for': 'markdown'}
+Plug 'nvim-telescope/telescope.nvim', {'for': 'markdown'}
+Plug 'stevearc/aerial.nvim', {'for': 'markdown'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'preservim/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
@@ -24,6 +29,17 @@ endif
 call plug#end()
 
 " ===== testing ground
+
+" ===== nvim only
+if has('nvim')
+	" nvim plugins
+	" obsidian
+	autocmd FileType markdown ++once setlocal conceallevel=1
+	autocmd FileType markdown ++once lua require("obsidian").setup{ legacy_commands = false, workspaces = { { name = "obsidian", path = "~/obsidian" } }, picker = { name = "telescope.nvim" } }
+	autocmd FileType markdown ++once lua require("telescope").setup{ defaults = { mappings = { i = { ["<C-u>"] = false } } } }
+	autocmd FileType markdown ++once lua require("aerial").setup()
+	nnoremap g<Space> :Obsidian quick_switch<CR>
+endif
 
 " ===== theme
 colorscheme gruvbox
@@ -41,11 +57,6 @@ if !has('nvim')
 	set guioptions-=T    " remove toolbar
 	set guioptions-=m    " remove menu bar
 	set guioptions-=r    " remove scrollbar
-endif
-
-" ===== nvim only
-if has('nvim')
-" nvim plugins
 endif
 
 " ===== plugins
