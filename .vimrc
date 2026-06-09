@@ -1,4 +1,5 @@
 set encoding=utf-8
+let g:obsidian_enabled = 0
 call plug#begin()
 " == visual
 Plug 'morhetz/gruvbox'
@@ -17,10 +18,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 if has('nvim')
 " nvim plugins
-Plug 'obsidian-nvim/obsidian.nvim', {'for': 'markdown'}
-Plug 'nvim-lua/plenary.nvim', {'for': 'markdown'}
-Plug 'nvim-telescope/telescope.nvim', {'for': 'markdown'}
-Plug 'stevearc/aerial.nvim', {'for': 'markdown'}
+	if get(g:, 'obsidian_enabled', 0)
+	Plug 'obsidian-nvim/obsidian.nvim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope-fzf-native.nvim'
+	Plug 'stevearc/aerial.nvim'
+	endif
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'preservim/vim-markdown'
@@ -32,13 +36,13 @@ call plug#end()
 
 " ===== nvim only
 if has('nvim')
-	" nvim plugins
-	" obsidian
-	autocmd FileType markdown ++once setlocal conceallevel=1
-	autocmd FileType markdown ++once lua require("obsidian").setup{ legacy_commands = false, workspaces = { { name = "obsidian", path = "~/obsidian" } }, picker = { name = "telescope.nvim" } }
-	autocmd FileType markdown ++once lua require("telescope").setup{ defaults = { mappings = { i = { ["<C-u>"] = false } } } }
-	autocmd FileType markdown ++once lua require("aerial").setup()
-	nnoremap g<Space> :Obsidian quick_switch<CR>
+	if get(g:, 'obsidian_enabled', 0)
+		set conceallevel=1
+		luafile ~/.vim/ftplugin/obsidian.lua
+		nnoremap g<Space> :Unifiedswitch<CR>
+		nnoremap <C-Space> :Obsidian backlinks<CR>
+		nnoremap <C-M-Space> :Tagswitcher<CR>
+	endif
 endif
 
 " ===== theme
@@ -316,7 +320,7 @@ noremap M             <Nop>
 
 noremap <CR>           <Nop>
 noremap <Space>        <Nop>
-noremap <C-Space>      <Nop>
+" noremap <C-Space>      <Nop>
 
 noremap <C-Left>       <C-Left>
 noremap <C-Right>      <C-Right>
