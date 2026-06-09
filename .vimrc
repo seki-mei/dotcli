@@ -281,8 +281,8 @@ noremap gl            <Nop>
 
 noremap j              h
 "" nnoremap because otherwise it breaks targets.vim!
-nnoremap h              i
-nnoremap H              I
+noremap h              i
+noremap H              I
 noremap gh             gi
 nnoremap g'            g;
 
