@@ -49,6 +49,10 @@ if has('nvim')
 endif
 
 " ===== plugins
+" targets
+let g:targets_aiAI = 'ahAH'
+let g:targets_mapped_aiAI = g:targets_aiAI
+let g:targets_nl = 'nN'
 " highlightedyank
 let g:highlightedyank_highlight_duration = 200
 let g:highlightedyank_highlight_in_visual = 0
@@ -276,7 +280,8 @@ noremap gk            <Nop>
 noremap gl            <Nop>
 
 noremap j              h
-noremap h              i
+"" nnoremap because otherwise it breaks targets.vim!
+nnoremap h              i
 noremap gh             gi
 nnoremap g'            g;
 noremap H              I
