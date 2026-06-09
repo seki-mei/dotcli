@@ -325,6 +325,8 @@ inoremap <C-j>         <C-O><C-Left>
 inoremap <C-l>         <C-O><C-Right>
 inoremap <Home>        <C-O>^
 
+nnoremap <C-L> <C-I>
+
 noremap L              <C-w>
 noremap Li             <C-w>k
 noremap Lj             <C-w>h
